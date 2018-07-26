@@ -6,7 +6,7 @@
 
 import React, { Component } from 'react';
 import { StatusBar, Platform } from 'react-native';
-import { SafeAreaView } from 'react-navigation';
+// import { SafeAreaView } from 'react-navigation';
 import MainDrawer from './activity/MainDrawerNavigation';
 
 export default class App extends Component {
@@ -20,10 +20,6 @@ export default class App extends Component {
   }
 
   render = () => {  
-    return (
-      <SafeAreaView style={{flex: 1}} forceInset={{top: 'never'}}>
-        <MainDrawer /> 
-      </SafeAreaView>
-    );
+    return <MainDrawer />; 
   }
 }

@@ -7,14 +7,7 @@ export default class Home extends Component {
 
     }
 
-    static navigationOptions = () => {
-        return {
-            headerTintColor: '#ffffff',
-            headerStyle: {
-                backgroundColor:'#344955'
-            },
-        } 
-    }
+    
 
     render = () => {
         return <Bus />
