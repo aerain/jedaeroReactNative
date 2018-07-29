@@ -1,6 +1,5 @@
 import React from 'react';
 import { ScrollView, View, Image } from 'react-native';
-
 import { createDrawerNavigator, SafeAreaView, DrawerItems } from 'react-navigation';
 import { normalize } from 'react-native-elements';
 

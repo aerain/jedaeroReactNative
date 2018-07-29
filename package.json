@@ -7,7 +7,9 @@
     "test": "jest"
   },
   "dependencies": {
+    "buffer": "^5.1.0",
     "cheerio-without-node-native": "^0.20.2",
+    "iconv-lite": "^0.4.23",
     "react": "16.4.1",
     "react-native": "0.56.0",
     "react-native-elements": "^0.19.1",

@@ -111,7 +111,7 @@ class Haksik extends Component {
         if(!this.state.meal) {
             return (
               <View style={{alignItems: 'center', paddingTop:20, flex:1}}>
-                <ActivityIndicator color='rgba(12,80,160,1)'/>
+                <ActivityIndicator size='large' color='rgba(12,80,160,1)'/>
               </View>
             )
           } else {
