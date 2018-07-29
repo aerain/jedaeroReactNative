@@ -120,8 +120,8 @@ class Dorm extends Component {
   render = () => {
     if (!this.state.meal) {
       return (
-        <View style={{ alignItems: 'center', paddingTop: 20 }}>
-          <ActivityIndicator size='large' color='rgba(12,80,160,1)' />
+        <View style={{ alignItems: 'center', paddingTop: 20, backgroundColor:'#f7f7f7' }}>
+          <ActivityIndicator size='large' color='#344955' />
         </View>
       )
     } else {
@@ -140,12 +140,16 @@ class Dorm extends Component {
 class DormList extends Component {
   render() {
     return (
-      <TouchableOpacity style={styles.list} activeOpacity={0.8}>
-        <View elevation={2} style={styles.foodlistContainer}>
-          <Text style={styles.foodlistTitle}>{this.props.title}</Text>
-        </View>
-        <Text style={styles.foodlist}>{this.props.food}</Text>
-      </TouchableOpacity>
+      <View elevation={4} style={{margin: 8, backgroundColor:'#ffffff', borderTopLeftRadius:4, borderTopRightRadius:4}}>
+        <TouchableOpacity style={styles.list} activeOpacity={0.8}>
+          <View elevation={4} style={styles.foodlistContainer}>
+            <Text style={styles.foodlistTitle}>{this.props.title}</Text>
+          </View>
+          <View style={styles.subContainer}>
+            <Text style={styles.foodlist}>{this.props.food}</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
     )
   }
 }
@@ -225,31 +229,29 @@ export default class print extends Component {
 
 let styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex:1,
+    backgroundColor:'#f7f7f7'
   },
   title: {
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent:'center',
+    alignItems:'center'
   },
-  foodlist: { fontSize: normalize(16), textAlign: 'center', fontFamily: 'NotoSansCJKkr-Regular' },
+  foodlist: {fontSize:normalize(16), textAlign:'center', fontFamily:'NotoSansCJKkr-Regular'},
   foodlistContainer: {
-    backgroundColor: '#344955',
-    borderTopLeftRadius: 4,
-    borderTopRightRadius: 4
+    backgroundColor:'#344955',
+    borderTopLeftRadius:4,
+    borderTopRightRadius:4
   },
   foodlistTitle: {
-    textAlign: 'center',
+    textAlign:'center',
     fontSize: normalize(20),
     fontFamily: 'NotoSansCJKkr-Regular',
-    color: 'white'
+    color:'white'
   },
-  list: {
-    marginLeft: 10,
-    marginRight: 10,
-    marginTop: 5,
-    marginBottom: 5,
-    backgroundColor: 'white',
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20
+  subContainer: {
+    borderLeftWidth:0.5,
+    borderRightWidth:0.5,
+    borderBottomWidth:0.5,
+    borderColor:'#929292',
   }
-})
+});

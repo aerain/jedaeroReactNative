@@ -22,7 +22,7 @@
                                                       moduleName:@"jedaeroReactNative"
                                                initialProperties:nil
                                                    launchOptions:launchOptions];
-  rootView.backgroundColor = [[UIColor whiteColor]];
+  rootView.backgroundColor = [[UIColor alloc] initWithRed:1 green:1 blue:1 alpha:1];
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
