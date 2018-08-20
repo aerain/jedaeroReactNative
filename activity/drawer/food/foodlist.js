@@ -20,7 +20,7 @@ export default class FoodList extends Component {
     
     render = () => {
         return (
-            <SafeAreaView>
+            <SafeAreaView style={{flex:1, backgroundColor:'#f7f7f7'}}>
                 <ScrollView
                     style={{ paddingTop:normalize(16)}}
                 >

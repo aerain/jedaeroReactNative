@@ -20,7 +20,7 @@ let listText = (call) => [
         name: '한식',
         subtitle: '갈비찜 존맛탱',
         _clickFood: () => {
-            call.props.navigation.navigate("Korean")
+            call.props.navigation.navigate("Hansik")
         },
     },
     {

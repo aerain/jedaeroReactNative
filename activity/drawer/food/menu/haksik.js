@@ -15,35 +15,24 @@ class Haksik extends Component {
    
     haksikCrawl = async () => {
         let uri = 'http://www.jejunu.ac.kr/camp/stud/foodmenu'
+        let data = new Object();
         try {
-            console.log("작업 시작");
           let res = await RNFetchBlob.fetch('GET', uri);
-
           let $ = cheerio.load(res.text());
-
           {
-            strjson = '{ "title" : "백두관 식당", ';
+            data['title'] = '백두관 식당';
             countday = 1;
             countmenu = 1;
             $('td.border_right.border_bottom.txt_center').each(function() {
-                console.log($(this).text());
-                TempText = $(this).text();
-                TempText = TempText.substring(1); // CRLF 제거
-                TempText = TempText.trim(); // 빈 공백 제거
-  
-                strjson += '"baekdu' + countday + "_" + countmenu + '" : "' + TempText + '", ';
+                TempText = $(this).text().substring(1).trim();
+                locateNumber = 'baekdu' + countday + "_" + countmenu;
+                data[locateNumber] = TempText;
                 countmenu++;
                 if (countmenu % 14 === 0){
                 countmenu = 1;
                 countday++;
                 }
             });
-            strjson += '"blank" : ""}';
-            strjson = strjson.replace(/\n/gi, '\\r\\n');
-  
-            console.log(strjson);
-            data = JSON.parse(strjson);
-            
             switch (this.props.DoW) {
               case "mon":
                 this.setState({
