@@ -10,7 +10,7 @@ export default class Hansik extends Component {
     render = () => {
         return (
             <View>
-                <Text>이거 실화냐</Text>
+                <Text>이거 실화냐, 네</Text>
             </View>
         )
     }
