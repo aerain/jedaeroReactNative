@@ -38,4 +38,14 @@ let jedaeroStyles = StyleSheet.create({
 
 })
 
-export { stackNavigationOptions, jedaeroStyles }
+let foodMenuListStyles = StyleSheet.create({
+    container: {
+        paddingLeft: 8,
+        paddingTop: 8,
+        paddingBottom: 32,
+        backgroundColor:'#ffffff',
+        marginTop:8,
+        marginBottom:8,
+    }
+})
+export { stackNavigationOptions, jedaeroStyles, foodMenuListStyles }
