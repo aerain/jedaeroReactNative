@@ -25,7 +25,7 @@ export default createStackNavigator(
             }
         },
         Hansik: {
-            screen: props => <Hansik navigation={props.navigation} list='korean' />,
+            screen: props => <Hansik navigation={props.navigation} list='hansik' />,
             navigationOptions: {
                 headerTitle: '한식'
             }

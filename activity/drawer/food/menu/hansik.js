@@ -1,16 +1,47 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity } from 'react-native';
+import hansik from '../../../../jsons/hansik.json';
+import etcera from '../../../../jsons/etc.json';
+import chicken from '../../../../jsons/chicken.json'
+import { foodMenuListStyles } from '../../../jedaeroCSS';
+
+
 
 export default class Hansik extends Component {
     
     constructor(props) {
         super(props);
+        this.state={
+
+        }
     }
+    _setFood = () => {
+        if(this.props.list === 'hansik'){
+            this.setState({ foodMenu : hansik})
+        }else if (this.props.list ==='chicken'){
+            this.setState({foodMenu : chicken})
+        }else if(this.props.list === 'etcera'){
+            this.setState({foodMenu : etcera})
+        }
+    }
+    componentDidMount = () => this._setFood();
+
+    _renderItem = ({item}) =>(
+        <TouchableOpacity >
+            <View elevation={10} style={foodMenuListStyles.container}>
+                <Text>{item.name}</Text>
+            </View>
+        </TouchableOpacity>
+    )
 
     render = () => {
+        let dataSource = this.state.foodMenu
         return (
-            <View>
-                <Text>이거 실화냐, 네</Text>
+            <View style = {{flex: 1}}>
+                <FlatList
+                    data = {dataSource}
+                    renderItem={this._renderItem}
+                />
             </View>
         )
     }

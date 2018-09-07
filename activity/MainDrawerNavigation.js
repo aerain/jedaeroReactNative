@@ -40,7 +40,7 @@ export default createDrawerNavigator({
     contentComponent: drawerContentComponent.bind(this),
     contentOptions: {
         inactiveLabelStyle: {
-            fontSize: normalize(16),
+            fontSize: normalize(32),
         },
         activeLabelStyle: {
             fontSize: normalize(32),
