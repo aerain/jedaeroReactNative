@@ -27,9 +27,11 @@ export default class Hansik extends Component {
     componentDidMount = () => this._setFood();
 
     _renderItem = ({item}) =>(
-        <TouchableOpacity >
+        <TouchableOpacity
+            onPress={()=>{this.props.navigation.navigate("DetailMenu", {item})}}
+        >
             <View elevation={10} style={foodMenuListStyles.container}>
-                <Text>{item.name}</Text>
+                <Text style={foodMenuListStyles.labelStyles}>{item.name}</Text>
             </View>
         </TouchableOpacity>
     )

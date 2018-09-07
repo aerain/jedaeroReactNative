@@ -6,6 +6,7 @@ import FoodList from './foodlist';
 import Haksik from './menu/haksik';
 import Dormitory from './menu/dormitory';
 import Hansik from './menu/hansik';
+import DetailMenu from './menu/detailmenu';
 
 export default createStackNavigator(
     {
@@ -41,7 +42,13 @@ export default createStackNavigator(
             navigationOptions: {
                 headerTitle: '치킨'
             }
-        }, 
+        },
+        DetailMenu:{
+            screen: DetailMenu,
+            navigationOptions:{
+                headerTitle: '더미'
+            }
+        }
 
     }, stackNavigationOptions
 )

@@ -45,6 +45,9 @@ let foodMenuListStyles = StyleSheet.create({
         backgroundColor:'#ffffff',
         marginTop: 8,
         marginBottom:10,
+    },
+    labelStyles:{
+        
     }
 
 })
