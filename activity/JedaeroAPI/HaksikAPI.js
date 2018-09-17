@@ -1,6 +1,9 @@
-async function HaksikAPI () {
+import RNFetchBlob from 'rn-fetch-blob';
+import cheerio from 'cheerio-without-node-native';
 
-    return new Promise(function (resolve, reject) {
+export default function HaksikAPI () {
+
+    return new Promise(async function (resolve, reject) {
         let uri = 'http://www.jejunu.ac.kr/camp/stud/foodmenu';
         let data = {};
         try {
@@ -20,6 +23,8 @@ async function HaksikAPI () {
                     countday++;
                     }
                 });
+
+                console.log(data);
             }
         } catch (err) {
     

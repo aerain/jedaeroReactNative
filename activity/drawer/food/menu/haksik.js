@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, ActivityIndicator, Platform } from 'react-native';
-import { createBottomTabNavigator } from 'react-navigation';
+import { createMaterialTopTabNavigator } from 'react-navigation';
 import { normalize } from 'react-native-elements';
-import RNFetchBlob from 'rn-fetch-blob';
-import cheerio from 'cheerio-without-node-native';
+import haksikCrawl from '../../../JedaeroAPI/HaksikAPI'
 
 class Haksik extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        console.log(this.props.meal !== null ? this.props.meal : "");
     }
-
-    componentDidMount = () => this.haksikCrawl();
-    
     render = () => {
-        if(!this.state.meal) {
+        if(this.state.meal !== undefined) {
             return (
               <View style={{alignItems: 'center', paddingTop:20, flex:1, backgroundColor:'#f7f7f7'}}>
                 <ActivityIndicator size='large' color='#344955'/>
@@ -51,33 +47,33 @@ class HaksikList extends Component {
     }
 }
 
-let HaksikTabNavigator = createBottomTabNavigator({
+let HaksikTabNavigator = createMaterialTopTabNavigator({
     HaksikMon: {
-        screen: props => <Haksik DoW="mon" navigation={props.navigation} />,
+        screen: props => <Haksik DoW="mon" navigation={props.navigation} meal={props.screenProps.meal}/>,
         navigationOptions: {
             title:'월'
         }
     }, 
     HaksikTue: {
-        screen: props => <Haksik DoW="tue" navigation={props.navigation} />,
+        screen: props => <Haksik DoW="tue" navigation={props.navigation} meal={props.screenProps.meal}/>,
         navigationOptions: {
             title:'화'
         }
     }, 
     HaksikWed: {
-        screen: props => <Haksik DoW="wed" navigation={props.navigation} />,
+        screen: props => <Haksik DoW="wed" navigation={props.navigation} meal={props.screenProps.meal}/>,
         navigationOptions: {
             title:'수'
         }
     }, 
     HaksikThu: {
-        screen: props => <Haksik DoW="thu" navigation={props.navigation} />,
+        screen: props => <Haksik DoW="thu" navigation={props.navigation} meal={props.screenProps.meal}/>,
         navigationOptions: {
             title:'목'
         }
     }, 
     HaksikFri: {
-        screen: props => <Haksik DoW="fri" navigation={props.navigation} />,
+        screen: props => <Haksik DoW="fri" navigation={props.navigation} meal={props.screenProps.meal}/>,
         navigationOptions: {
             title:'금'
         }
@@ -92,10 +88,34 @@ let HaksikTabNavigator = createBottomTabNavigator({
         labelStyle: {
             fontSize:normalize(20),
         },
-        activeTintColor:'#344955'
+        activeTintColor:'#344955',
+        tabBarOptions:'bottom'
     },
     backBehavior: 'none'
 });
+
+export default class HakSikMain extends Component {
+    static router = HaksikTabNavigator.router;
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            data: {}
+        }
+    }
+
+    componentDidMount = () => this.getData();
+
+    getData = async () => {
+        let data = await haksikCrawl()
+        this.setState({ data });
+    }
+
+    render() {
+        return <HaksikTabNavigator navigation={this.props.navigation} screenProps={{ meal: this.state.data }}/>
+    }
+}
 
 let styles = StyleSheet.create({
     container: {
@@ -125,7 +145,3 @@ let styles = StyleSheet.create({
       borderColor:'#929292',
     }
 });
-
-
-
-export default HaksikTabNavigator;
