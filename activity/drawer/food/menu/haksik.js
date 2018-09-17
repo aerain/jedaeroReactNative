@@ -7,9 +7,16 @@ import haksikCrawl from '../../../JedaeroAPI/HaksikAPI'
 class Haksik extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            meal: null,
+        }
+    }
+
+    componentWillReceiveProps = (nextProps) => {
+        this.setState({meal: nextProps.meal});
     }
     render = () => {
-        if(this.props.meal !== null) {
+        if(this.state.meal === null) {
             return (
               <View style={{alignItems: 'center', paddingTop:20, flex:1, backgroundColor:'#f7f7f7'}}>
                 <ActivityIndicator size='large' color='#344955'/>
@@ -18,11 +25,11 @@ class Haksik extends Component {
         } else {
             return (
               <ScrollView style={styles.container}>
-                <HaksikList title="정식" food={this.props.meal.combo}/>
-                <HaksikList title="특식" food={this.props.meal.special}/>
-                <HaksikList title="양식" food={this.props.meal.western}/>
-                <HaksikList title="중식" food={this.props.meal.chinese}/>
-                <HaksikList title="정식 저녁" food={this.props.meal.dinner}/>
+                <HaksikList title="정식" food={this.state.meal.combo}/>
+                <HaksikList title="특식" food={this.state.meal.special}/>
+                <HaksikList title="양식" food={this.state.meal.western}/>
+                <HaksikList title="중식" food={this.state.meal.chinese}/>
+                <HaksikList title="정식 저녁" food={this.state.meal.dinner}/>
               </ScrollView>
             )
           }
