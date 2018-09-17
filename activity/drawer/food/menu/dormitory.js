@@ -1,124 +1,24 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, ScrollView,} from 'react-native';
 import { normalize } from 'react-native-elements';
-import { createBottomTabNavigator } from 'react-navigation';
-import cheerio from 'cheerio-without-node-native';
-import iconv from 'iconv-lite';
-import { Buffer } from 'buffer';
-import RNFetchBlob from 'rn-fetch-blob';
+import { createMaterialTopTabNavigator, SafeAreaView } from 'react-navigation';
+
+import DormitoryAPI from '../../../JedaeroAPI/DormitoryAPI';
 
 class Dorm extends Component {
   constructor(props) {
     super(props);
-    this.state = {}
-  }
-  componentDidMount = () => this.DormCrawl();
-
-  DormCrawl = async () => {
-    let uri = 'http://dormitory.neo-internet.co.kr/';
-    let data = new Object();
-    try {
-      let res = await RNFetchBlob.fetch('GET',uri + "board/adm/Recipe/restaurant.php");
-      let strbase64 = new Buffer(res.data, 'base64');
-      let resBody = iconv.decode(strbase64, 'EUC-KR').toString();
-      let $ = cheerio.load(resBody);
-      {
-        data['title'] = '기숙사 식당';
-        countday = 0;
-        countmenu = 0;
-        $('.wanted > tbody > tr > td').each(function() {
-          TempText = $(this).text();
-          locateNumber = 'dormitory' + countday + '_' + countmenu;
-          data[locateNumber] = TempText;
-
-          countmenu++;
-          if (countmenu % 6 === 0){
-            countmenu = 1;
-            countday++;
-          }
-        });
-
-        console.log(data);
-
-        switch (this.props.DoW) {
-          case "mon":
-            this.setState({
-              meal: {
-                dawn : data.dormitory1_1,
-                breakfast : data.dormitory1_2,
-                lunch: data.dormitory1_3,
-                dinner: data.dormitory1_4,
-              }
-            })
-            break;
-          case "tue":
-            this.setState({
-              meal: {
-                dawn : data.dormitory2_1,
-                breakfast : data.dormitory2_2,
-                lunch: data.dormitory2_3,
-                dinner: data.dormitory2_4,
-              }
-            })
-            break;
-          case "wed":
-            this.setState({
-              meal: {
-                dawn : data.dormitory3_1,
-                breakfast : data.dormitory3_2,
-                lunch: data.dormitory3_3,
-                dinner: data.dormitory3_4,
-              }
-            })
-            break;
-          case "thu":
-            this.setState({
-              meal: {
-                dawn : data.dormitory4_1,
-                breakfast : data.dormitory4_2,
-                lunch: data.dormitory4_3,
-                dinner: data.dormitory4_4,
-              }
-            })
-              break;
-          case "fri":
-            this.setState({
-              meal: {
-                dawn : data.dormitory5_1,
-                breakfast : data.dormitory5_2,
-                lunch: data.dormitory5_3,
-                dinner: data.dormitory5_4,
-              }
-            })
-            break;
-            case "sat":
-            this.setState({
-              meal: {
-                dawn : data.dormitory6_1,
-                breakfast : data.dormitory6_2,
-                lunch: data.dormitory6_3,
-                dinner: data.dormitory6_4,
-              }
-            })
-            break;
-            case "sun":
-            this.setState({
-              meal: {
-                dawn : data.dormitory7_1,
-                breakfast : data.dormitory7_2,
-                lunch: data.dormitory7_3,
-                dinner: data.dormitory7_4,
-              }
-            })
-            break;
-        }
-      }
-    } catch (error) {
-      console.log(error);
+    this.state = {
+      meal: null
     }
   }
+
+  componentWillReceiveProps = (nextProps) => {
+    this.setState({meal: nextProps.meal})
+  }
+  
   render = () => {
-    if (!this.state.meal) {
+    if (this.state.meal === null) {
       return (
         <View style={{ alignItems: 'center', paddingTop: 20, backgroundColor:'#f7f7f7' }}>
           <ActivityIndicator size='large' color='#344955' />
@@ -154,55 +54,57 @@ class DormList extends Component {
   }
 }
 
-let DormTap = createBottomTabNavigator(
+let DormTap = createMaterialTopTabNavigator(
   {
     dormMon: {
-      screen: (props) => <Dorm DoW="mon" />,
+      screen: (props) => <Dorm DoW="mon" navigation={props.navigation} meal={props.screenProps.meal.mealMon}/>,
       navigationOptions: {
         title: "월"
       }
     },
     dormTue: {
-      screen: (props) => <Dorm DoW="tue" />,
+      screen: (props) => <Dorm DoW="tue" navigation={props.navigation} meal={props.screenProps.meal.mealTue}/>,
       navigationOptions: {
         title: "화"
       }
     },
     dormWed: {
-      screen: (props) => <Dorm DoW="wed" />,
+      screen: (props) => <Dorm DoW="wed" navigation={props.navigation} meal={props.screenProps.meal.mealWed}/>,
       navigationOptions: {
         title: "수"
       }
     },
     dormThu: {
-      screen: (props) => <Dorm DoW="thu" />,
+      screen: (props) => <Dorm DoW="thu" navigation={props.navigation} meal={props.screenProps.meal.mealThu}/>,
       navigationOptions: {
         title: "목"
       }
     },
     dormFri: {
-      screen: (props) => <Dorm DoW="fri" />,
+      screen: (props) => <Dorm DoW="fri" navigation={props.navigation} meal={props.screenProps.meal.mealFri}/>,
       navigationOptions: {
         title: "금"
       }
     },
     dormSat: {
-      screen: (props) => <Dorm DoW="sat" />,
+      screen: (props) => <Dorm DoW="sat" navigation={props.navigation} meal={props.screenProps.meal.mealSat}/>,
       navigationOptions: {
         title: "토"
       }
     },
     dormSun: {
-      screen: (props) => <Dorm DoW="sun" />,
+      screen: (props) => <Dorm DoW="sun" navigation={props.navigation} meal={props.screenProps.meal.mealSun}/>,
       navigationOptions: {
         title: "일"
       }
     }
   }, {
     backBehavior: 'none',
+    tabBarPosition: 'bottom',
     tabBarOptions: {
         showIcon:false,
         activeTintColor: "#344955",
+        inactiveTintColor:'#aaaaaa',
         tabStyle:{
             justifyContent:'center',
             alignItems:'center',
@@ -211,19 +113,44 @@ let DormTap = createBottomTabNavigator(
             fontSize: normalize(20),
             fontFamily: 'NotoSansCJKkr-Regular'
         },
+        style: {
+          backgroundColor:'#f7f7f7',
+          borderTopWidth:0.5,
+          borderTopColor:'#d7d7d7'
+        },
+        indicatorStyle: {
+          marginBottomWidth:0,
+          height:0
+        },
     },
 
   }
 );
 
-export default class print extends Component {
+export default class DormitoryMain extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      data: {}
+    }
   }
   static router = DormTap.router;
 
+  componentDidMount = () => this.getData.bind(this)();
+
+  getData = () => {
+    DormitoryAPI()
+    .then(data => {
+      this.setState({data});
+    })
+  }
+
   render = () => {
-    return <DormTap navigation={this.props.navigation} />
+    return (
+      <SafeAreaView style={{flex: 1, backgroundColor:'#f7f7f7'}} forceInset={{bottom:'always'}}>
+        <DormTap navigation={this.props.navigation} screenProps={{meal: this.state.data}}/>
+      </SafeAreaView>
+    )
   }
 }
 
@@ -252,6 +179,6 @@ let styles = StyleSheet.create({
     borderLeftWidth:0.5,
     borderRightWidth:0.5,
     borderBottomWidth:0.5,
-    borderColor:'#929292',
+    borderColor:'#d7d7d7',
   }
 });

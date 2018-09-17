@@ -165,6 +165,6 @@ let styles = StyleSheet.create({
       borderLeftWidth:0.5,
       borderRightWidth:0.5,
       borderBottomWidth:0.5,
-      borderColor:'#929292',
+      borderColor:'#d7d7d7',
     }
 });
