@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View } from 'react-native'
 import { SafeAreaView } from 'react-navigation';
+import { SearchBar } from 'react-native-elements';
 
 export default class LibrarySearch extends Component {
     static navigationOptions= {
@@ -9,7 +10,10 @@ export default class LibrarySearch extends Component {
   render() {
     return (
       <SafeAreaView forceInset={{bottom: "always"}}>
-        <Text> Hi! </Text>
+        <SearchBar 
+            lightTheme
+            round
+        />
       </SafeAreaView>
     )
   }
