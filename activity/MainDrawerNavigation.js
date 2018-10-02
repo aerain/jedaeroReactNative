@@ -6,6 +6,7 @@ import { normalize } from 'react-native-elements';
 import BusStack from './drawer/bus/BusStackNavigation';
 import FoodStack from './drawer/food/FoodListStackNavigation';
 import LibrarySearchStackNavigator from './drawer/library/LibrarySearchStackNavigator';
+import Schedule from './drawer/schedule/Schedule';
 
 let drawerContentComponent = (props) => (
     <ScrollView>
@@ -35,6 +36,12 @@ export default createDrawerNavigator({
             title: '뭐먹을까'
         }
     },
+    ScheduleMain: {
+        screen: Schedule,
+        navigationOptions: {
+            title: '학사일정'
+        }
+    },    
     LibrarySearch: {
         screen: LibrarySearchStackNavigator,
         navigationOptions: {
