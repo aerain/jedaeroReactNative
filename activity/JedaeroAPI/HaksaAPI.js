@@ -11,14 +11,12 @@ export default function () {
         try {
             let res = await RNFetchBlob.fetch('GET', uri);
             let $ = cheerio.load(res.data);
-            console.log(res.data);
             $('.table.border_left.border_top_blue.font09').each(function() {
                 let eachMonth = {
                     schedule: []
                 };
                 eachMonth["month_title"] = $(this).find('caption').text();
                 $(this).find('tr > td').each(function() {
-                    console.log("작동");
                     let day = {};
                     let temp = $(this).text().replace(/(\s*~\s*)/gi, ' ~ ').replace(/(^\s*)|(\s*$)/g, '');
                     day["haksa"] = temp;

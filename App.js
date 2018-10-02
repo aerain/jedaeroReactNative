@@ -5,7 +5,7 @@
  */
 
 import React, { Component } from 'react';
-import { StatusBar, Platform } from 'react-native';
+import { StatusBar, Platform, Text, TextInput } from 'react-native';
 // import { SafeAreaView } from 'react-navigation';
 import MainDrawer from './activity/MainDrawerNavigation';
 
@@ -13,6 +13,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
   }
+
 
   componentDidMount = () => {
     if(Platform.OS === 'android') { StatusBar.setBackgroundColor('#344955'); }
