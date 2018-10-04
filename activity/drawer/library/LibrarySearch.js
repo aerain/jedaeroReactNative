@@ -16,7 +16,7 @@ export default class LibrarySearch extends Component {
   }
   render() {
     return (
-      <SafeAreaView style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}forceInset={{bottom: "always"}}>
+      <SafeAreaView style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor:'#f7f7f7'}}forceInset={{bottom: "always"}}>
         <TextInput 
         placeholder="책 제목을 입력하세요"
         style={{width: '100%', paddingHorizontal: 32, fontSize:normalize(30), fontWeight: '100',}}
