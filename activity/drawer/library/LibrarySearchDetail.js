@@ -23,7 +23,7 @@ export default class LibrarySearchDetail extends Component {
                 let uri = `http://lib.jejunu.ac.kr/pyxis-api/1/collections/1/search?all=1|k|a|${this.props.navigation.getParam('search')}&facet=false&max=20&offset=${this.state.offset}`;
                 let res = await fetch(uri);
                 let data = await res.json();
-                this.setState({ totalCount: data.data.totalCount})
+                this.setState({ totalCount: data.data.totalCount});
                 this.setState((previousState) => { 
                     let list = previousState.list;
                     Array.prototype.push.apply(list, data.data.list);    
@@ -69,7 +69,8 @@ export default class LibrarySearchDetail extends Component {
         // ) : 
         return (
         <View style={libdetailStyles.container}>
-            <Text style={libdetailStyles.textStyle}> <Text style={{fontSize:normalize(32), lineHeight:normalize(32) * 1.5}}>{this.props.navigation.getParam('search', 'none')}</Text> 에 대한 검색결과
+            <Text style={libdetailStyles.textStyle}> 
+                <Text style={{fontSize:normalize(32), lineHeight:normalize(32) * 1.5}}>{this.props.navigation.getParam('search', 'none')}</Text> 에 대한 검색결과
             </Text>
             <Text style={libdetailStyles.textStyle}>
                 <Text style={{fontSize:normalize(32), lineHeight:normalize(32) * 1.5}}>{this.state.totalCount}</Text> 건
@@ -93,6 +94,6 @@ let libdetailStyles = StyleSheet.create({
         paddingTop:32,
     },
 
-    textStyle: {marginHorizontal: 8, marginBottom: 4, fontSize:normalize(20), lineHeight:normalize(20) * 1.5, fontFamily:'NotoSansCJKkr-Thin'},
+    textStyle: {marginHorizontal: 8, marginBottom: 4, fontSize:normalize(20), lineHeight:normalize(32) * 1.5, fontFamily:'NotoSansCJKkr-Thin'},
     subtitleStyle: {fontFamily:'NotoSansCJKkr-Thin',fontWeight:'100', fontSize:normalize(14), lineHeight:normalize(14) * 1.5}
 })

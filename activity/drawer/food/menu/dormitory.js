@@ -21,7 +21,7 @@ class Dorm extends Component {
   render = () => {
     if (this.state.meal === null) {
       return (
-        <View style={{ alignItems: 'center', paddingTop: 20, backgroundColor:'#ffffff' }}>
+        <View style={{ flex: 1, alignItems: 'center', paddingTop: 20, backgroundColor:'#ffffff' }}>
           <ActivityIndicator size='large' color='#344955' />
         </View>
       )
@@ -41,9 +41,9 @@ class Dorm extends Component {
 class DormList extends Component {
   render() {
     return (
-      <View elevation={4} style={{margin: 8, backgroundColor:'#ffffff', borderTopLeftRadius:4, borderTopRightRadius:4}}>
+      <View style={{margin: 8, backgroundColor:'#ffffff', borderTopLeftRadius:4, borderTopRightRadius:4}}>
         <TouchableOpacity style={foodTabNavStyles.list} activeOpacity={0.8}>
-          <View elevation={4} style={foodTabNavStyles.foodlistContainer}>
+          <View style={foodTabNavStyles.foodlistContainer}>
             <Text style={foodTabNavStyles.foodlistTitle}>{this.props.title}</Text>
           </View>
           <View style={foodTabNavStyles.subContainer}>

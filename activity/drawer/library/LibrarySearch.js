@@ -12,7 +12,7 @@ export default class LibrarySearch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      search: '',
+      search: '소나기',
     }
   }
   render() {

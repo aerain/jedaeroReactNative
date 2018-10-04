@@ -19,7 +19,6 @@ export default class BookDetail extends Component {
 
     _getData = async () => {
         let uri = `http://lib.jejunu.ac.kr/pyxis-api/1/biblios/${this.props.navigation.getParam('id')}/items`;
-        console.log(uri);
         let res = await fetch(uri);
         let data = await res.json();
         console.log(data);

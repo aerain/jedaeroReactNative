@@ -77,8 +77,8 @@ let foodMenuListStyles = StyleSheet.create({
         paddingTop: 8,
         paddingBottom: 32,
         backgroundColor:'#ffffff',
-        marginTop:8,
-        marginBottom:8,
+        borderBottomWidth:0.5,
+        borderBottomColor:'#d7d7d7'
     },
     labelStyle: {
         fontSize:normalize(20),
