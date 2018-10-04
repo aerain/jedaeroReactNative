@@ -36,7 +36,7 @@ class Schedule extends Component {
             <ActivityIndicator size='large' color='#344955'/>
         </View>
         ) : (
-        <View style={{backgroundColor:'#f7f7f7', flex: 1}}>
+        <View style={{backgroundColor:'#ffffff', flex: 1}}>
             <ScrollView contentContainerStyle={haksaStyles.container}>
                 {
                     this.state.dataSource.month.map(item => (
@@ -63,10 +63,10 @@ let haksaStyles = StyleSheet.create({
         paddingBottom: 56,
     },
     listContainer: {
-        backgroundColor:'#f7f7f7'
+        backgroundColor:'#ffffff'
     },
     onLoading: {
-        alignItems: 'center', paddingTop:20, flex:1, backgroundColor:'#f7f7f7'
+        alignItems: 'center', paddingTop:20, flex:1, backgroundColor:'#ffffff'
     }
 })
 export default ScheduleStackNavigator = createStackNavigator({

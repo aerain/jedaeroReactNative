@@ -26,7 +26,7 @@ export default class ScheduleDetail extends Component {
         let schedule = this.props.navigation.getParam('schedule');
         console.log(schedule);
         return (
-            <View style={{flex: 1, backgroundColor:'#f7f7f7'}}>
+            <View style={{flex: 1, backgroundColor:'#ffffff'}}>
                 <FlatList 
                     data={schedule}
                     renderItem={this._renderItem}

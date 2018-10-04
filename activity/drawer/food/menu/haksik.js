@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView, ActivityIndicator
 import { createMaterialTopTabNavigator, SafeAreaView } from 'react-navigation';
 import { normalize } from 'react-native-elements';
 import haksikCrawl from '../../../JedaeroAPI/HaksikAPI'
+import { foodTabNavStyles } from '../../../jedaeroCSS';
 
 class Haksik extends Component {
     constructor(props) {
@@ -18,13 +19,13 @@ class Haksik extends Component {
     render = () => {
         if(this.state.meal === null) {
             return (
-              <View style={{alignItems: 'center', paddingTop:20, flex:1, backgroundColor:'#f7f7f7'}}>
+              <View style={{alignItems: 'center', paddingTop:20, flex:1, backgroundColor:'#ffffff'}}>
                 <ActivityIndicator size='large' color='#344955'/>
               </View>
             )
         } else {
             return (
-              <ScrollView style={styles.container}>
+              <ScrollView style={foodTabNavStyles.container}>
                 <HaksikList title="정식" food={this.state.meal.combo}/>
                 <HaksikList title="특식" food={this.state.meal.special}/>
                 <HaksikList title="양식" food={this.state.meal.western}/>
@@ -39,13 +40,13 @@ class Haksik extends Component {
 class HaksikList extends Component {
     render() {
       return (
-        <View elevation={4} style={{margin: 8, backgroundColor:'#ffffff', borderTopLeftRadius:4, borderTopRightRadius:4}}>
-          <TouchableOpacity style={styles.list} activeOpacity={0.8}>
-            <View elevation={4} style={styles.foodlistContainer}>
-              <Text style={styles.foodlistTitle}>{this.props.title}</Text>
+        <View style={{margin: 8, backgroundColor:'#ffffff', borderTopLeftRadius:4, borderTopRightRadius:4}}>
+          <TouchableOpacity style={foodTabNavStyles.list} activeOpacity={0.8}>
+            <View style={foodTabNavStyles.foodlistContainer}>
+              <Text style={foodTabNavStyles.foodlistTitle}>{this.props.title}</Text>
             </View>
-            <View style={styles.subContainer}>
-              <Text style={styles.foodlist}>{this.props.food}</Text>
+            <View style={foodTabNavStyles.subContainer}>
+              <Text style={foodTabNavStyles.foodlist}>{this.props.food}</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -95,7 +96,7 @@ let HaksikTabNavigator = createMaterialTopTabNavigator({
             fontSize:normalize(20),
         },
         style: {
-            backgroundColor:'#f7f7f7',
+            backgroundColor:'#ffffff',
             borderTopWidth:0.5,
             borderTopColor:'#d7d7d7'
         },
@@ -108,7 +109,34 @@ let HaksikTabNavigator = createMaterialTopTabNavigator({
         
     },
     tabBarPosition:'bottom',
-    backBehavior: 'none'
+    backBehavior: 'none',
+    // initialRouteName : () => {
+    //     var d = new Date();
+    //     var n = d.getDay();
+    //     var dayofweek = '';
+    //     switch (n) {
+    //         case 1:
+    //             dayofweek = 'HaksikMon';
+    //             break;
+    //         case 2:
+    //             dayofweek = 'HaksikTue';
+    //             break;
+    //         case 3:
+    //             dayofweek = 'HaksikWed';
+    //             break;
+    //         case 4:
+    //             dayofweek = 'HaksikThu';
+    //             break;
+    //         case 5:
+    //             dayofweek = 'HaksikFri';
+    //             break;
+    //         default:
+    //             dayofweek = 'HaksikMon';
+    //             break;
+    //     }
+
+    //     return dayofweek;
+    // }
 });
 
 export default class HakSikMain extends Component {
@@ -140,31 +168,3 @@ export default class HakSikMain extends Component {
     }
 }
 
-let styles = StyleSheet.create({
-    container: {
-      flex:1,
-      backgroundColor:'#f7f7f7'
-    },
-    title: {
-      justifyContent:'center',
-      alignItems:'center'
-    },
-    foodlist: {fontSize:normalize(16), textAlign:'center', fontFamily:'NotoSansCJKkr-Regular'},
-    foodlistContainer: {
-      backgroundColor:'#344955',
-      borderTopLeftRadius:4,
-      borderTopRightRadius:4
-    },
-    foodlistTitle: {
-      textAlign:'center',
-      fontSize: normalize(20),
-      fontFamily: 'NotoSansCJKkr-Regular',
-      color:'white'
-    },
-    subContainer: {
-      borderLeftWidth:0.5,
-      borderRightWidth:0.5,
-      borderBottomWidth:0.5,
-      borderColor:'#d7d7d7',
-    }
-});

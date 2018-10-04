@@ -4,6 +4,7 @@ import { normalize } from 'react-native-elements';
 import { createMaterialTopTabNavigator, SafeAreaView } from 'react-navigation';
 
 import DormitoryAPI from '../../../JedaeroAPI/DormitoryAPI';
+import { foodTabNavStyles } from '../../../jedaeroCSS';
 
 class Dorm extends Component {
   constructor(props) {
@@ -20,13 +21,13 @@ class Dorm extends Component {
   render = () => {
     if (this.state.meal === null) {
       return (
-        <View style={{ alignItems: 'center', paddingTop: 20, backgroundColor:'#f7f7f7' }}>
+        <View style={{ alignItems: 'center', paddingTop: 20, backgroundColor:'#ffffff' }}>
           <ActivityIndicator size='large' color='#344955' />
         </View>
       )
     } else {
       return (
-        <ScrollView style={styles.container}>
+        <ScrollView style={foodTabNavStyles.container}>
           <DormList title="조기" food={this.state.meal.dawn} />
           <DormList title="아침" food={this.state.meal.breakfast} />
           <DormList title="점심" food={this.state.meal.lunch} />
@@ -41,12 +42,12 @@ class DormList extends Component {
   render() {
     return (
       <View elevation={4} style={{margin: 8, backgroundColor:'#ffffff', borderTopLeftRadius:4, borderTopRightRadius:4}}>
-        <TouchableOpacity style={styles.list} activeOpacity={0.8}>
-          <View elevation={4} style={styles.foodlistContainer}>
-            <Text style={styles.foodlistTitle}>{this.props.title}</Text>
+        <TouchableOpacity style={foodTabNavStyles.list} activeOpacity={0.8}>
+          <View elevation={4} style={foodTabNavStyles.foodlistContainer}>
+            <Text style={foodTabNavStyles.foodlistTitle}>{this.props.title}</Text>
           </View>
-          <View style={styles.subContainer}>
-            <Text style={styles.foodlist}>{this.props.food}</Text>
+          <View style={foodTabNavStyles.subContainer}>
+            <Text style={foodTabNavStyles.foodlist}>{this.props.food}</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -114,7 +115,7 @@ let DormTap = createMaterialTopTabNavigator(
             fontFamily: 'NotoSansCJKkr-Regular'
         },
         style: {
-          backgroundColor:'#f7f7f7',
+          backgroundColor:'#ffffff',
           borderTopWidth:0.5,
           borderTopColor:'#d7d7d7'
         },
@@ -153,32 +154,3 @@ export default class DormitoryMain extends Component {
     )
   }
 }
-
-let styles = StyleSheet.create({
-  container: {
-    flex:1,
-    backgroundColor:'#f7f7f7'
-  },
-  title: {
-    justifyContent:'center',
-    alignItems:'center'
-  },
-  foodlist: {fontSize:normalize(16), textAlign:'center', fontFamily:'NotoSansCJKkr-Regular'},
-  foodlistContainer: {
-    backgroundColor:'#344955',
-    borderTopLeftRadius:4,
-    borderTopRightRadius:4
-  },
-  foodlistTitle: {
-    textAlign:'center',
-    fontSize: normalize(20),
-    fontFamily: 'NotoSansCJKkr-Regular',
-    color:'white'
-  },
-  subContainer: {
-    borderLeftWidth:0.5,
-    borderRightWidth:0.5,
-    borderBottomWidth:0.5,
-    borderColor:'#d7d7d7',
-  }
-});

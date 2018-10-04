@@ -47,6 +47,8 @@ export default class LibrarySearchDetail extends Component {
             titleStyle={{fontWeight:'100', fontSize:normalize(20)}}
             subtitleStyle={{fontWeight:'100', fontSize:normalize(14)}}
             containerStyle={{backgroundColor:'#f7f7f7'}}
+            onPress={() => this.props.navigation.navigate('BookDetail', item)}
+            chevron
         />
     )
 

@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-navigation';
 import { ListItem, normalize } from 'react-native-elements';
 
 import menuList from './menuList';
+import { foodTabStyles } from '../../jedaeroCSS';
 
 export default class FoodList extends Component {
     constructor(props) {
@@ -30,9 +31,9 @@ export default class FoodList extends Component {
                                     key={key}
                                     title={item.name}
                                     subtitle={item.subtitle}
-                                    titleStyle={styles.listTitleStyle}
-                                    subtitleStyle={styles.listSubtitleStyle}
-                                    containerStyle={styles.listContainerStyle}
+                                    titleStyle={foodTabStyles.listTitleStyle}
+                                    subtitleStyle={foodTabStyles.listSubtitleStyle}
+                                    containerStyle={foodTabStyles.listContainerStyle}
                                     onPress={item._clickFood}
                                     underlayColor="rgba(0,0,0,0)"
                                     hideChevron={true}
@@ -45,21 +46,5 @@ export default class FoodList extends Component {
     }
 }
 
-const styles = StyleSheet.create({
-    listTitleStyle: {
-      fontSize: normalize(20),
-      textAlign:'center',
-      fontWeight: 'bold',
-    },
-    listSubtitleStyle: {
-      textAlign:'center',
-      fontSize: normalize(14)
-    },
-    listContainerStyle: {
-      paddingTop:24,
-      paddingBottom:16,
-      backgroundColor:'white',
-      marginBottom:8
-    }
-})
+
 

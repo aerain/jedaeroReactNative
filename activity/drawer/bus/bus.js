@@ -15,7 +15,7 @@ export default class Bus extends Component {
     render = () => {
         return (
             <TouchableOpacity 
-                style={{flex: 1, justifyContent:'center', alignItems:'center'}}
+                style={{flex: 1, justifyContent:'center', alignItems:'center', backgroundColor:'#ffffff'}}
                 onPress={() => this.props.navigation.navigate("HaksikMon")}
             >
                 <Text style={{fontSize: normalize(20)}}>Welcome to React Native!</Text>
