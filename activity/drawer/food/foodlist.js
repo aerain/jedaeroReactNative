@@ -23,7 +23,7 @@ export default class FoodList extends Component {
         return (
             <SafeAreaView style={{flex:1, backgroundColor:'#f7f7f7'}}>
                 <ScrollView
-                    style={{ paddingTop:normalize(16)}}
+                    style={{ paddingTop:16}}
                 >
                     {
                         this.foodmenu.map((item, key) => (

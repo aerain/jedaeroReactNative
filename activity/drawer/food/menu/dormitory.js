@@ -4,7 +4,7 @@ import { normalize } from 'react-native-elements';
 import { createMaterialTopTabNavigator, SafeAreaView } from 'react-navigation';
 
 import DormitoryAPI from '../../../JedaeroAPI/DormitoryAPI';
-import { foodTabNavStyles } from '../../../jedaeroCSS';
+import { foodTabNavStyles, lightText } from '../../../jedaeroCSS';
 
 class Dorm extends Component {
   constructor(props) {
@@ -112,7 +112,8 @@ let DormTap = createMaterialTopTabNavigator(
         },
         labelStyle: {
             fontSize: normalize(20),
-            fontFamily: 'NotoSansCJKkr-Regular'
+            lineHeight: normalize(20) * 1.5,
+            ...lightText,
         },
         style: {
           backgroundColor:'#ffffff',

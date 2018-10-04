@@ -1,8 +1,36 @@
 import React from 'react';
-import { TouchableOpacity, StyleSheet } from 'react-native';
+import { TouchableOpacity, StyleSheet, ScrollView, View, Image, Platform } from 'react-native';
+import { SafeAreaView, DrawerItems } from 'react-navigation';
 import EvilIcon from 'react-native-vector-icons/EvilIcons';
 import { normalize } from 'react-native-elements';
 
+
+let drawerContentComponent = (props) => (
+    <ScrollView>
+        <View style={{backgroundColor:'#344955'}}>
+            <SafeAreaView forceInset={{ top: 'always', horizontal: 'never' }}>
+            <View style={{paddingLeft:30, paddingRight:30, width:'100%', height:150, backgroundColor:'#344955', justifyContent:'center', alignItems: 'center'}}>
+                <Image source={require('../images/logo.png')} style={{width: '100%'}} resizeMode="contain" />
+            </View>
+            </SafeAreaView>
+        </View>
+        <SafeAreaView>
+        <DrawerItems {...props} />
+        </SafeAreaView>
+    </ScrollView>
+)
+
+let lightText = {
+    fontWeight: '300',
+    fontFamily: 'NotoSansCJKkr-Thin',
+    color: 'black',
+}
+
+let regularText = {
+    fontWeight:'normal',
+    fontFamily: 'NotoSansCJKkr-Regular',
+    color: 'black',
+}
 let stackNavigationOptions = {
     mode: 'modal',
     headerMode:'screen',
@@ -17,7 +45,9 @@ let stackNavigationOptions = {
                 borderBottomColor:'#d7d7d7',
             },
             headerTitleStyle: {
-                fontSize:normalize(24)
+                fontSize:normalize(20),
+                lineHeight:normalize(20) * 1.5,
+                ...lightText,
             },
             headerRight: (
                 <TouchableOpacity
@@ -52,23 +82,25 @@ let foodMenuListStyles = StyleSheet.create({
     },
     labelStyle: {
         fontSize:normalize(20),
+        lineHeight: normalize(20) * 1.5,
+        ...lightText,
     }
 })
 
 let foodTabStyles = StyleSheet.create({
     listTitleStyle: {
       fontSize: normalize(20),
+      lineHeight: normalize(20) * 1.5,
       textAlign:'center',
-      fontWeight: 'bold',
-      fontFamily: 'NotoSansCJKkr-Regular',
-      color: 'black',
+      color: 'white',
+      ...regularText,
     },
     listSubtitleStyle: {
       textAlign:'center',
-      fontWeight: '100',
       fontSize: normalize(16),
-      fontFamily: 'NotoSansCJKkr-Thin',
+      lineHeight: normalize(16) * 1.5,
       color: 'black',
+      ...lightText
     },
     listContainerStyle: {
       paddingTop:24,
@@ -88,7 +120,7 @@ let foodTabNavStyles = StyleSheet.create({
       justifyContent:'center',
       alignItems:'center'
     },
-    foodlist: {fontSize:normalize(16), textAlign:'center', fontFamily:'NotoSansCJKkr-Regular'},
+    foodlist: {fontSize:normalize(16), textAlign:'center', ...lightText},
     foodlistContainer: {
       backgroundColor:'#344955',
       borderTopLeftRadius:4,
@@ -97,8 +129,9 @@ let foodTabNavStyles = StyleSheet.create({
     foodlistTitle: {
       textAlign:'center',
       fontSize: normalize(20),
-      fontFamily: 'NotoSansCJKkr-Regular',
-      color:'white'
+      lineHeight: normalize(20) * 1.5,
+      ...lightText,
+      color:'white',
     },
     subContainer: {
       borderLeftWidth:0.5,
@@ -107,4 +140,47 @@ let foodTabNavStyles = StyleSheet.create({
       borderColor:'#d7d7d7',
     }
 });
-export { stackNavigationOptions, jedaeroStyles, foodMenuListStyles, foodTabStyles, foodTabNavStyles }
+
+let drawerOptions = {
+    drawerPosition: 'right',
+    contentComponent: drawerContentComponent.bind(this),
+    contentOptions: {
+        inactiveLabelStyle: {
+            fontSize: normalize(16),
+            lineHeight: normalize(16) * 1.5,
+            ...lightText
+        },
+        activeLabelStyle: {
+            fontSize: normalize(32),
+            lineHeight: normalize(32) * 1.5,
+            ...lightText
+        },
+        activeBackgroundColor: '#00000000',
+        activeTintColor:'#000000',
+        itemStyle: {
+            marginBottom:16,
+        }
+    }
+
+}
+
+let libsearchStyles = StyleSheet.create({
+    container: {
+      flex: 1, 
+      justifyContent: 'center', 
+      alignItems: 'center', 
+      backgroundColor:'#ffffff', 
+      paddingHorizontal: 32,
+    },
+    textContainer: {
+      width: '100%', 
+      fontSize:normalize(24), 
+      lineHeight:normalize(24) * 1.5, 
+      paddingVertical:8, 
+      textAlign:'center', 
+      borderBottomWidth:0.5, 
+      borderBottomColor:'black',
+      ...lightText,
+    }
+  })
+export { stackNavigationOptions, jedaeroStyles, foodMenuListStyles, foodTabStyles, foodTabNavStyles, lightText, regularText, drawerOptions, libsearchStyles }

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Text, View, Button, TextInput } from 'react-native'
 import { SafeAreaView } from 'react-navigation';
 import { SearchBar, normalize } from 'react-native-elements';
+import { libsearchStyles } from '../../jedaeroCSS';
 
 export default class LibrarySearch extends Component {
   static navigationOptions= {
@@ -16,10 +17,10 @@ export default class LibrarySearch extends Component {
   }
   render() {
     return (
-      <SafeAreaView style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor:'#f7f7f7'}}forceInset={{bottom: "always"}}>
+      <SafeAreaView style={libsearchStyles.container} forceInset={{bottom: "always"}}>
         <TextInput 
         placeholder="책 제목을 입력하세요"
-        style={{width: '100%', paddingHorizontal: 32, fontSize:normalize(30), fontWeight: '100',}}
+        style={libsearchStyles.textContainer}
         onChangeText={search => this.setState({search})}
         />
         <Button
@@ -34,3 +35,4 @@ export default class LibrarySearch extends Component {
     )
   }
 }
+

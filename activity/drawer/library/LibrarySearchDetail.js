@@ -32,25 +32,33 @@ export default class LibrarySearchDetail extends Component {
                         offset : previousState.offset + 20
                     }
                 })
-                console.log(uri, this.state.list);
             } catch( err) {
 
             }
         }
     }
 
-    _renderItem = ({item}) => (
-        <ListItem
-            key={item.id}
-            title={item.titleStatement}
-            subtitle={item.author}
-            titleStyle={{fontWeight:'100', fontSize:normalize(20)}}
-            subtitleStyle={{fontWeight:'100', fontSize:normalize(14)}}
-            containerStyle={{backgroundColor:'#f7f7f7'}}
-            onPress={() => this.props.navigation.navigate('BookDetail', item)}
-            chevron
-        />
-    )
+    _renderItem = ({item}) => {
+        let status = (item.branchVolumes[0]) ? `${item.branchVolumes[0].name} [${item.branchVolumes[0].volume}]` : '';
+        let cState = item.branchVolumes[0] ? item.branchVolumes[0].cState : '';
+        return (
+            <ListItem
+                key={item.id}
+                title={item.titleStatement}
+                subtitle={
+                    <View>
+                        <Text style={libdetailStyles.subtitleStyle}>{item.author}</Text>
+                        <Text style={libdetailStyles.subtitleStyle}>{item.publication}</Text>
+                        <Text style={libdetailStyles.subtitleStyle}>{status} <Text style={{color: (cState === '대출불가' ? 'red' : 'green')}}>{cState}</Text></Text>
+                    </View>    
+                }
+                titleStyle={{fontFamily:'NotoSansCJKkr-Thin', fontSize:normalize(20), lineHeight:normalize(20) * 1.5}}
+                containerStyle={{backgroundColor:'#ffffff', borderBottomWidth: 0.5, borderBottomColor:'#d7d7d7'}}
+                onPress={() => this.props.navigation.navigate('BookDetail', item)}
+                chevron
+            />
+        )
+    }
 
     render() {
         // return (this.state.list!) ? (
@@ -61,16 +69,17 @@ export default class LibrarySearchDetail extends Component {
         // ) : 
         return (
         <View style={libdetailStyles.container}>
-            <Text style={libdetailStyles.textStyle}> <Text style={{fontSize:normalize(32)}}>{this.props.navigation.getParam('search', 'none')}</Text> 에 대한 검색결과
+            <Text style={libdetailStyles.textStyle}> <Text style={{fontSize:normalize(32), lineHeight:normalize(32) * 1.5}}>{this.props.navigation.getParam('search', 'none')}</Text> 에 대한 검색결과
             </Text>
             <Text style={libdetailStyles.textStyle}>
-                <Text style={{fontSize:normalize(32)}}>{this.state.totalCount}</Text> 건
+                <Text style={{fontSize:normalize(32), lineHeight:normalize(32) * 1.5}}>{this.state.totalCount}</Text> 건
             </Text>
 
             <FlatList 
                 data={this.state.list}
                 renderItem={this._renderItem}
                 onEndReached={this._getData}
+                style={{borderTopWidth:0.5, borderTopColor:'#d7d7d7'}}
             />
         </View>
         )
@@ -80,9 +89,10 @@ export default class LibrarySearchDetail extends Component {
 let libdetailStyles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor:'#f7f7f7',
+        backgroundColor:'#ffffff',
         paddingTop:32,
     },
 
-    textStyle: {marginHorizontal: 8, marginBottom: 4, fontSize:normalize(20), fontWeight:'100'}
+    textStyle: {marginHorizontal: 8, marginBottom: 4, fontSize:normalize(20), lineHeight:normalize(20) * 1.5, fontFamily:'NotoSansCJKkr-Thin'},
+    subtitleStyle: {fontFamily:'NotoSansCJKkr-Thin',fontWeight:'100', fontSize:normalize(14), lineHeight:normalize(14) * 1.5}
 })

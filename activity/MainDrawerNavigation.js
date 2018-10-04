@@ -7,6 +7,7 @@ import BusStack from './drawer/bus/BusStackNavigation';
 import FoodStack from './drawer/food/FoodListStackNavigation';
 import LibrarySearchStackNavigator from './drawer/library/LibrarySearchStackNavigator';
 import Schedule from './drawer/schedule/Schedule';
+import {drawerOptions} from './jedaeroCSS';
 
 let drawerContentComponent = (props) => (
     <ScrollView>
@@ -48,21 +49,4 @@ export default createDrawerNavigator({
             title: '도서검색'
         }
     }
-}, {
-    drawerPosition: 'right',
-    contentComponent: drawerContentComponent.bind(this),
-    contentOptions: {
-        inactiveLabelStyle: {
-            fontSize: normalize(16),
-        },
-        activeLabelStyle: {
-            fontSize: normalize(32),
-        },
-        activeBackgroundColor: '#00000000',
-        activeTintColor:'#000000',
-        itemStyle: {
-            marginBottom:16,
-        }
-    }
-
-})
+}, drawerOptions)
