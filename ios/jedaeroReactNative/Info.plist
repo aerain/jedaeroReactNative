@@ -56,6 +56,11 @@
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
 			</dict>
+			<key>lib.jejunu.ac.kr</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
 			<key>dormitory.neo-internet.co.kr</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
