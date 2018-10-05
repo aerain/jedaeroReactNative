@@ -91,9 +91,8 @@ let libdetailStyles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor:'#ffffff',
-        paddingTop:32,
     },
 
-    textStyle: {marginHorizontal: 8, marginBottom: 4, fontSize:normalize(20), lineHeight:normalize(32) * 1.5, fontFamily:'NotoSansCJKkr-Thin'},
+    textStyle: {marginHorizontal: 8, marginBottom: 4, fontSize:normalize(20), lineHeight:normalize(32) * 1.5, fontFamily:'NotoSansCJKkr-Thin', textAlign:'center',},
     subtitleStyle: {fontFamily:'NotoSansCJKkr-Thin',fontWeight:'100', fontSize:normalize(14), lineHeight:normalize(14) * 1.5}
 })
