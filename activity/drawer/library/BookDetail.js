@@ -55,8 +55,8 @@ class StoreBook extends Component {
             return (
                 <View style={bookdetailStyles.innerContainer}>
                     {
-                        this.props.data[this.props.branchVolumes.id].map(item => (
-                            <View style={bookdetailStyles.storebook}>
+                        this.props.data[this.props.branchVolumes.id].map((item, index) => (
+                            <View key={index} style={bookdetailStyles.storebook}>
                                 <BookRow left="등록번호" right={item.barcode} />
                                 <BookRow left="소장위치" right={item.location.name} />
                                 <BookRow left="청구기호" right={item.callNo} />
