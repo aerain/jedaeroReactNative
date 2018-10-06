@@ -23,26 +23,25 @@ let drawerContentComponent = (props) => (
 let lightText = {
     fontWeight: '300',
     fontFamily: 'NotoSansCJKkr-Thin',
-    color: 'black',
+    color: '#000000',
 }
 
 let regularText = {
     fontWeight:'normal',
     fontFamily: 'NotoSansCJKkr-Regular',
-    color: 'black',
+    color: '#000000',
 }
 let stackNavigationOptions = {
     mode: 'modal',
     headerMode:'screen',
-    headerLayoutPreset: 'center',
+    headerLayoutPreset: 'left',
     navigationOptions : ({navigation}) => {
         return {
-            headerTintColor: '#000000',
+            headerTintColor: '#344955',
             headerStyle: {
-                backgroundColor:'#ffffff',
+                backgroundColor:'#f7f7f7',
+                borderBottomWidth: 0,
                 elevation: 0,
-                borderBottomWidth: 0.5,
-                borderBottomColor:'#d7d7d7',
             },
             headerTitleStyle: {
                 fontSize:normalize(20),
@@ -58,7 +57,7 @@ let stackNavigationOptions = {
                     <EvilIcon 
                         name="navicon" 
                         size={normalize(30)} 
-                        color="#000000"
+                        color="#344955"
                         style={{marginRight:normalize(8)}}
                     />
                 </TouchableOpacity>
@@ -114,7 +113,7 @@ let foodTabStyles = StyleSheet.create({
 let foodTabNavStyles = StyleSheet.create({
     container: {
       flex:1,
-      backgroundColor:'#ffffff'
+      backgroundColor:'#f7f7f7'
     },
     title: {
       justifyContent:'center',
@@ -124,7 +123,8 @@ let foodTabNavStyles = StyleSheet.create({
     foodlistContainer: {
       backgroundColor:'#344955',
       borderTopLeftRadius:4,
-      borderTopRightRadius:4
+      borderTopRightRadius:4,
+      paddingVertical: 8,
     },
     foodlistTitle: {
       textAlign:'center',
@@ -134,10 +134,10 @@ let foodTabNavStyles = StyleSheet.create({
       color:'white',
     },
     subContainer: {
-      borderLeftWidth:0.5,
-      borderRightWidth:0.5,
-      borderBottomWidth:0.5,
-      borderColor:'#d7d7d7',
+    //   borderLeftWidth:0.5,
+    //   borderRightWidth:0.5,
+    //   borderBottomWidth:0.5,
+    //   borderColor:'#d7d7d7',
     }
 });
 
@@ -169,7 +169,7 @@ let libsearchStyles = StyleSheet.create({
       flex: 1, 
       justifyContent: 'center', 
       alignItems: 'center', 
-      backgroundColor:'#ffffff', 
+      backgroundColor:'#f7f7f7', 
       paddingHorizontal: 32,
     },
     textContainer: {

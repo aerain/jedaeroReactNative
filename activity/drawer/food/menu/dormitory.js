@@ -21,7 +21,7 @@ class Dorm extends Component {
   render = () => {
     if (this.state.meal === null) {
       return (
-        <View style={{ flex: 1, alignItems: 'center', paddingTop: 20, backgroundColor:'#ffffff' }}>
+        <View style={{ flex: 1, alignItems: 'center', paddingTop: 20, backgroundColor:'#f7f7f7' }}>
           <ActivityIndicator size='large' color='#344955' />
         </View>
       )
@@ -116,7 +116,7 @@ let DormTap = createMaterialTopTabNavigator(
             ...lightText,
         },
         style: {
-          backgroundColor:'#ffffff',
+          backgroundColor:'#f7f7f7',
           borderTopWidth:0.5,
           borderTopColor:'#d7d7d7'
         },

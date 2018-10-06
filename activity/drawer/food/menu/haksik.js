@@ -19,7 +19,7 @@ class Haksik extends Component {
     render = () => {
         if(this.state.meal === null) {
             return (
-              <View style={{alignItems: 'center', paddingTop:20, flex:1, backgroundColor:'#ffffff'}}>
+              <View style={{alignItems: 'center', paddingTop:20, flex:1, backgroundColor:'#f7f7f7'}}>
                 <ActivityIndicator size='large' color='#344955'/>
               </View>
             )
@@ -98,9 +98,10 @@ let HaksikTabNavigator = createMaterialTopTabNavigator({
             ...lightText,
         },
         style: {
-            backgroundColor:'#ffffff',
+            backgroundColor:'#f7f7f7',
             borderTopWidth:0.5,
-            borderTopColor:'#d7d7d7'
+            borderTopColor:'#d7d7d7',
+            elevation: 0,
         },
         indicatorStyle: {
             marginBottomWidth:0,

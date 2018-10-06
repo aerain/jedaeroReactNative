@@ -79,7 +79,7 @@ class BookRow extends Component {
 
     render() {
         return (
-            <View style={{flexDirection:'row'}}>
+            <View style={{flexDirection:'row', backgroundColor:'#ffffff'}}>
                 <View style={{flex:1, padding: 8}}>
                     <Text style={{...bookdetailStyles.text, textAlign:'right'}}>{this.props.left}</Text>
                 </View>
@@ -94,7 +94,7 @@ class BookRow extends Component {
 
 let bookdetailStyles = StyleSheet.create({
     container: {
-        backgroundColor:'#ffffff',
+        backgroundColor:'#f7f7f7',
         paddingTop:16,
         paddingHorizontal:8,
         paddingBottom: 56,

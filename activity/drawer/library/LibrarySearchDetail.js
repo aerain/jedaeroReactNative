@@ -53,7 +53,7 @@ export default class LibrarySearchDetail extends Component {
                     </View>    
                 }
                 titleStyle={{fontFamily:'NotoSansCJKkr-Thin', fontSize:normalize(20), lineHeight:normalize(20) * 1.5}}
-                containerStyle={{backgroundColor:'#ffffff', borderBottomWidth: 0.5, borderBottomColor:'#d7d7d7'}}
+                containerStyle={{backgroundColor:'#f7f7f7', borderBottomWidth: 0.5, borderBottomColor:'#d7d7d7'}}
                 onPress={() => this.props.navigation.navigate('BookDetail', item)}
                 chevron
             />
@@ -90,7 +90,7 @@ export default class LibrarySearchDetail extends Component {
 let libdetailStyles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor:'#ffffff',
+        backgroundColor:'#f7f7f7',
     },
 
     textStyle: {marginHorizontal: 8, marginBottom: 4, fontSize:normalize(20), lineHeight:normalize(32) * 1.5, fontFamily:'NotoSansCJKkr-Thin', textAlign:'center',},
