@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native';
+import { View, Text,Image } from 'react-native';
 
 export default class DetailMenu extends Component {
     constructor(props) {
@@ -10,7 +10,16 @@ export default class DetailMenu extends Component {
     render () {
         return (
             <View>
-                <Text>{this.item.name}</Text>
+                <View>
+                    <Image 
+                    style={{width:'100%', height:300, resizeMode: 'contain'}}
+                    source={{uri:this.item.images}}/>
+                </View>
+                <View>
+                    <Text>{this.item.name}</Text>
+                    <Text>{this.item.images}</Text>
+                </View>
+                
             </View>
         )
     }
