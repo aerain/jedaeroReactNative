@@ -43,11 +43,12 @@ let stackNavigationOptions = {
                 backgroundColor:'#f7f7f7',
                 borderBottomWidth: 0,
                 elevation: 0,
-                height: 80
             },
             headerTitleStyle: {
                 fontSize:normalize(20),
             },
+            gestureEnabled: true,
+            gestureDirection: 'default',
             // headerLeft: (
             //     <Ionicons
             //         name="ios-arrow-back"
@@ -81,10 +82,10 @@ let stackNavigationOptions = {
           const { layout, position, scene } = sceneProps;
           const { index } = scene;
   
-          const width = layout.initWidth;
-          const translateX = position.interpolate({
+          const Height = layout.initHeight;
+          const translateY = position.interpolate({
             inputRange: [index - 1, index, index + 1],
-            outputRange: [width, 0, 0],
+            outputRange: [Height, 0, 0],
           });
   
           const opacity = position.interpolate({
@@ -92,7 +93,7 @@ let stackNavigationOptions = {
             outputRange: [0, 1, 1],
           });
   
-          return { opacity, transform: [{ translateX }] };
+          return { opacity, transform: [{ translateY }] };
         },
     }),
 }
@@ -171,9 +172,9 @@ let mainTabOptions = {
     barStyle: {
         backgroundColor:'#f7f7f7',
         paddingBottom: 16,
-        // elevation:0,
-        // borderTopWidth:0.5,
-        // borderTopColor:'#e7e7e7',
+        elevation:0,
+        borderTopWidth:0.5,
+        borderTopColor:'#e7e7e7',
     }
     // contentComponent: drawerContentComponent.bind(this),
     // contentOptions: {
@@ -216,7 +217,7 @@ let libsearchStyles = StyleSheet.create({
 
 let menuTopTabOptions = {
     backBehavior: 'none',
-    tabBarPosition: 'bottom',
+    tabBarPosition: 'top',
     tabBarOptions: {
         showIcon:false,
         activeTintColor: "#344955",
@@ -230,13 +231,16 @@ let menuTopTabOptions = {
         },
         style: {
           backgroundColor:'#f7f7f7',
-          borderTopWidth:0.5,
-          borderTopColor:'#d7d7d7'
+          borderBottomWidth:0.5,
+          borderBottomColor:'#d7d7d7',
+          elevation:0,
+          
         },
         indicatorStyle: {
           marginBottomWidth:0,
           height:0
         },
+        safeAreaInset: {bottom:'never', top:'never'}
     },
 
   }

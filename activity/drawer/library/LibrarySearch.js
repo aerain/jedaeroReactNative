@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Text, View, Button, TextInput } from 'react-native'
+import { Text, View, TextInput } from 'react-native'
 import { SafeAreaView } from 'react-navigation';
-import { SearchBar, normalize } from 'react-native-elements';
+import { SearchBar, normalize, Button, } from 'react-native-elements';
 import { libsearchStyles } from '../../jedaeroCSS';
 
 export default class LibrarySearch extends Component {
@@ -30,6 +30,8 @@ export default class LibrarySearch extends Component {
             this.props.navigation.navigate('LibrarySearchDetail', {search: this.state.search})}
           }
         }
+        buttonStyle={{backgroundColor:'transparent', elevation:0, paddingVertical:16,}}
+        titleStyle={{color:'#344955', fontSize:normalize(16)}}
         />
       </SafeAreaView>
     )
