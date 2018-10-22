@@ -6,9 +6,7 @@ export default class Detail extends Component {
         super(props);
     }
 
-    static navigationOptions = {
-        headerTitle: '디테일'
-    }
+    
     render = () => {
         return (
             <View>
