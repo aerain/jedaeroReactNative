@@ -33,6 +33,16 @@ export default class LibrarySearch extends Component {
         buttonStyle={{backgroundColor:'transparent', elevation:0, paddingVertical:16,}}
         titleStyle={{color:'#344955', fontSize:normalize(16)}}
         />
+        <Button
+        title="검색"
+        onPress={() => {
+          if(this.state.search != '') {
+            this.props.navigation.navigate('LibrarySearchDetail', {search: this.state.search})}
+          }
+        }
+        buttonStyle={{backgroundColor:'transparent', elevation:0, paddingVertical:16,}}
+        titleStyle={{color:'#344955', fontSize:normalize(16)}}
+        />
       </SafeAreaView>
     )
   }

@@ -7,7 +7,7 @@
 import React, { Component } from 'react';
 import { StatusBar, Platform, Text, TextInput } from 'react-native';
 // import { SafeAreaView } from 'react-navigation';
-import MainDrawer from './activity/MainDrawerNavigation';
+import MainDrawer from './activity/MainTabNavigation';
 
 export default class App extends Component {
   constructor(props) {

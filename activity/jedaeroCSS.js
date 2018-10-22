@@ -59,11 +59,11 @@ let stackNavigationOptions = {
             // headerRight: (
             //     <TouchableOpacity
             //         onPress={() => {
-            //             navigation.openDrawer();
+            //             console.log('바보');
             //         }}
             //     >
-            //         <EvilIcon 
-            //             name="navicon" 
+            //         <Ionicons 
+            //             name="ios-settings" 
             //             size={normalize(30)} 
             //             color="#344955"
             //             style={{marginRight:normalize(8)}}
@@ -123,7 +123,7 @@ let foodTabStyles = StyleSheet.create({
     },
     listSubtitleStyle: {
       textAlign:'center',
-      color: 'black',
+      color: '#7d7d7d',
     },
     listContainerStyle: {
       paddingTop:24,

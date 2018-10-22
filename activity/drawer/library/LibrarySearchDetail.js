@@ -52,7 +52,7 @@ export default class LibrarySearchDetail extends Component {
                         <Text style={libdetailStyles.subtitleStyle}>{status} <Text style={{color: (cState === '대출불가' ? 'red' : 'green')}}>{cState}</Text></Text>
                     </View>    
                 }
-                titleStyle={{fontFamily:'NotoSansCJKkr-Thin', fontSize:normalize(20), lineHeight:normalize(20) * 1.5}}
+                titleStyle={{fontSize:normalize(20), fontWeight:'bold'}}
                 containerStyle={{backgroundColor:'#f7f7f7', borderBottomWidth: 0.5, borderBottomColor:'#d7d7d7'}}
                 onPress={() => this.props.navigation.navigate('BookDetail', item)}
                 chevron
@@ -70,10 +70,10 @@ export default class LibrarySearchDetail extends Component {
         return (
         <View style={libdetailStyles.container}>
             <Text style={libdetailStyles.textStyle}> 
-                <Text style={{fontSize:normalize(32), lineHeight:normalize(32) * 1.5}}>{this.props.navigation.getParam('search', 'none')}</Text> 에 대한 검색결과
+                <Text style={{fontSize:normalize(32)}}>{this.props.navigation.getParam('search', 'none')}</Text> 에 대한 검색결과
             </Text>
             <Text style={libdetailStyles.textStyle}>
-                <Text style={{fontSize:normalize(32), lineHeight:normalize(32) * 1.5}}>{this.state.totalCount}</Text> 건
+                <Text style={{fontSize:normalize(32)}}>{this.state.totalCount}</Text> 건
             </Text>
 
             <FlatList 
@@ -93,6 +93,6 @@ let libdetailStyles = StyleSheet.create({
         backgroundColor:'#f7f7f7',
     },
 
-    textStyle: {marginHorizontal: 8, marginBottom: 4, fontSize:normalize(20), lineHeight:normalize(32) * 1.5, fontFamily:'NotoSansCJKkr-Thin', textAlign:'center',},
-    subtitleStyle: {fontFamily:'NotoSansCJKkr-Thin',fontWeight:'100', fontSize:normalize(14), lineHeight:normalize(14) * 1.5}
+    textStyle: {marginHorizontal: 8, marginBottom: 4, fontSize:normalize(20), textAlign:'center',},
+    subtitleStyle: {fontSize:normalize(14),}
 })
