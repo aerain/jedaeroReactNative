@@ -74,8 +74,8 @@ let stackNavigationOptions = {
     },
     transitionConfig: () => ({
         transitionSpec: {
-          duration: 300,
-          easing: Easing.out(Easing.poly(4)),
+          duration: 200,
+          easing: Easing.out(Easing.poly(2)),
           timing: Animated.timing,
         },
         screenInterpolator: sceneProps => {
