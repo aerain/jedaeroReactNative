@@ -1,17 +1,18 @@
 import React from 'react';
 import { ScrollView, View, Image } from 'react-native';
-import { createDrawerNavigator, SafeAreaView, DrawerItems } from 'react-navigation';
+import { SafeAreaView, DrawerItems } from 'react-navigation';
 import { normalize } from 'react-native-elements';
-
+import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
 import BusStack from './drawer/bus/BusStackNavigation';
 import FoodStack from './drawer/food/FoodListStackNavigation';
 import LibrarySearchStackNavigator from './drawer/library/LibrarySearchStackNavigator';
 import Schedule from './drawer/schedule/Schedule';
-import {drawerOptions} from './jedaeroCSS';
+import {mainTabOptions} from './jedaeroCSS';
+import Icon from 'react-native-vector-icons';
 
 
 
-export default createDrawerNavigator({
+export default createMaterialBottomTabNavigator({
     Bus: {
         screen: BusStack,
         navigationOptions: {
@@ -36,4 +37,4 @@ export default createDrawerNavigator({
             title: '도서검색'
         }
     }
-}, drawerOptions)
+}, mainTabOptions)

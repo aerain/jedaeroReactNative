@@ -45,8 +45,6 @@ let stackNavigationOptions = {
             },
             headerTitleStyle: {
                 fontSize:normalize(20),
-                lineHeight:normalize(20) * 1.5,
-                ...lightText,
             },
             headerRight: (
                 <TouchableOpacity
@@ -81,25 +79,18 @@ let foodMenuListStyles = StyleSheet.create({
     },
     labelStyle: {
         fontSize:normalize(20),
-        lineHeight: normalize(20) * 1.5,
-        ...lightText,
     }
 })
 
 let foodTabStyles = StyleSheet.create({
     listTitleStyle: {
       fontSize: normalize(20),
-      lineHeight: normalize(20) * 1.5,
       textAlign:'center',
       color: 'white',
-      ...regularText,
     },
     listSubtitleStyle: {
       textAlign:'center',
-      fontSize: normalize(16),
-      lineHeight: normalize(16) * 1.5,
       color: 'black',
-      ...lightText
     },
     listContainerStyle: {
       paddingTop:24,
@@ -119,7 +110,7 @@ let foodTabNavStyles = StyleSheet.create({
       justifyContent:'center',
       alignItems:'center'
     },
-    foodlist: {fontSize:normalize(16), textAlign:'center', ...lightText},
+    foodlist: {fontSize: normalize(14), textAlign:'center', color: '#000000'},
     foodlistContainer: {
       backgroundColor:'#344955',
       borderTopLeftRadius:4,
@@ -129,11 +120,10 @@ let foodTabNavStyles = StyleSheet.create({
     foodlistTitle: {
       textAlign:'center',
       fontSize: normalize(20),
-      lineHeight: normalize(20) * 1.5,
-      ...lightText,
       color:'white',
     },
     subContainer: {
+        paddingVertical: 8,
     //   borderLeftWidth:0.5,
     //   borderRightWidth:0.5,
     //   borderBottomWidth:0.5,
@@ -141,26 +131,32 @@ let foodTabNavStyles = StyleSheet.create({
     }
 });
 
-let drawerOptions = {
-    drawerPosition: 'right',
-    contentComponent: drawerContentComponent.bind(this),
-    contentOptions: {
-        inactiveLabelStyle: {
-            fontSize: normalize(16),
-            lineHeight: normalize(16) * 1.5,
-            ...lightText
-        },
-        activeLabelStyle: {
-            fontSize: normalize(32),
-            lineHeight: normalize(32) * 1.5,
-            ...lightText
-        },
-        activeBackgroundColor: '#00000000',
-        activeTintColor:'#000000',
-        itemStyle: {
-            marginBottom:16,
-        }
+let mainTabOptions = {
+    shifting: true,
+    activeColor: '#000000',
+    inactiveColor: '#d7d7d7',
+    barStyle: {
+        backgroundColor:'#f7f7f7',
+        paddingTop: 16,
     }
+    // contentComponent: drawerContentComponent.bind(this),
+    // contentOptions: {
+    //     inactiveLabelStyle: {
+    //         fontSize: normalize(16),
+    //         lineHeight: normalize(16) * 1.5,
+    //         ...lightText
+    //     },
+    //     activeLabelStyle: {
+    //         fontSize: normalize(32),
+    //         lineHeight: normalize(32) * 1.5,
+    //         ...lightText
+    //     },
+    //     activeBackgroundColor: '#00000000',
+    //     activeTintColor:'#000000',
+    //     itemStyle: {
+    //         marginBottom:16,
+    //     }
+    // }
 
 }
 
@@ -183,4 +179,4 @@ let libsearchStyles = StyleSheet.create({
       ...lightText,
     }
   })
-export { stackNavigationOptions, jedaeroStyles, foodMenuListStyles, foodTabStyles, foodTabNavStyles, lightText, regularText, drawerOptions, libsearchStyles }
+export { stackNavigationOptions, jedaeroStyles, foodMenuListStyles, foodTabStyles, foodTabNavStyles, mainTabOptions, libsearchStyles }

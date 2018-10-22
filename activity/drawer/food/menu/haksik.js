@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView, ActivityIndicator
 import { createMaterialTopTabNavigator, SafeAreaView } from 'react-navigation';
 import { normalize } from 'react-native-elements';
 import haksikCrawl from '../../../JedaeroAPI/HaksikAPI'
-import { foodTabNavStyles, lightText } from '../../../jedaeroCSS';
+import { foodTabNavStyles } from '../../../jedaeroCSS';
 
 class Haksik extends Component {
     constructor(props) {
@@ -94,8 +94,6 @@ let HaksikTabNavigator = createMaterialTopTabNavigator({
         },
         labelStyle: {
             fontSize:normalize(20),
-            lineHeight: normalize(20) * 1.5,
-            ...lightText,
         },
         style: {
             backgroundColor:'#f7f7f7',

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { normalize } from 'react-native-elements';
-import { lightText } from '../../jedaeroCSS';
 
 export default class Bus extends Component {
     constructor(props) {
@@ -19,7 +18,7 @@ export default class Bus extends Component {
                 style={{flex: 1, justifyContent:'center', alignItems:'center', backgroundColor:'#f7f7f7', }}
                 onPress={() => this.props.navigation.navigate("HaksikMon")}
             >
-                <Text style={{fontSize: normalize(20), ...lightText}}>Welcome to React Native!</Text>
+                <Text style={{fontSize: normalize(20)}}>Welcome to React Native!</Text>
             </TouchableOpacity>
         )
     }
