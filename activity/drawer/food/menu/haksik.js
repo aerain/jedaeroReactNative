@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView, ActivityIndicator
 import { createMaterialTopTabNavigator, SafeAreaView } from 'react-navigation';
 import { normalize } from 'react-native-elements';
 import haksikCrawl from '../../../JedaeroAPI/HaksikAPI'
-import { foodTabNavStyles } from '../../../jedaeroCSS';
+import { foodTabNavStyles, menuTopTabOptions } from '../../../jedaeroCSS';
 
 class Haksik extends Component {
     constructor(props) {
@@ -85,60 +85,7 @@ let HaksikTabNavigator = createMaterialTopTabNavigator({
             title:'금'
         }
     }, 
-}, {
-    tabBarOptions: {
-        showIcon: false,
-        tabStyle:{
-            justifyContent:'center',
-            alignItems:'center',
-        },
-        labelStyle: {
-            fontSize:normalize(20),
-        },
-        style: {
-            backgroundColor:'#f7f7f7',
-            borderTopWidth:0.5,
-            borderTopColor:'#d7d7d7',
-            elevation: 0,
-        },
-        indicatorStyle: {
-            marginBottomWidth:0,
-            height:0
-        },
-        activeTintColor:'#344955',
-        inactiveTintColor:'#aaaaaa'
-        
-    },
-    tabBarPosition:'bottom',
-    backBehavior: 'none',
-    // initialRouteName : () => {
-    //     var d = new Date();
-    //     var n = d.getDay();
-    //     var dayofweek = '';
-    //     switch (n) {
-    //         case 1:
-    //             dayofweek = 'HaksikMon';
-    //             break;
-    //         case 2:
-    //             dayofweek = 'HaksikTue';
-    //             break;
-    //         case 3:
-    //             dayofweek = 'HaksikWed';
-    //             break;
-    //         case 4:
-    //             dayofweek = 'HaksikThu';
-    //             break;
-    //         case 5:
-    //             dayofweek = 'HaksikFri';
-    //             break;
-    //         default:
-    //             dayofweek = 'HaksikMon';
-    //             break;
-    //     }
-
-    //     return dayofweek;
-    // }
-});
+}, menuTopTabOptions);
 
 export default class HakSikMain extends Component {
     static router = HaksikTabNavigator.router;

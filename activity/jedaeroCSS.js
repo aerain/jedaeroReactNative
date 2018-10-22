@@ -1,7 +1,8 @@
 import React from 'react';
-import { TouchableOpacity, StyleSheet, ScrollView, View, Image, Platform } from 'react-native';
+import { TouchableOpacity, StyleSheet, ScrollView, View, Image, Platform, Animated, Easing } from 'react-native';
 import { SafeAreaView, DrawerItems } from 'react-navigation';
 import EvilIcon from 'react-native-vector-icons/EvilIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import { normalize } from 'react-native-elements';
 
 
@@ -42,26 +43,58 @@ let stackNavigationOptions = {
                 backgroundColor:'#f7f7f7',
                 borderBottomWidth: 0,
                 elevation: 0,
+                height: 80
             },
             headerTitleStyle: {
                 fontSize:normalize(20),
             },
-            headerRight: (
-                <TouchableOpacity
-                    onPress={() => {
-                        navigation.openDrawer();
-                    }}
-                >
-                    <EvilIcon 
-                        name="navicon" 
-                        size={normalize(30)} 
-                        color="#344955"
-                        style={{marginRight:normalize(8)}}
-                    />
-                </TouchableOpacity>
-            )
+            // headerLeft: (
+            //     <Ionicons
+            //         name="ios-arrow-back"
+            //         size={normalize(30)}
+            //         color="#344955"
+            //     />
+            // )
+            // headerRight: (
+            //     <TouchableOpacity
+            //         onPress={() => {
+            //             navigation.openDrawer();
+            //         }}
+            //     >
+            //         <EvilIcon 
+            //             name="navicon" 
+            //             size={normalize(30)} 
+            //             color="#344955"
+            //             style={{marginRight:normalize(8)}}
+            //         />
+            //     </TouchableOpacity>
+            // )
         } 
-    }
+    },
+    transitionConfig: () => ({
+        transitionSpec: {
+          duration: 300,
+          easing: Easing.out(Easing.poly(4)),
+          timing: Animated.timing,
+        },
+        screenInterpolator: sceneProps => {
+          const { layout, position, scene } = sceneProps;
+          const { index } = scene;
+  
+          const width = layout.initWidth;
+          const translateX = position.interpolate({
+            inputRange: [index - 1, index, index + 1],
+            outputRange: [width, 0, 0],
+          });
+  
+          const opacity = position.interpolate({
+            inputRange: [index - 1, index - 0.99, index],
+            outputRange: [0, 1, 1],
+          });
+  
+          return { opacity, transform: [{ translateX }] };
+        },
+    }),
 }
 
 let jedaeroStyles = StyleSheet.create({
@@ -71,7 +104,6 @@ let jedaeroStyles = StyleSheet.create({
 let foodMenuListStyles = StyleSheet.create({
     container: {
         paddingLeft: 16,
-        paddingTop: 8,
         paddingBottom: 32,
         backgroundColor:'#ffffff',
         borderBottomWidth:0.5,
@@ -86,7 +118,7 @@ let foodTabStyles = StyleSheet.create({
     listTitleStyle: {
       fontSize: normalize(20),
       textAlign:'center',
-      color: 'white',
+      color: '#344955',
     },
     listSubtitleStyle: {
       textAlign:'center',
@@ -133,11 +165,15 @@ let foodTabNavStyles = StyleSheet.create({
 
 let mainTabOptions = {
     shifting: true,
-    activeColor: '#000000',
+    activeColor: '#344955',
     inactiveColor: '#d7d7d7',
+    labeled: false,
     barStyle: {
         backgroundColor:'#f7f7f7',
-        paddingTop: 16,
+        paddingBottom: 16,
+        // elevation:0,
+        // borderTopWidth:0.5,
+        // borderTopColor:'#e7e7e7',
     }
     // contentComponent: drawerContentComponent.bind(this),
     // contentOptions: {
@@ -170,13 +206,38 @@ let libsearchStyles = StyleSheet.create({
     },
     textContainer: {
       width: '100%', 
-      fontSize:normalize(24), 
-      lineHeight:normalize(24) * 1.5, 
+      fontSize:normalize(24),  
       paddingVertical:8, 
       textAlign:'center', 
       borderBottomWidth:0.5, 
       borderBottomColor:'black',
-      ...lightText,
     }
   })
-export { stackNavigationOptions, jedaeroStyles, foodMenuListStyles, foodTabStyles, foodTabNavStyles, mainTabOptions, libsearchStyles }
+
+let menuTopTabOptions = {
+    backBehavior: 'none',
+    tabBarPosition: 'bottom',
+    tabBarOptions: {
+        showIcon:false,
+        activeTintColor: "#344955",
+        inactiveTintColor:'#d7d7d7',
+        tabStyle:{
+            justifyContent:'center',
+            alignItems:'center',
+        },
+        labelStyle: {
+            fontSize: normalize(20),
+        },
+        style: {
+          backgroundColor:'#f7f7f7',
+          borderTopWidth:0.5,
+          borderTopColor:'#d7d7d7'
+        },
+        indicatorStyle: {
+          marginBottomWidth:0,
+          height:0
+        },
+    },
+
+  }
+export { stackNavigationOptions, jedaeroStyles, foodMenuListStyles, foodTabStyles, foodTabNavStyles, mainTabOptions, libsearchStyles, menuTopTabOptions }

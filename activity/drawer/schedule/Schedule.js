@@ -44,7 +44,7 @@ class Schedule extends Component {
                             key={item['month_title']}
                             title={item['month_title']}
                             containerStyle={haksaStyles.listContainer}
-                            titleStyle={{textAlign:'center', fontSize: normalize(20), fontFamily:'NotoSansCJKkr-Thin'}}
+                            titleStyle={{textAlign:'center', fontSize: normalize(20)}}
                             chevron
                             onPress={() => this.props.navigation.navigate('ScheduleDetail', item)}
                         />
