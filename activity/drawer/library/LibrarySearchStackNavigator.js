@@ -4,6 +4,7 @@ import { stackNavigationOptions } from '../../jedaeroCSS';
 
 import LibrarySearch from './LibrarySearch';
 import LibrarySearchDetail from './LibrarySearchDetail';
+import BookDetail from './BookDetail';
 
 export default LibraryStackNavigator = createStackNavigator({
     LibrarySearchHome: {
@@ -11,6 +12,9 @@ export default LibraryStackNavigator = createStackNavigator({
     },
     LibrarySearchDetail: {
         screen: LibrarySearchDetail,
+    },
+    BookDetail: {
+        screen: BookDetail,
     }
 }, stackNavigationOptions);
 

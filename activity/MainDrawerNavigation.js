@@ -1,68 +1,44 @@
 import React from 'react';
 import { ScrollView, View, Image } from 'react-native';
-import { createDrawerNavigator, SafeAreaView, DrawerItems } from 'react-navigation';
+import { SafeAreaView, DrawerItems } from 'react-navigation';
 import { normalize } from 'react-native-elements';
-
+import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
 import BusStack from './drawer/bus/BusStackNavigation';
 import FoodStack from './drawer/food/FoodListStackNavigation';
 import LibrarySearchStackNavigator from './drawer/library/LibrarySearchStackNavigator';
 import Schedule from './drawer/schedule/Schedule';
+import {mainTabOptions} from './jedaeroCSS';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-let drawerContentComponent = (props) => (
-    <ScrollView>
-        <View style={{backgroundColor:'#344955'}}>
-            <SafeAreaView forceInset={{ top: 'always', horizontal: 'never' }}>
-            <View style={{paddingLeft:30, paddingRight:30, width:'100%', height:150, backgroundColor:'#344955', justifyContent:'center', alignItems: 'center'}}>
-                <Image source={require('../images/logo.png')} style={{width: '100%'}} resizeMode="contain" />
-            </View>
-            </SafeAreaView>
-        </View>
-        <SafeAreaView>
-        <DrawerItems {...props} />
-        </SafeAreaView>
-    </ScrollView>
-)
 
-export default createDrawerNavigator({
+
+export default createMaterialBottomTabNavigator({
     Bus: {
         screen: BusStack,
         navigationOptions: {
-            title: '순환버스'
+            title: '순환버스',
+            tabBarIcon: ({tintColor}) => (<Icon name="bus" color={tintColor} size={35} style={{width: 35, height: 35}}/>)
         }
     },
     Food: {
         screen: FoodStack,
         navigationOptions: {
-            title: '뭐먹을까'
+            title: '뭐먹을까',
+            tabBarIcon: ({tintColor}) => (<Icon name="food-fork-drink" color={tintColor} size={35} style={{width: 35, height: 35}}/>)
         }
     },
     ScheduleMain: {
         screen: Schedule,
         navigationOptions: {
-            title: '학사일정'
+            title: '학사일정',
+            tabBarIcon: ({tintColor}) => (<Icon name="calendar" color={tintColor} size={35} style={{width: 35, height: 35}}/>)
         }
     },    
     LibrarySearch: {
         screen: LibrarySearchStackNavigator,
         navigationOptions: {
-            title: '도서검색'
+            title: '도서검색',
+            tabBarIcon: ({tintColor}) => (<Icon name="library" color={tintColor} size={35} style={{width: 35, height: 35}}/>)
         }
     }
-}, {
-    drawerPosition: 'right',
-    contentComponent: drawerContentComponent.bind(this),
-    contentOptions: {
-        inactiveLabelStyle: {
-            fontSize: normalize(16),
-        },
-        activeLabelStyle: {
-            fontSize: normalize(32),
-        },
-        activeBackgroundColor: '#00000000',
-        activeTintColor:'#000000',
-        itemStyle: {
-            marginBottom:16,
-        }
-    }
-
-})
+}, mainTabOptions)

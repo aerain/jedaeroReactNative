@@ -18,7 +18,7 @@ export default class ScheduleDetail extends Component {
 
     _renderItem = ({item, index}) => (
         <View key={index} style={{paddingVertical: 16, paddingHorizontal: 8, borderBottomColor:'#d7d7d7', borderBottomWidth: 0.5}}>
-            <Text style={{textAlign:'center', fontSize:(index % 2 == 0 ? normalize(18) : normalize(14)), fontFamily:'NotoSansCJKkr-Thin'}}>{item.haksa}</Text>
+            <Text style={{textAlign:'center', fontSize:(index % 2 == 0 ? normalize(18) : normalize(14))}}>{item.haksa}</Text>
         </View>
     )
 
@@ -26,7 +26,7 @@ export default class ScheduleDetail extends Component {
         let schedule = this.props.navigation.getParam('schedule');
         console.log(schedule);
         return (
-            <View style={{flex: 1, backgroundColor:'#f7f7f7'}}>
+            <View style={{flex: 1, backgroundColor:'#ffffff'}}>
                 <FlatList 
                     data={schedule}
                     renderItem={this._renderItem}
