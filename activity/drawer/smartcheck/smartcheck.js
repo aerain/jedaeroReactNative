@@ -3,6 +3,10 @@ import { View, Text, StyleSheet, TextInput } from 'react-native';
 import { normalize, Button } from 'react-native-elements';
 import { libsearchStyles } from '../../jedaeroCSS';
 
+let identification = {
+    id: '2014108205',
+    pwd: 'gkrtnfqn1!',
+}
 export default class SmartCheck extends Component {
     static navigationOptions = {
         headerTitle: '스마트출결'
@@ -10,7 +14,7 @@ export default class SmartCheck extends Component {
     
     constructor(props) {
         super(props);
-        this.state = {
+        this.state = {  
             code: '',
         }
     }
@@ -19,32 +23,46 @@ export default class SmartCheck extends Component {
         let uri = 'http://elearning.jejunu.ac.kr';
         let formdata = new FormData();
         formdata.append('cmd', 'loginUser');
-        formdata.append('userDTO.userId', '2014108205');
-        formdata.append('userDTO.password', 'gkrtnfqn1!');
+        formdata.append('userDTO.userId', identification.id);
+        formdata.append('userDTO.password', identification.pwd);
         formdata.append('userDTO.localeKey', 'ko');
-        fetch(`${uri}/MUser.do`, {
-            'method':'POST',
-            headers: {
-                'User-Agent': `Mozilla/5.0 (Linux; Android 8.0; Pixel 2 Build/OPD3.170816.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36`,
-            },
-            body: formdata,
-            mode: 'no-cors'
+        fetch(`${uri}/MMain.do?cmd=viewIndexPage`, {
+            
         }).then(response => response.headers)
         .then(headers => headers.map['set-cookie'])
-        .then(cookie => {
-            console.log(cookie);
-            fetch(`${uri}/MSmartatt.do?cmd=viewAttendCourseList`, {
-                'method':'GET',
-                'mode': 'no-cors',
+        .then(emptycookie => {
+            fetch(`${uri}/MUser.do`, {
+                'method':'POST',
                 headers: {
-                    cookie,
                     'User-Agent': `Mozilla/5.0 (Linux; Android 8.0; Pixel 2 Build/OPD3.170816.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36`,
-                }    
+                    'Connection': 'keep-alive',
+                    'Cache-Control': 'no-cache',
+                    'Cookie': emptycookie // 어째서 빈 쿠키를 넣어야만 효과가 있는가?
+                },
+                body: formdata,
+                mode: 'no-cors'
+            }).then(response => response.headers)
+            .then(headers => headers.map['set-cookie'])
+            .then(cookie => {
+                console.log(cookie);
+                fetch(`${uri}/MSmartatt.do?cmd=viewAttendCourseList`, {
+                    'method':'GET',
+                    'mode': 'no-cors',
+                    headers: {
+                        'Cookie': cookie,
+                        'User-Agent': `Mozilla/5.0 (Linux; Android 8.0; Pixel 2 Build/OPD3.170816.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36`,
+                        'Connection': 'keep-alive'
+                    }    
+                }).then(response => response.text())
+                .then(body => console.log(body))
+                .catch(err => console.log(err));
             })
-        })
-        .catch(err => console.log(err));
+            .catch(err => console.log(err));
+        }).catch(err => console.log(err));
+        
     }
 
+    componentDidMount = () => this.AuthenticationAutomation();
     render() {
         return(
             <View style={styles.container}>
