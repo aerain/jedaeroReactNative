@@ -46,7 +46,7 @@ export default createStackNavigator(
         DetailMenu: {
             screen: DetailMenu,
             navigationOptions: {
-                headerTitle: '더미'
+                headerTitle: ''
             }
         }
 
