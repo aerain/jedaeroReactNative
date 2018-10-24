@@ -1,4 +1,4 @@
-let uri = 'http://elearning.jejunu.ac.kr';
+let uri = 'https://elearning.jejunu.ac.kr';
 
 export default function (identification, code) {
     
@@ -7,7 +7,16 @@ export default function (identification, code) {
         formdata.append('userDTO.userId', identification.id);
         formdata.append('userDTO.password', identification.pwd);
         formdata.append('userDTO.localeKey', 'ko');
-        fetch(`${uri}/MMain.do?cmd=viewIndexPage`).then(response => response.headers)
+        fetch(`${uri}/MMain.do?cmd=viewIndexPage`, {
+            method: 'GET',
+            headers: {
+                'Connection': 'keep-alive',
+            },
+            mode:'no-cors',
+        }).then(response => {
+            console.log(response);
+            return response.headers;
+        })
         .then(headers => headers.map['set-cookie'])
         .then(emptyCookie => {
             fetch(`${uri}/MUser.do`, {

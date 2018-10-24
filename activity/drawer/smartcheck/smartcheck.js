@@ -22,6 +22,8 @@ export default class SmartCheck extends Component {
 
     }
     
+    //authenticate = (id, code) => SmartCheckAPI.bind(this)(id, code);
+
     render() {
         return(
             <View style={styles.container}>
@@ -34,6 +36,7 @@ export default class SmartCheck extends Component {
                     title="코드 입력"
                     onPress={() => {
                         if(this.state.code.trim() != '') {
+                            // this.authenticate(identification, this.state.code);
                             SmartCheckAPI(identification, this.state.code);
                         } else {
                             Alert.alert('코드 입력좀 하세욘!');
