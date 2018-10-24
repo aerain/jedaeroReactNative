@@ -174,7 +174,7 @@ let mainTabOptions = {
         paddingBottom: 16,
         elevation:0,
         borderTopWidth:0.5,
-        borderTopColor:'#e7e7e7',
+        borderTopColor:'#d7d7d7',
     }
     // contentComponent: drawerContentComponent.bind(this),
     // contentOptions: {
