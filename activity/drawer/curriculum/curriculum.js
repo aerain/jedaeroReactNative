@@ -62,7 +62,30 @@ class CurriCulumMain extends Component {
         let emptyHeaders = await emptyResponse.headers;
         let emptyCookie = emptyHeaders.map['set-cookie'];
 
-        let response = await fetch()
+        let response = await fetch(`${uri}/frame/sysUser.do?next=`,{
+            'method': 'POST',
+            'body': JSON.stringify({
+
+            }),
+            'Host': 'dreamy.jejunu.ac.kr',
+            'Connection': 'keep-alive',
+            'Content-Length': '86',
+            'Pragma': 'no-cache',
+            'Cache-Control': 'no-cache',
+            'Origin': 'http://dreamy.jejunu.ac.kr',
+            'Upgrade-Insecure-Requests': '1',
+            'DNT': '1',
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'User-Agent': 'Mozilla/5.0 (Linux; Android 8.0; Pixel 2 Build/OPD3.170816.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Mobile Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'Referer': 'http://dreamy.jejunu.ac.kr/frame/index.do',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'Accept-Language': 'ko',
+            'Cookie': emptyCookie,
+        })
+
+        let text = await response.headers();
+        console.log(text);
 
     }
 
