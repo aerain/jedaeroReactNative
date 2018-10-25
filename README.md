@@ -25,7 +25,8 @@ cheerio-without-node-native
 buffer
 ```
 ## 개발 인원
-- 이청길(제주대학교 14학번) https://github.com/aerain - PM
-- 최원범(제주대학교 13학번) https://github.com/WonBeomChoi
-- 오현규(제주대학교 14학번)
-- 김승현(제주대학교 16학번)
+- 이청길(제주대학교 14학번) https://github.com/aerain - PM - Developer
+- 최원범(제주대학교 13학번) https://github.com/WonBeomChoi - Developer
+- 오현규(제주대학교 14학번) - Developer
+- 김승현(제주대학교 16학번) - Developer
+- 윤다영(제주대학교 16학번) - Design
