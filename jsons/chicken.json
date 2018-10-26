@@ -1,37 +1,37 @@
 [
   {
     "name":"1번가 2마리 치킨",
-    "images":"http://117.17.102.139/img/chicken/1st2chicken.png",
+    "images":"https://raw.githubusercontent.com/WonBeomChoi/jedaeroRN_img/master/chicken/1st2chicken.png",
     "tel":"070-8900-1990"
   },
   {
     "name":"멕시카나 치킨",
-    "images":"http://117.17.102.139/img/chicken/mexicana.png",
+    "images":"https://raw.githubusercontent.com/WonBeomChoi/jedaeroRN_img/master/chicken/mexicana.png",
     "tel":"064-702-8865"
   },
   {
     "name":"명품치킨",
-    "images":"http://117.17.102.139/img/chicken/myeongpoom.png",
+    "images":"https://raw.githubusercontent.com/WonBeomChoi/jedaeroRN_img/master/chicken/myeongpoom.png",
     "tel":"064-723-8292"
   },
   {
     "name":"본초불닭발",
-    "images":"http://117.17.102.139/img/chicken/bonchobul.jpg",
+    "images":"https://raw.githubusercontent.com/WonBeomChoi/jedaeroRN_img/master/chicken/bonchobul.jpg",
     "tel":"064-702-3880"
   },
   {
     "name":"숲노을치킨",
-    "images":"http://117.17.102.139/img/chicken/forest.png",
+    "images":"https://raw.githubusercontent.com/WonBeomChoi/jedaeroRN_img/master/chicken/forest.png",
     "tel":"064-724-5330"
   },
   {
     "name":"엄마치킨",
-    "images":"http://117.17.102.139/img/chicken/mother.png",
+    "images":"https://raw.githubusercontent.com/WonBeomChoi/jedaeroRN_img/master/chicken/mother.png",
     "tel":"064-726-5330"
   },
   {
     "name":"푸라닭치킨",
-    "images":"http://117.17.102.139/img/chicken/puradak.png",
+    "images":"https://raw.githubusercontent.com/WonBeomChoi/jedaeroRN_img/master/chicken/puradak.png",
     "tel":"064-702-1588"
   }
 ]
