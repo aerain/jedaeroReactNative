@@ -1,5 +1,6 @@
 import RNFetchBlob from 'rn-fetch-blob';
 import cheerio from 'cheerio-without-node-native';
+import { AsyncStorage } from 'react-native';
 
 export default function HaksikAPI () {
 
