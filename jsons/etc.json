@@ -1,72 +1,77 @@
 [
   {
     "name":"토니버거",
-    "images":"http://117.17.102.139/img/overseafood/tonibuger.png",
+    "images":"https://raw.githubusercontent.com/WonBeomChoi/jedaeroRN_img/master/overseafood/tonibuger.png",
     "tel":""
   },
   {
     "name":"꽁냥꽁냥",
-    "images":"http://117.17.102.139/img/overseafood/gongnyang.png",
+    "images":"https://raw.githubusercontent.com/WonBeomChoi/jedaeroRN_img/master/overseafood/gongnyang.png",
     "tel":""
   },
   {
     "name":"나인",
-    "images":"http://117.17.102.139/img/overseafood/nine.png",
+    "images":"https://raw.githubusercontent.com/WonBeomChoi/jedaeroRN_img/master/overseafood/nine.png",
     "tel":""
   },
   {
     "name":"도스마스",
-    "images":"http://117.17.102.139/img/overseafood/dosmas.png",
+    "images":"https://raw.githubusercontent.com/WonBeomChoi/jedaeroRN_img/master/overseafood/dosmas.png",
     "tel":""
   },
   {
     "name":"롯데리아",
-    "images":"http://117.17.102.139/img/overseafood/lotte.png",
+    "images":"https://raw.githubusercontent.com/WonBeomChoi/jedaeroRN_img/master/overseafood/lotte.png",
     "tel":"1600-9999"
   },
   {
     "name":"맘스터치",
-    "images":"http://117.17.102.139/img/overseafood/momstouch.png",
+    "images":"https://raw.githubusercontent.com/WonBeomChoi/jedaeroRN_img/master/overseafood/momstouch.png",
     "tel":""
   },
   {
     "name":"아라평화반점",
-    "images":"http://117.17.102.139/img/overseafood/peacebanjum.png",
+    "images":"https://raw.githubusercontent.com/WonBeomChoi/jedaeroRN_img/master/overseafood/peacebanjum.png",
     "tel":"064-724-1344"
   },
   {
     "name":"오니기리와이규동",
-    "images":"http://117.17.102.139/img/overseafood/leegyudong.png",
+    "images":"https://raw.githubusercontent.com/WonBeomChoi/jedaeroRN_img/master/overseafood/leegyudong.png",
     "tel":""
   },
   {
     "name":"진성반점",
-    "images":"http://117.17.102.139/img/overseafood/jinsung.jpg",
+    "images":"https://raw.githubusercontent.com/WonBeomChoi/jedaeroRN_img/master/overseafood/jinsung.jpg",
     "tel":""
   },
   {
     "name":"짬스뽕스",
-    "images":"http://117.17.102.139/img/overseafood/jjamsbbongs.jpg",
+    "images":"https://raw.githubusercontent.com/WonBeomChoi/jedaeroRN_img/master/overseafood/jjamsbbongs.jpg",
     "tel":"064-900-8081"
   },
   {
     "name":"평화반점2",
-    "images":"http://117.17.102.139/img/overseafood/peacebanjum2.png",
+    "images":"https://raw.githubusercontent.com/WonBeomChoi/jedaeroRN_img/master/overseafood/peacebanjum2.png",
     "tel":""
   },
   {
     "name":"하오돈부리",
-    "images":"http://117.17.102.139/img/overseafood/hoadonburi.png",
+    "images":"https://raw.githubusercontent.com/WonBeomChoi/jedaeroRN_img/master/overseafood/hoadonburi.png",
     "tel":""
   },
   {
     "name":"월궁",
-    "images":"http://117.17.102.139/img/overseafood/moonpalace.jpg",
+    "images":"https://raw.githubusercontent.com/WonBeomChoi/jedaeroRN_img/master/overseafood/moonpalace.jpg",
     "tel":"064-724-3477"
   },
   {
+    "name":"세이슌",
+    "images":"https://raw.githubusercontent.com/WonBeomChoi/jedaeroRN_img/master/overseafood/seishun.png",
+    "tel":""
+  },
+  {
     "name":"NAVI",
-    "images":"http://117.17.102.139/img/overseafood/navi.png",
+    "images":"https://raw.githubusercontent.com/WonBeomChoi/jedaeroRN_img/master/overseafood/navi.png",
     "tel":""
   }
 ]
