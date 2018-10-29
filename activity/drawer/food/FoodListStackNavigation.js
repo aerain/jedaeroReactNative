@@ -15,9 +15,6 @@ export default createStackNavigator(
         },
         Haksik: {
             screen: Haksik,
-            navigationOptions : {
-                headerTitle:'백두관 식당'
-            }
         },
         Dormitory: {
             screen: Dormitory,

@@ -64,7 +64,7 @@ export default function HaksikAPI () {
             }
             resolve(meal);
         } catch (err) {
-            
+            reject(err);   
         }
     });
 

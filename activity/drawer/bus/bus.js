@@ -9,15 +9,11 @@ export default class Bus extends Component {
     }
     static navigationOptions = () => {
         return {
-            headerTitle: '순환버스',
+            headerTitle: '홈',
         } 
     }
-
-
     
     render = () => {
-        let d = new Date();
-        console.log(d);
         return (
             <View style={{flex:1, backgroundColor:'#f7f7f7'}}>
                 <ScrollView>
