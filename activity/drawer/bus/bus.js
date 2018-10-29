@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Platform } from 'react-native';
 import { normalize } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
 export default class Bus extends Component {
     constructor(props) {
@@ -12,32 +13,88 @@ export default class Bus extends Component {
         } 
     }
 
+
     
     render = () => {
+        let d = new Date();
+        console.log(d);
         return (
-            <View style={{flex: 1, backgroundColor:'#f7f7f7'}}>
-                <View style={{flex: 1,}}>
-                    <TouchableOpacity 
-                        style={{width:'100%', height:100, justifyContent:'center', alignItems:'center', backgroundColor:'#f7f7f7', }}
-                        onPress={() => this.props.navigation.navigate("HaksikMon")}
-                    >
-                        <Text style={{fontSize: normalize(20)}}>오늘의 학식따리는 무엇인가?</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity 
-                        style={{width:'100%', height:100, justifyContent:'center', alignItems:'center', backgroundColor:'#f7f7f7', }}
-                        onPress={() => this.props.navigation.navigate('SmartCheck')}
-                    >
-                        <Text style={{fontSize: normalize(20)}}>드리미를 들어가볼까요?</Text>
-                    </TouchableOpacity>
-                </View>
-                <TouchableOpacity 
-                    style={{paddingVertical:16, paddingHorizontal: 16, borderTopWidth:0.5, borderTopColor:'#d7d7d7', backgroundColor:'#34495599'}}
-                    onPress={() => this.props.navigation.navigate('Login')}
-                >
-                    <Text style={{color:'#e7e7e7'}}>로그인 해주세요!!!</Text>
-                </TouchableOpacity>
+            <View style={{flex:1, backgroundColor:'#f7f7f7'}}>
+                <ScrollView>
+                    <View style={styles.foodBlock}>
+                        <View style={styles.foodBlockTitle}>
+                            <Text style={styles.foodBlockTitleText}>즐겨찾기된 정류장</Text>
+                            <TouchableOpacity
+                                onPress={this.props.onRefresh}
+                            >
+                                <Icon name="refresh" color="#ffffff" size={normalize(16)} />
+                            </TouchableOpacity>
+                        </View>
+                        <View style={styles.foodBlockContainer}>
+                            <Text style={styles.foodBlockContainerText}>{this.props.food}</Text>
+                        </View>
+                        <View style={styles.foodBlockContainer}>
+                            <Text style={styles.foodBlockContainerText}>{this.props.food}</Text>
+                        </View>
+                    </View>
+                    <FoodBlock name="오늘의 학식" food="입니다." onRefresh={() => {}}/>
+                    <FoodBlock name="오늘의 기숙사" food="입니다." onRefresh={() => {}}/>
+                </ScrollView>
             </View>
+            
             
         )
     }
 }
+
+class FoodBlock extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <View style={styles.foodBlock}>
+                <View style={styles.foodBlockTitle}>
+                    <Text style={styles.foodBlockTitleText}>{this.props.name}</Text>
+                    <TouchableOpacity
+                        onPress={this.props.onRefresh}
+                    >
+                        <Icon name="refresh" color="#ffffff" size={normalize(16)} />
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.foodBlockContainer}>
+                    <Text style={styles.foodBlockContainerText}>{this.props.food}</Text>
+                </View>
+            </View>
+        )
+    }
+}
+
+const styles = StyleSheet.create({
+    foodBlock: {
+        borderBottomWidth:0.5,
+        borderBottomColor:'#d7d7d7',
+        marginBottom:16
+    },
+    foodBlockTitle: {
+        backgroundColor:'#334955',
+        paddingHorizontal:16,
+        paddingVertical:8,
+        justifyContent:'space-between',
+        flexDirection:'row',
+    },
+    foodBlockTitleText: {
+        color:'#ffffff',
+        fontSize:normalize(16),
+        
+    },
+    foodBlockContainer: {
+        backgroundColor:'#ffffff',
+        paddingHorizontal: 16,
+        paddingVertical: 12,
+    },
+    foodBlockContainerText: {
+        textAlign:'center'
+    }
+})

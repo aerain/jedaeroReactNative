@@ -9,7 +9,6 @@ import LibrarySearchStackNavigator from './drawer/library/LibrarySearchStackNavi
 import Schedule from './drawer/schedule/Schedule';
 import {mainTabOptions} from './jedaeroCSS';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import curriculum from './drawer/curriculum/curriculum';
 
 
 
@@ -40,13 +39,6 @@ export default createMaterialBottomTabNavigator({
         navigationOptions: {
             title: '도서검색',
             tabBarIcon: ({tintColor}) => (<Icon name="library" color={tintColor} size={35} style={{width: 35, height: 35}}/>)
-        }
-    },
-    CurriCulum: {
-        screen: curriculum,
-        navigationOptions: {
-            title: '커리큘럼',
-            tabBarIcon: ({tintColor}) => (<Icon name="calendar" color={tintColor} size={35} style={{width: 35, height: 35}}/>)
         }
     }
 }, mainTabOptions)

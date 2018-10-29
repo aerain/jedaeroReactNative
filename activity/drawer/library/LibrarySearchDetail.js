@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, FlatList } from 'react-native'
+import { ScrollView, Text, View, StyleSheet, FlatList } from 'react-native'
 import { normalize, ListItem } from 'react-native-elements';
 
 export default class LibrarySearchDetail extends Component {
@@ -68,7 +68,7 @@ export default class LibrarySearchDetail extends Component {
         // </View>
         // ) : 
         return (
-        <View style={libdetailStyles.container}>
+        <ScrollView contentContainerStyle={libdetailStyles.container} nestedScrollEnabled={true}>
             <Text style={libdetailStyles.textStyle}> 
                 <Text style={{fontSize:normalize(32)}}>{this.props.navigation.getParam('search', 'none')}</Text> 에 대한 검색결과
             </Text>
@@ -82,14 +82,13 @@ export default class LibrarySearchDetail extends Component {
                 onEndReached={this._getData}
                 style={{borderTopWidth:0.5, borderTopColor:'#d7d7d7'}}
             />
-        </View>
+        </ScrollView>
         )
     }
 }
 
 let libdetailStyles = StyleSheet.create({
     container: {
-        flex: 1,
         backgroundColor:'#f7f7f7',
     },
 
