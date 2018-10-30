@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, ActivityIndicator, Platform, AsyncStorage, RefreshControl } from 'react-native';
 import { createMaterialTopTabNavigator, SafeAreaView } from 'react-navigation';
-import { normalize } from 'react-native-elements';
 import haksikCrawl from '../../../JedaeroAPI/HaksikAPI'
 import { foodTabNavStyles, menuTopTabOptions } from '../../../jedaeroCSS';
 import getWeek from '../../../../tool/getWeek';
-import Icon from 'react-native-vector-icons/SimpleLineIcons'
-import { DarkTheme } from 'react-native-paper';
 
 class Haksik extends Component {
     constructor(props) {

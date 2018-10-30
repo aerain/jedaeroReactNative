@@ -166,16 +166,20 @@ let foodTabNavStyles = StyleSheet.create({
 
 let mainTabOptions = {
     shifting: true,
-    activeColor: '#344955',
-    inactiveColor: '#d7d7d7',
-    labeled: false,
-    barStyle: {
-        backgroundColor:'#f7f7f7',
-        paddingBottom: 16,
+    tabBarOptions: {
+      activeTintColor: '#344955',
+      inactiveTintColor: '#d7d7d7',
+      showLabel: false,
+      tabStyle: {
+        backgroundColor:'#ffffff',
+        paddingBottom: 24,
+        paddingTop:24,
         elevation:0,
         borderTopWidth:0.5,
         borderTopColor:'#d7d7d7',
+      }
     }
+    
     // contentComponent: drawerContentComponent.bind(this),
     // contentOptions: {
     //     inactiveLabelStyle: {

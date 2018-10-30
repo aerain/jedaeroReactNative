@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, ScrollView,} from 'react-native';
-import { normalize } from 'react-native-elements';
+import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, ScrollView, AsyncStorage, RefreshControl } from 'react-native';
 import { createMaterialTopTabNavigator, SafeAreaView } from 'react-navigation';
-
 import DormitoryAPI from '../../../JedaeroAPI/DormitoryAPI';
 import { foodTabNavStyles, menuTopTabOptions } from '../../../jedaeroCSS';
+import getWeek from '../../../../tool/getWeek';
 
 class Dorm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      meal: null
+      meal: null,
+      refreshing: false,
     }
   }
 
@@ -27,7 +27,18 @@ class Dorm extends Component {
       )
     } else {
       return (
-        <ScrollView style={foodTabNavStyles.container}>
+        <ScrollView style={foodTabNavStyles.container}
+          refreshControl= {
+            <RefreshControl 
+              refreshing={this.state.refreshing}
+              onRefresh={async () => {
+                this.setState({refreshing: true});
+                await this.props.onRefresh();
+                this.setState({refreshing: false});
+              }}
+            />
+          }
+        >
           <DormList title="조기" food={this.state.meal.dawn} />
           <DormList title="아침" food={this.state.meal.breakfast} />
           <DormList title="점심" food={this.state.meal.lunch} />
@@ -111,13 +122,29 @@ export default class DormitoryMain extends Component {
   }
   static router = DormTap.router;
 
-  componentDidMount = () => this.getData.bind(this)();
+  componentDidMount = () => {
+    var currentWeek = getWeek(new Date()).toString();
+    this.getData.bind(this)(currentWeek);
+  };
 
-  getData = () => {
-    DormitoryAPI()
-    .then(data => {
-      this.setState({data});
-    })
+  onRefresh = async(currentWeekToString) => {
+    var crawl = await DormitoryAPI();
+    await AsyncStorage.setItem('storedDormitoryWeek', currentWeekToString);
+    await AsyncStorage.setItem('storedDormitory', JSON.stringify(crawl));
+    var data = await AsyncStorage.getItem('storedDormitory');
+    this.setState({data: JSON.parse(data)});
+    console.log(this.state.data);
+  }
+
+  getData = async (currentWeek = -1) => {
+    var currentWeekToString = currentWeek.toString();
+    var storedWeek = await AsyncStorage.getItem('storedDormitoryWeek');
+    if(currentWeek === -1 || storedWeek == null || storedWeek != currentWeekToString) {
+      await this.onRefresh(currentWeekToString);
+    } else {
+      let data = await AsyncStorage.getItem('storedDormitory');
+      this.setState({data: JSON.parse(data)})
+    }
   }
 
   render = () => {

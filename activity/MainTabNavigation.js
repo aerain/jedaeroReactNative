@@ -2,7 +2,8 @@ import React from 'react';
 import { ScrollView, View, Image } from 'react-native';
 import { SafeAreaView, DrawerItems } from 'react-navigation';
 import { normalize } from 'react-native-elements';
-import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
+import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
+import { createBottomTabNavigator } from 'react-navigation';
 import BusStack from './drawer/bus/BusStackNavigation';
 import FoodStack from './drawer/food/FoodListStackNavigation';
 import LibrarySearchStackNavigator from './drawer/library/LibrarySearchStackNavigator';
@@ -12,7 +13,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
 
-export default createMaterialBottomTabNavigator({
+export default createBottomTabNavigator({
     Bus: {
         screen: BusStack,
         navigationOptions: {
