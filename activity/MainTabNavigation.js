@@ -10,7 +10,7 @@ import LibrarySearchStackNavigator from './drawer/library/LibrarySearchStackNavi
 import Schedule from './drawer/schedule/Schedule';
 import {mainTabOptions} from './jedaeroCSS';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import BusSc from './drawer/bus2/BusStackNavigation';
 
 
 export default createBottomTabNavigator({
@@ -39,6 +39,13 @@ export default createBottomTabNavigator({
         screen: LibrarySearchStackNavigator,
         navigationOptions: {
             title: '도서검색',
+            tabBarIcon: ({tintColor}) => (<Icon name="library" color={tintColor} size={35} style={{width: 35, height: 35}}/>)
+        }
+    },
+    BusSchedule:{
+        screen: BusSc,
+        navigationOptions:{
+            title: '버스버스잼',
             tabBarIcon: ({tintColor}) => (<Icon name="library" color={tintColor} size={35} style={{width: 35, height: 35}}/>)
         }
     }
