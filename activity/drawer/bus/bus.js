@@ -247,9 +247,12 @@ class FoodBlock extends Component {
 
 const styles = StyleSheet.create({
     foodBlock: {
-        borderBottomWidth:0.5,
-        borderBottomColor:'#d7d7d7',
-        marginBottom:16
+        borderWidth:0.5,
+        borderColor:'#d7d7d7',
+        marginBottom:16,
+        marginHorizontal:8,
+        borderRadius:8,
+        overflow:'hidden',
     },
     foodBlockTitle: {
         backgroundColor:'#334955',
@@ -269,6 +272,7 @@ const styles = StyleSheet.create({
     },
     foodBlockContainerText: {
         lineHeight:normalize(16),
+        color:'#000000'
     },
     foodBlockContainerLeft: {
         color:'#334955',

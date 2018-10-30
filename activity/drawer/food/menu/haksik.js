@@ -108,7 +108,6 @@ export default class HakSikMain extends Component {
 
     constructor(props) {
         super(props);
-
         this.state = {
             data: {},
         }
@@ -144,7 +143,7 @@ export default class HakSikMain extends Component {
 
     render() {
         return (
-            <SafeAreaView style={{flex: 1, backgroundColor:'#f7f7f7'}} forceInset={{bottom: 'always'}}>
+            <SafeAreaView style={{flex: 1, backgroundColor:'#f7f7f7'}} forceInset={{bottom: 'never'}}>
                 <HaksikTabNavigator navigation={this.props.navigation} screenProps={{ meal: this.state.data, onRefresh: () => {this.onRefresh(getWeek(new Date()).toString())} }}/>
             </SafeAreaView>
         )

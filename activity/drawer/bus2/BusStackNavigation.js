@@ -3,7 +3,7 @@ import Bus from './bus';
 import { stackNavigationOptions } from '../../jedaeroCSS';
 
 export default createStackNavigator({
-    Bus: {
+    BusScHome: {
         screen: Bus,
     }
 }, stackNavigationOptions );

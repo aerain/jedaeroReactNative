@@ -165,19 +165,17 @@ let foodTabNavStyles = StyleSheet.create({
 });
 
 let mainTabOptions = {
-    shifting: true,
     tabBarOptions: {
       activeTintColor: '#344955',
       inactiveTintColor: '#d7d7d7',
       showLabel: false,
-      tabStyle: {
+      style: {
         backgroundColor:'#ffffff',
-        paddingBottom: 24,
-        paddingTop:24,
         elevation:0,
         borderTopWidth:0.5,
         borderTopColor:'#d7d7d7',
-      }
+        height:65
+      },
     }
     
     // contentComponent: drawerContentComponent.bind(this),
@@ -189,7 +187,6 @@ let mainTabOptions = {
     //     },
     //     activeLabelStyle: {
     //         fontSize: normalize(32),
-    //         lineHeight: normalize(32) * 1.5,
     //         ...lightText
     //     },
     //     activeBackgroundColor: '#00000000',
@@ -203,11 +200,7 @@ let mainTabOptions = {
 
 let libsearchStyles = StyleSheet.create({
     container: {
-      flex: 1, 
-      justifyContent: 'center', 
-      alignItems: 'center', 
-      backgroundColor:'#f7f7f7', 
-      paddingHorizontal: 32,
+      paddingHorizontal:16,
     },
     textContainer: {
       width: '100%', 

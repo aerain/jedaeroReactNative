@@ -69,43 +69,43 @@ class DormList extends Component {
 let DormTap = createMaterialTopTabNavigator(
   {
     dormMon: {
-      screen: (props) => <Dorm DoW="mon" navigation={props.navigation} meal={props.screenProps.meal.mealMon}/>,
+      screen: (props) => <Dorm DoW="mon" navigation={props.navigation} meal={props.screenProps.meal.mealMon} onRefresh={props.screenProps.onRefresh}/>,
       navigationOptions: {
         title: "월"
       }
     },
     dormTue: {
-      screen: (props) => <Dorm DoW="tue" navigation={props.navigation} meal={props.screenProps.meal.mealTue}/>,
+      screen: (props) => <Dorm DoW="tue" navigation={props.navigation} meal={props.screenProps.meal.mealTue} onRefresh={props.screenProps.onRefresh}/>,
       navigationOptions: {
         title: "화"
       }
     },
     dormWed: {
-      screen: (props) => <Dorm DoW="wed" navigation={props.navigation} meal={props.screenProps.meal.mealWed}/>,
+      screen: (props) => <Dorm DoW="wed" navigation={props.navigation} meal={props.screenProps.meal.mealWed} onRefresh={props.screenProps.onRefresh}/>,
       navigationOptions: {
         title: "수"
       }
     },
     dormThu: {
-      screen: (props) => <Dorm DoW="thu" navigation={props.navigation} meal={props.screenProps.meal.mealThu}/>,
+      screen: (props) => <Dorm DoW="thu" navigation={props.navigation} meal={props.screenProps.meal.mealThu} onRefresh={props.screenProps.onRefresh}/>,
       navigationOptions: {
         title: "목"
       }
     },
     dormFri: {
-      screen: (props) => <Dorm DoW="fri" navigation={props.navigation} meal={props.screenProps.meal.mealFri}/>,
+      screen: (props) => <Dorm DoW="fri" navigation={props.navigation} meal={props.screenProps.meal.mealFri} onRefresh={props.screenProps.onRefresh}/>,
       navigationOptions: {
         title: "금"
       }
     },
     dormSat: {
-      screen: (props) => <Dorm DoW="sat" navigation={props.navigation} meal={props.screenProps.meal.mealSat}/>,
+      screen: (props) => <Dorm DoW="sat" navigation={props.navigation} meal={props.screenProps.meal.mealSat} onRefresh={props.screenProps.onRefresh}/>,
       navigationOptions: {
         title: "토"
       }
     },
     dormSun: {
-      screen: (props) => <Dorm DoW="sun" navigation={props.navigation} meal={props.screenProps.meal.mealSun}/>,
+      screen: (props) => <Dorm DoW="sun" navigation={props.navigation} meal={props.screenProps.meal.mealSun} onRefresh={props.screenProps.onRefresh}/>,
       navigationOptions: {
         title: "일"
       }
@@ -127,7 +127,7 @@ export default class DormitoryMain extends Component {
     this.getData.bind(this)(currentWeek);
   };
 
-  onRefresh = async(currentWeekToString) => {
+  onRefresh = async (currentWeekToString) => {
     var crawl = await DormitoryAPI();
     await AsyncStorage.setItem('storedDormitoryWeek', currentWeekToString);
     await AsyncStorage.setItem('storedDormitory', JSON.stringify(crawl));
@@ -149,8 +149,8 @@ export default class DormitoryMain extends Component {
 
   render = () => {
     return (
-      <SafeAreaView style={{flex: 1, backgroundColor:'#f7f7f7'}} forceInset={{bottom:'always'}}>
-        <DormTap navigation={this.props.navigation} screenProps={{meal: this.state.data}}/>
+      <SafeAreaView style={{flex: 1, backgroundColor:'#f7f7f7'}} forceInset={{bottom:'never'}}>
+        <DormTap navigation={this.props.navigation} screenProps={{meal: this.state.data, onRefresh: () => {this.onRefresh(getWeek(new Date()).toString())}}}/>
       </SafeAreaView>
     )
   }
