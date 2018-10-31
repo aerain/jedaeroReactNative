@@ -18,25 +18,27 @@ export default class LibrarySearch extends Component {
   }
   render() {
     return (
-      <SafeAreaView style={{flex: 1, backgroundColor:'#ffffff'}} forceInset={{bottom: "never"}}>
-        <ScrollView contentContainerStyle={libsearchStyles.container}>
-          <TextInput 
-          placeholder="책 제목을 입력하세요"
-          style={libsearchStyles.textContainer}
-          onChangeText={search => this.setState({search})}
-          />
-          <Button
-          title="검색"
-          onPress={() => {
-            if(this.state.search != '') {
-              this.props.navigation.navigate('LibrarySearchDetail', {search: this.state.search})}
+      <SafeAreaView style={{flex: 1, backgroundColor:'#ffffff', ...libsearchStyles.container}} forceInset={{bottom: "never"}}>
+        {/* <ScrollView contentContainerStyle={libsearchStyles.container}> */}
+          <View style={{padding: 8, borderRadius: 8}}>
+            <TextInput 
+            placeholder="책 제목을 입력하세요"
+            style={libsearchStyles.textContainer}
+            onChangeText={search => this.setState({search})}
+            />
+            <Button
+            title="검색"
+            onPress={() => {
+              if(this.state.search.trim() !== '') {
+                this.props.navigation.navigate('LibrarySearchDetail', {search: this.state.search})}
+              }
             }
-          }
-          buttonStyle={{backgroundColor:'transparent', elevation:0, paddingVertical:16,}}
-          titleStyle={{color:'#344955', fontSize:normalize(16)}}
-          />
+            buttonStyle={{backgroundColor:'transparent', elevation:0, paddingVertical:16,}}
+            titleStyle={{color:'#344955', fontSize:normalize(16)}}
+            />
+          </View>
           <LibrarySeat />
-        </ScrollView>
+        {/* </ScrollView> */}
       </SafeAreaView>
     )
   }

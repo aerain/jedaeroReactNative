@@ -117,8 +117,8 @@ let foodMenuListStyles = StyleSheet.create({
 
 let foodTabStyles = StyleSheet.create({
     listTitleStyle: {
+      textAlign: 'center',
       fontSize: normalize(20),
-      textAlign:'center',
       color: '#344955',
     },
     listSubtitleStyle: {
@@ -139,6 +139,9 @@ let foodTabStyles = StyleSheet.create({
 })
 
 let foodTabNavStyles = StyleSheet.create({
+    scrollContainer: {
+      paddingTop:8,
+    },
     container: {
       flex:1,
       backgroundColor:'#ffffff',
@@ -175,7 +178,7 @@ let mainTabOptions = {
       showLabel: false,
       style: {
         backgroundColor:'#ffffff',
-        elevation:0,
+        elevation:5,
         borderTopWidth:0.5,
         borderTopColor:'#d7d7d7',
         height:65
@@ -208,7 +211,6 @@ let libsearchStyles = StyleSheet.create({
       paddingBottom:32,
     },
     textContainer: {
-      width: '100%', 
       fontSize:normalize(24),  
       paddingVertical:8, 
       textAlign:'center', 
@@ -235,7 +237,7 @@ let menuTopTabOptions = {
           backgroundColor:'#ffffff',
           borderBottomWidth:0.5,
           borderBottomColor:'#d7d7d7',
-          elevation:0,
+          elevation:5,
           
         },
         indicatorStyle: {

@@ -46,7 +46,7 @@ export default createBottomTabNavigator({
         screen: BusSc,
         navigationOptions:{
             title: '버스버스잼',
-            tabBarIcon: ({tintColor}) => (<Icon name="library" color={tintColor} size={35} style={{width: 35, height: 35}}/>)
+            tabBarIcon: ({tintColor}) => (<Icon name="bus" color={tintColor} size={35} style={{width: 35, height: 35}}/>)
         }
     }
 }, mainTabOptions)

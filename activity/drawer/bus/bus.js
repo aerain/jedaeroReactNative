@@ -253,6 +253,7 @@ const styles = StyleSheet.create({
         marginHorizontal:8,
         borderRadius:8,
         overflow:'hidden',
+        elevation: 5,
     },
     foodBlockTitle: {
         backgroundColor:'#334955',

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { ScrollView, View, Text, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
+import { ScrollView, View, Text, StyleSheet, FlatList, ActivityIndicator, TouchableOpacity } from 'react-native';
 import { normalize } from 'react-native-elements';
 import LibrarySeatAPI from '../../JedaeroAPI/LibrarySeatAPI';
+import Icon from 'react-native-vector-icons/SimpleLineIcons'
 
 export default class LibrarySeat extends Component {
     constructor(props) {
@@ -14,6 +15,7 @@ export default class LibrarySeat extends Component {
     getData = async () => {
         let data = await LibrarySeatAPI();
         this.setState({data});
+
     }
 
     _renderItem = ({item, key}) => (
@@ -30,14 +32,30 @@ export default class LibrarySeat extends Component {
            
         } else {
             return (
-                <ScrollView contentContainerStyle={{flex: 1,}} nestedScrollEnabled={true}>
+                <View>
                     <Text style={styles.titleText}>도서관 잔여 좌석 수 </Text>
+                    <TouchableOpacity
+                    style={{
+                        flexDirection:'row',
+                        justifyContent:'flex-end',
+                        borderRadius:8,
+                        paddingHorizontal:8,
+                        paddingVertical:4,
+                        borderWidth:0.5,
+                        borderColor:'#d7d7d7',
+                        backgroundColor:'#d7d7d7'
+                    }}
+                    onPress={this.getData}
+                    >
+                    <Icon name="refresh" size={normalize(14)} color='#000000'/>
+                    <Text style={{fontSize:normalize(14), color:'#000000'}}> 새로고침</Text>
+                    </TouchableOpacity>
                     <FlatList 
                         contentContainerStyle={styles.listContainer}
                         data={this.state.data.row}
                         renderItem={this._renderItem}
                     />
-                </ScrollView>
+                </View>
             )
         }
     }
@@ -97,6 +115,7 @@ const styles = StyleSheet.create({
     },
     rowUnitTextLeft: {
         fontSize:normalize(16),
+        color:'#000000'
     },
     rowUnitTextRight: {
         fontSize:normalize(16),

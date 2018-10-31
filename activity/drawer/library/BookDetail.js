@@ -60,7 +60,7 @@ class StoreBook extends Component {
                                 <BookRow left="등록번호" right={item.barcode} />
                                 <BookRow left="소장위치" right={item.location.name} />
                                 <BookRow left="청구기호" right={item.callNo} />
-                                <BookRow left="상태" right={item.circulationState.name} style={{color:(item.circulationState.name === '대출불가' ? 'red' : 'green')}}/>
+                                <BookRow left="상태" right={item.circulationState !== null && item.circulationState.name !== null ? item.circulationState.name : "알 수 없음"} style={{color:(item.circulationState !== null && item.circulationState.name !== null ? (item.circulationState.name === '대출불가' ? 'red' : 'green') : 'red')}}/>
                             </View>
                         ))
                     }

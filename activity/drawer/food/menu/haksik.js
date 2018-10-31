@@ -27,7 +27,7 @@ class Haksik extends Component {
         } else {
             return (
               <ScrollView 
-                style={foodTabNavStyles.container}
+                contentContainerStyle={foodTabNavStyles.scrollContainer}
                 refreshControl= {
                     <RefreshControl 
                         refreshing={this.state.refreshing}
