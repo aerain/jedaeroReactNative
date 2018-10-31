@@ -151,6 +151,7 @@ let foodTabNavStyles = StyleSheet.create({
       overflow:'hidden',
       marginHorizontal:8,
       marginBottom: 16,
+      elevation:5,
     },
     title: {
       justifyContent:'center',
@@ -237,8 +238,6 @@ let menuTopTabOptions = {
           backgroundColor:'#ffffff',
           borderBottomWidth:0.5,
           borderBottomColor:'#d7d7d7',
-          elevation:5,
-          
         },
         indicatorStyle: {
           marginBottomWidth:0,

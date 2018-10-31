@@ -27,7 +27,7 @@ class Dorm extends Component {
       )
     } else {
       return (
-        <ScrollView style={foodTabNavStyles.container}
+        <ScrollView contentContainerStyle={foodTabNavStyles.scrollContainer}
           refreshControl= {
             <RefreshControl 
               refreshing={this.state.refreshing}
@@ -52,7 +52,7 @@ class Dorm extends Component {
 class DormList extends Component {
   render() {
     return (
-      <View style={{margin: 8, backgroundColor:'#ffffff', borderTopLeftRadius:4, borderTopRightRadius:4}}>
+      <View style={foodTabNavStyles.container}>
         <TouchableOpacity style={foodTabNavStyles.list} activeOpacity={0.8}>
           <View style={foodTabNavStyles.foodlistContainer}>
             <Text style={foodTabNavStyles.foodlistTitle}>{this.props.title}</Text>

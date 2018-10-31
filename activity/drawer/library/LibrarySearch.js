@@ -18,8 +18,8 @@ export default class LibrarySearch extends Component {
   }
   render() {
     return (
-      <SafeAreaView style={{flex: 1, backgroundColor:'#ffffff', ...libsearchStyles.container}} forceInset={{bottom: "never"}}>
-        {/* <ScrollView contentContainerStyle={libsearchStyles.container}> */}
+      <SafeAreaView style={{flex: 1, backgroundColor:'#ffffff'}} forceInset={{bottom: "never"}}>
+        <ScrollView contentContainerStyle={libsearchStyles.container}>
           <View style={{padding: 8, borderRadius: 8}}>
             <TextInput 
             placeholder="책 제목을 입력하세요"
@@ -38,7 +38,7 @@ export default class LibrarySearch extends Component {
             />
           </View>
           <LibrarySeat />
-        {/* </ScrollView> */}
+        </ScrollView>
       </SafeAreaView>
     )
   }
