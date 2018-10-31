@@ -89,7 +89,7 @@ export default class LibrarySearchDetail extends Component {
 
 let libdetailStyles = StyleSheet.create({
     container: {
-        backgroundColor:'#f7f7f7',
+        backgroundColor:'#ffffff',
     },
 
     textStyle: {marginHorizontal: 8, marginBottom: 4, fontSize:normalize(20), textAlign:'center',},

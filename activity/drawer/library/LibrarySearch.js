@@ -7,18 +7,18 @@ import LibrarySeat from './LibrarySeat';
 
 export default class LibrarySearch extends Component {
   static navigationOptions= {
-      headerTitle: "도서검색"
+      headerTitle: "도서관"
   }
 
   constructor(props) {
     super(props);
     this.state = {
-      search: '소나기',
+      search: '',
     }
   }
   render() {
     return (
-      <SafeAreaView style={{flex: 1, backgroundColor:'#f7f7f7'}} forceInset={{bottom: "always"}}>
+      <SafeAreaView style={{flex: 1, backgroundColor:'#ffffff'}} forceInset={{bottom: "never"}}>
         <ScrollView contentContainerStyle={libsearchStyles.container}>
           <TextInput 
           placeholder="책 제목을 입력하세요"

@@ -18,7 +18,7 @@ export default createBottomTabNavigator({
         screen: BusStack,
         navigationOptions: {
             title: '순환버스',
-            tabBarIcon: ({tintColor}) => (<Icon name="bus" color={tintColor} size={35} style={{width: 35, height: 35}}/>)
+            tabBarIcon: ({tintColor}) => (<Icon name="home-outline" color={tintColor} size={35} style={{width: 35, height: 35}}/>)
         }
     },
     Food: {
@@ -39,7 +39,7 @@ export default createBottomTabNavigator({
         screen: LibrarySearchStackNavigator,
         navigationOptions: {
             title: '도서검색',
-            tabBarIcon: ({tintColor}) => (<Icon name="library" color={tintColor} size={35} style={{width: 35, height: 35}}/>)
+            tabBarIcon: ({tintColor}) => (<Icon name="book-open-variant" color={tintColor} size={35} style={{width: 35, height: 35}}/>)
         }
     },
     BusSchedule:{

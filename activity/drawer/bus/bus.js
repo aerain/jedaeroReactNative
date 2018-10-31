@@ -48,7 +48,7 @@ export default class Bus extends Component {
     }
     render = () => {
         return (
-            <View style={{flex:1, backgroundColor:'#f7f7f7'}}>
+            <View style={{flex:1, backgroundColor:'#ffffff'}}>
                 <ScrollView>
                     <View style={styles.foodBlock}>
                         <View style={styles.foodBlockTitle}>

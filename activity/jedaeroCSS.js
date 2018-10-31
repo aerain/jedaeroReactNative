@@ -40,7 +40,7 @@ let stackNavigationOptions = {
         return {
             headerTintColor: '#344955',
             headerStyle: {
-                backgroundColor:'#f7f7f7',
+                backgroundColor:'#ffffff',
                 borderBottomWidth: 0,
                 elevation: 0,
             },
@@ -129,15 +129,25 @@ let foodTabStyles = StyleSheet.create({
       paddingTop:24,
       paddingBottom:16,
       backgroundColor:'white',
-      borderBottomWidth: 0.5,
-      borderBottomColor:'#d7d7d7'
+      borderWidth: 0.5,
+      borderColor:'#d7d7d7',
+      marginHorizontal:8,
+      marginBottom:16,
+      borderRadius:8,
+      overflow:'hidden'
     }
 })
 
 let foodTabNavStyles = StyleSheet.create({
     container: {
       flex:1,
-      backgroundColor:'#f7f7f7'
+      backgroundColor:'#ffffff',
+      borderRadius:8,
+      borderColor:'#d7d7d7',
+      borderWidth:0.5,
+      overflow:'hidden',
+      marginHorizontal:8,
+      marginBottom: 16,
     },
     title: {
       justifyContent:'center',
@@ -146,9 +156,7 @@ let foodTabNavStyles = StyleSheet.create({
     foodlist: {fontSize: normalize(14), textAlign:'center', color: '#000000'},
     foodlistContainer: {
       backgroundColor:'#344955',
-      borderTopLeftRadius:4,
-      borderTopRightRadius:4,
-      paddingVertical: 8,
+      paddingVertical:4,
     },
     foodlistTitle: {
       textAlign:'center',
@@ -156,11 +164,7 @@ let foodTabNavStyles = StyleSheet.create({
       color:'white',
     },
     subContainer: {
-        paddingVertical: 8,
-    //   borderLeftWidth:0.5,
-    //   borderRightWidth:0.5,
-    //   borderBottomWidth:0.5,
-    //   borderColor:'#d7d7d7',
+      paddingVertical:8,
     }
 });
 
@@ -200,7 +204,8 @@ let mainTabOptions = {
 
 let libsearchStyles = StyleSheet.create({
     container: {
-      paddingHorizontal:16,
+      paddingHorizontal: 16,
+      paddingBottom:32,
     },
     textContainer: {
       width: '100%', 
@@ -227,7 +232,7 @@ let menuTopTabOptions = {
             fontSize: normalize(20),
         },
         style: {
-          backgroundColor:'#f7f7f7',
+          backgroundColor:'#ffffff',
           borderBottomWidth:0.5,
           borderBottomColor:'#d7d7d7',
           elevation:0,
