@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Platform, AsyncStorage } from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Platform, AsyncStorage, Button } from 'react-native';
 import { normalize } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import HaksikAPI from '../../JedaeroAPI/HaksikAPI';
@@ -68,6 +68,7 @@ export default class Bus extends Component {
                     </View>
                     <FoodBlock name="오늘의 학식" food={this.state.haksik} onRefresh={() => this.getHaksik(true)}/>
                     <DormBlock name="오늘의 기숙사" food={this.state.dormitory} onRefresh={() => this.getDormitory(true)}/>
+                    <Button onPress={() => this.props.navigation.navigate('Detail')} title="바보냐"/>
                 </ScrollView>
             </View>
             
