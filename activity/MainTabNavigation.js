@@ -2,23 +2,24 @@ import React from 'react';
 import { ScrollView, View, Image } from 'react-native';
 import { SafeAreaView, DrawerItems } from 'react-navigation';
 import { normalize } from 'react-native-elements';
-import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
+import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
+import { createBottomTabNavigator } from 'react-navigation';
 import BusStack from './drawer/bus/BusStackNavigation';
 import FoodStack from './drawer/food/FoodListStackNavigation';
 import LibrarySearchStackNavigator from './drawer/library/LibrarySearchStackNavigator';
 import Schedule from './drawer/schedule/Schedule';
 import {mainTabOptions} from './jedaeroCSS';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import curriculum from './drawer/curriculum/curriculum';
+import BusSc from './drawer/bus2/BusStackNavigation';
+import SmartCheck from './drawer/smartcheck/smartcheck';
 
 
-
-export default createMaterialBottomTabNavigator({
+export default createBottomTabNavigator({
     Bus: {
         screen: BusStack,
         navigationOptions: {
             title: '순환버스',
-            tabBarIcon: ({tintColor}) => (<Icon name="bus" color={tintColor} size={35} style={{width: 35, height: 35}}/>)
+            tabBarIcon: ({tintColor}) => (<Icon name="home-outline" color={tintColor} size={35} style={{width: 35, height: 35}}/>)
         }
     },
     Food: {
@@ -39,14 +40,21 @@ export default createMaterialBottomTabNavigator({
         screen: LibrarySearchStackNavigator,
         navigationOptions: {
             title: '도서검색',
-            tabBarIcon: ({tintColor}) => (<Icon name="library" color={tintColor} size={35} style={{width: 35, height: 35}}/>)
+            tabBarIcon: ({tintColor}) => (<Icon name="book-open-variant" color={tintColor} size={35} style={{width: 35, height: 35}}/>)
         }
     },
-    CurriCulum: {
-        screen: curriculum,
-        navigationOptions: {
-            title: '커리큘럼',
-            tabBarIcon: ({tintColor}) => (<Icon name="calendar" color={tintColor} size={35} style={{width: 35, height: 35}}/>)
+    BusSchedule:{
+        screen: BusSc,
+        navigationOptions:{
+            title: '버스버스잼',
+            tabBarIcon: ({tintColor}) => (<Icon name="bus" color={tintColor} size={35} style={{width: 35, height: 35}}/>)
         }
-    }
+    },
+    SmartCheck:{
+        screen: SmartCheck,
+        navigationOptions:{
+            title: '스마트출결',
+            tabBarIcon: ({tintColor}) => (<Icon name="clock" color={tintColor} size={35} style={{width: 35, height: 35}}/>)
+        }
+    },
 }, mainTabOptions)
