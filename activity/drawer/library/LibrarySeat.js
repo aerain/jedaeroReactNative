@@ -19,8 +19,10 @@ export default class LibrarySeat extends Component {
     }
 
     _renderItem = ({item, key}) => (
-        <TableRow key={item['table0']} left={item['table1']} right={`${item['table3']} / ${item['table2']}`} />
+        <TableRow key={key} left={item['table1']} right={`${item['table3']} / ${item['table2']}`} />
     )
+
+    _keyExtractor = (item, index) => item['table0'];
 
     render() {
         if (!this.state.data) {
@@ -51,6 +53,7 @@ export default class LibrarySeat extends Component {
                     <Text style={{fontSize:normalize(14), color:'#000000'}}> 새로고침</Text>
                     </TouchableOpacity>
                     <FlatList 
+                        keyExtractor={this._keyExtractor}
                         contentContainerStyle={styles.listContainer}
                         data={this.state.data.row}
                         renderItem={this._renderItem}

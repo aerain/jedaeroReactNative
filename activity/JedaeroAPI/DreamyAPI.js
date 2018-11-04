@@ -1,3 +1,4 @@
+
 var keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
 function encode64(input) {
     var output = "";
@@ -37,15 +38,15 @@ export default function (id, pwd) {
     console.log(baseid, basepwd);
     fetch(`http://${uri}/frame/index.do`, {
         'method':'GET',
-        'credentials':'include',    
+        // 'credentials':'include',  
         'headers': {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
             'Connection':'keep-alive',
         },
     })
-    .then(response => response.headers)
-    .then(headers => headers.map['set-cookie'])
-    .then(emptyCookie => {
+    .then(response => {
+        console.log(response, "메인");
+
         fetch(`http://${uri}/frame/sysUser.do?next=`, {
             'method': 'POST',
             'credentials':'include',
@@ -55,14 +56,13 @@ export default function (id, pwd) {
                 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
                 'Connection':'keep-alive',
                 'Upgrade-Insecure-Requests' : '1',
+                'Content-Length': '86',
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Method':'POST',
+                'Access-Control-Allow-Method':'POST'
+                // 'Cookie': emptyCookie
             },
             'body': `tmpu=${baseid}&tmpw=${basepwd}&mobile=&app=&z=Y&userid=&password=`,
-            'agent': {
-                'rejectUnauthorized': 'false'
-            }
         }).then(response => {
             console.log(response, "됐냐?");
         })
