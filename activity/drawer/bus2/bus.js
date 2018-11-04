@@ -10,16 +10,22 @@ import BusTime from '../../../jsons/busschedule.json';
 //     gettime[1]=`0${String(gettime[1])}`; 
 //     return `${gettime[0]}:${gettime[1].substring(gettime[1].length-2,gettime[1].length)}:${gettime[2]}`
 // }
-//이거 버려도될듯? ㅋㅋㅋㅋ
-function settimeTb() {
+//이거 버려도될듯? ㅋㅋㅋ
+function settimeTb(timeTable) {
     var thistime = new Date();
-    for(i=0; i<BusTime.timeTable.A.length; i++){
-        var a = BusTime.timeTable.A[i];
+    for(i=0; i<timeTable.length; i++){
+        var a = timeTable[i];
         slice = a.split(':');
-        if(Number(slice[0])-thistime.getHours<0){
-
-        }else{
-            return i;
+        if(Number(slice[0]) - thistime.getHours<0){
+            if(Number(slice[1] - thistime.getMinutes<0)){
+                
+            }
+            else{
+                return i;
+            }
+        }
+        else{
+            return i; 
         }
     }
 }
@@ -34,10 +40,12 @@ function lefttime(params,index) {
         minutes = 60 + minutes;
         hours = hours-1
     }
+    if(hours<0){
+        hours = 24+hours;
+    }
     return `${hours}시간 ${minutes+index}분 남았다`;
 }
-    
-// }
+
 export default class Bus extends Component {
     constructor(props) {
         super(props);
@@ -54,7 +62,7 @@ export default class Bus extends Component {
                 <ScrollView>
                     <View style={styles.foodBlock}>
                         <View style={styles.foodBlockTitle}>
-                            <Text style={styles.foodBlockTitleText}>즐겨찾기된 sdfg정류장</Text>
+                            <Text style={styles.foodBlockTitleText}>노선A 남은시간</Text>
                             <TouchableOpacity
                                 onPress={this.props.onRefresh}
                             >
@@ -62,15 +70,31 @@ export default class Bus extends Component {
                             </TouchableOpacity>
                         </View>
                         <View style={styles.foodBlockContainer}>
-                            
                             {
                             
                                 BusTime.routeName.A.map((item,index) => (
-                                    <Text style={styles.foodBlockContainerText}>{item } : {lefttime(BusTime.timeTable.A[settimeTb()],index)}</Text>
+                                    <Text style={styles.foodBlockContainerText}>
+                                        {item } : {lefttime(BusTime.timeTable.A[settimeTb(BusTime.timeTable.A)],index)}
+                                    </Text>
                                 ))
                             }
                         </View>
-                        
+                        <View style={styles.foodBlockTitle}>
+                            <Text style={styles.foodBlockTitleText}>노선A 남은시간</Text>
+                                <TouchableOpacity
+                                    onPress={this.props.onRefresh}
+                                >
+                                    <Icon name="refresh" color="#ffffff" size={normalize(16)} />
+                                </TouchableOpacity>
+                        </View>
+                        <View style={styles.foodBlockContainer}>
+                            {
+                            
+                                BusTime.routeName.A.map((item,index) => (
+                                    <Text style={styles.foodBlockContainerText}>{item } : {lefttime(BusTime.timeTable.A[settimeTb(BusTime.timeTable.A)],index)}</Text>
+                                ))
+                            }
+                        </View>
                     </View>
                 </ScrollView>
             </View>
