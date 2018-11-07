@@ -5,6 +5,8 @@ import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import HaksikAPI from '../../JedaeroAPI/HaksikAPI';
 import DormitoryAPI from '../../JedaeroAPI/DormitoryAPI';
 import getWeek from '../../../tool/getWeek';
+import BusTb from '../../../jsons/busschedule.json';
+import BusTime from '../../../tool/bustime';
 
 export default class Bus extends Component {
     constructor(props) {
@@ -52,7 +54,7 @@ export default class Bus extends Component {
                 <ScrollView>
                     <View style={styles.foodBlock}>
                         <View style={styles.foodBlockTitle}>
-                            <Text style={styles.foodBlockTitleText}>즐겨찾기된 정류장</Text>
+                            <Text style={styles.foodBlockTitleText}>정문출발버스</Text>
                             <TouchableOpacity
                                 onPress={this.props.onRefresh}
                             >
@@ -60,15 +62,15 @@ export default class Bus extends Component {
                             </TouchableOpacity>
                         </View>
                         <View style={styles.foodBlockContainer}>
-                            <Text style={styles.foodBlockContainerText}>정문따리</Text>
+                            <Text style={styles.foodBlockContainerText}>A노선 : {BusTime(BusTb.timeTable.A)}</Text>
                         </View>
                         <View style={styles.foodBlockContainer}>
-                            <Text style={styles.foodBlockContainerText}>중도따리</Text>
+                            <Text style={styles.foodBlockContainerText}>B노선 : {BusTime(BusTb.timeTable.B)}</Text>
                         </View>
                     </View>
                     <FoodBlock name="오늘의 학식" food={this.state.haksik} onRefresh={() => this.getHaksik(true)}/>
                     <DormBlock name="오늘의 기숙사" food={this.state.dormitory} onRefresh={() => this.getDormitory(true)}/>
-                    <Button onPress={() => this.props.navigation.navigate('Detail')} title="바보냐"/>
+                    {/* <Button onPress={() => this.props.navigation.navigate('Detail')} title="바보냐"/> */}
                 </ScrollView>
             </View>
             

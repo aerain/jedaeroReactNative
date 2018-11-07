@@ -42,9 +42,6 @@ export default createStackNavigator(
         }, 
         DetailMenu: {
             screen: DetailMenu,
-            navigationOptions: {
-                headerTitle: ''
-            }
         }
 
     }, stackNavigationOptions
