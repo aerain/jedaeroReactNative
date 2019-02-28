@@ -137,7 +137,6 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-pinch')
     compile project(':rn-fetch-blob')
     compile project(':react-native-vector-icons')
     implementation fileTree(dir: "libs", include: ["*.jar"])

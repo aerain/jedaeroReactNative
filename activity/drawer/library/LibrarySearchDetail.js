@@ -39,6 +39,7 @@ export default class LibrarySearchDetail extends Component {
     }
 
     _renderItem = ({item}) => {
+        console.log(item);
         let status = (item.branchVolumes[0]) ? `${item.branchVolumes[0].name} [${item.branchVolumes[0].volume}]` : '';
         let cState = item.branchVolumes[0] ? item.branchVolumes[0].cState : '';
         return (

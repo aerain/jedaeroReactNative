@@ -4,6 +4,7 @@ import Login from './login';
 import { stackNavigationOptions } from '../../jedaeroCSS';
 import Detail from './detail';
 
+
 export default createStackNavigator({
     Bus: {
         screen: Bus,
@@ -13,5 +14,6 @@ export default createStackNavigator({
     },
     Detail : {
         screen: Detail,
-    }
+    },
+    
 }, stackNavigationOptions );

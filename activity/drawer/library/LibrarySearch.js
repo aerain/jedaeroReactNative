@@ -9,7 +9,7 @@ export default class LibrarySearch extends Component {
   static navigationOptions= {
       headerTitle: "도서관"
   }
-
+static nav
   constructor(props) {
     super(props);
     this.state = {
