@@ -4,6 +4,7 @@ import { createMaterialTopTabNavigator, SafeAreaView } from 'react-navigation';
 import DormitoryAPI from '../../../JedaeroAPI/DormitoryAPI';
 import { foodTabNavStyles, menuTopTabOptions } from '../../../jedaeroCSS';
 import getWeek from '../../../../tool/getWeek';
+import d_time from '../../../../jsons/d_time.json';
 
 class Dorm extends Component {
   constructor(props) {
@@ -39,10 +40,10 @@ class Dorm extends Component {
             />
           }
         >
-          <DormList title="조기" food={this.state.meal.dawn} />
-          <DormList title="아침" food={this.state.meal.breakfast} />
-          <DormList title="점심" food={this.state.meal.lunch} />
-          <DormList title="저녁" food={this.state.meal.dinner} />
+          <DormList title="조기" food={this.state.meal.dawn} time={d_time.dawn}/>
+          <DormList title="아침" food={this.state.meal.breakfast} time={d_time.breakfast}/>
+          <DormList title="점심" food={this.state.meal.lunch} time={d_time.lunch}/>
+          <DormList title="저녁" food={this.state.meal.dinner} time={d_time.dinner}/>
         </ScrollView>
       )
     }
@@ -59,6 +60,7 @@ class DormList extends Component {
           </View>
           <View style={foodTabNavStyles.subContainer}>
             <Text style={foodTabNavStyles.foodlist}>{this.props.food}</Text>
+            <Text style={foodTabNavStyles.foodtime}>*Time{'\n'}{this.props.time.times}</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -104,12 +106,12 @@ let DormTap = createMaterialTopTabNavigator(
         title: "토"
       }
     },
-    dormSun: {
-      screen: (props) => <Dorm DoW="sun" navigation={props.navigation} meal={props.screenProps.meal.mealSun} onRefresh={props.screenProps.onRefresh}/>,
-      navigationOptions: {
-        title: "일"
-      }
-    }
+    // dormSun: {
+    //   screen: (props) => <Dorm DoW="sun" navigation={props.navigation} meal={props.screenProps.meal.mealSun} onRefresh={props.screenProps.onRefresh}/>,
+    //   navigationOptions: {
+    //     title: "일"
+    //   }
+    // }
   }, menuTopTabOptions
 );
 

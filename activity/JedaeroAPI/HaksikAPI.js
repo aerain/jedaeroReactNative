@@ -72,7 +72,6 @@ export default function HaksikAPI () {
     
         
 }
-
 //     switch (this.props.DoW) {
 //         case "mon":
 //           this.setState({

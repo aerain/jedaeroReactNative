@@ -157,7 +157,18 @@ let foodTabNavStyles = StyleSheet.create({
       justifyContent:'center',
       alignItems:'center'
     },
-    foodlist: {fontSize: normalize(14), textAlign:'center', color: '#000000'},
+    foodlist: {fontSize: normalize(14), textAlign:'left', color: '#000000', width:'68%', paddingLeft: 20},
+    foodtime: {
+      fontSize: normalize(8),
+      fontWeight: 'bold',
+      fontStyle: 'italic',
+      textAlign:'left', 
+      color: '#000000',
+      paddingLeft: 12, 
+      borderLeftWidth: 0.3, 
+      borderColor:"#D3D3D3",
+      width: '32%' 
+    },
     foodlistContainer: {
       backgroundColor:'#344955',
       paddingVertical:4,
@@ -169,6 +180,7 @@ let foodTabNavStyles = StyleSheet.create({
     },
     subContainer: {
       paddingVertical:8,
+      flexDirection: 'row'
     }
 });
 

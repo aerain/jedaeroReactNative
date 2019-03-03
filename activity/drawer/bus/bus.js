@@ -6,7 +6,9 @@ import HaksikAPI from '../../JedaeroAPI/HaksikAPI';
 import DormitoryAPI from '../../JedaeroAPI/DormitoryAPI';
 import getWeek from '../../../tool/getWeek';
 import BusTb from '../../../jsons/busschedule.json';
+
 import BusTime from '../../../tool/bustime';
+import Swiper from 'react-native-swiper';
 
 export default class Bus extends Component {
     constructor(props) {
@@ -51,7 +53,6 @@ export default class Bus extends Component {
     render = () => {
         return (
             <View style={{flex:1, backgroundColor:'#ffffff'}}>
-                <ScrollView>
                     <View style={styles.foodBlock}>
                         <View style={styles.foodBlockTitle}>
                             <Text style={styles.foodBlockTitleText}>정문출발버스</Text>
@@ -63,21 +64,74 @@ export default class Bus extends Component {
                         </View>
                         <View style={styles.foodBlockContainer}>
                             <Text style={styles.foodBlockContainerText}>A노선 : {BusTime(BusTb.timeTable.A)}</Text>
-                        </View>
-                        <View style={styles.foodBlockContainer}>
                             <Text style={styles.foodBlockContainerText}>B노선 : {BusTime(BusTb.timeTable.B)}</Text>
                         </View>
                     </View>
-                    <FoodBlock name="오늘의 학식" food={this.state.haksik} onRefresh={() => this.getHaksik(true)}/>
-                    <DormBlock name="오늘의 기숙사" food={this.state.dormitory} onRefresh={() => this.getDormitory(true)}/>
-                    {/* <Button onPress={() => this.props.navigation.navigate('Detail')} title="바보냐"/> */}
-                </ScrollView>
+                    <Swiper style={{marginBottom:-90}} showsPagination={false}  >
+                        <FoodBlock name="오늘의 학식" food={this.state.haksik} onRefresh={() => this.getHaksik(true)}/>
+                        <DormBlock name="오늘의 숙사밥" food={this.state.dormitory} onRefresh={() => this.getDormitory(true)}/>
+                    </Swiper>
+                    <Swiper style={{marginTop:75}} showsPagination={false} autoplay={true} autoplayTimeout={3}>
+                        <SmartBlock name="스마트 출첵" />
+                        <AdBlock name="광고배너" />
+                        <AdBlock name="광고배너2" />
+                    </Swiper>
             </View>
-            
-            
         )
     }
 }
+class AdBlock extends Component {
+    constructor(props) {
+        super(props);
+        this.state={};
+    }
+    
+    render() {
+        return (
+            <View style={styles.foodBlock}>
+                <View style={styles.foodBlockTitle}>
+                  <Text style={styles.foodBlockTitleText}>{this.props.name}</Text>
+                    {/* <TouchableOpacity
+                        onPress={this.props.onRefresh}
+                    >
+                        <Icon name="refresh" color="#ffffff" size={normalize(16)} />
+                    </TouchableOpacity> */}
+                </View>
+                <View style={styles.foodBlockContainer}>
+                  <Text style={{textAlign:"center", height:70}}>광고 or 학과배너 게시예정</Text>
+                </View>
+            </View>
+            )
+        }
+    
+}
+class SmartBlock extends Component {
+    constructor(props) {
+        super(props);
+        this.state={};
+    }
+
+render() {
+    return (
+        <View style={styles.foodBlock}>
+            <View style={styles.foodBlockTitle}>
+              <Text style={styles.foodBlockTitleText}>{this.props.name}</Text>
+                {/* <TouchableOpacity
+                    onPress={this.props.onRefresh}
+                >
+                    <Icon name="refresh" color="#ffffff" size={normalize(16)} />
+                </TouchableOpacity> */}
+            </View>
+            <View style={styles.foodBlockContainer}>
+                 <Text style={{textAlign:"center", height:70}}>스마트 출첵 서비스 예정!!!</Text>
+            </View>
+        </View>
+        )
+    }
+}
+
+
+
 class DormBlock extends Component {
     constructor(props) {
         super(props);
@@ -152,10 +206,10 @@ class DormBlock extends Component {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.foodBlockContainer}>
-                    <Text numberOfLines={1} style={styles.foodBlockContainerText}><Text style={styles.foodBlockContainerLeft}>조기 </Text>{this.state.food? this.state.food.dawn : '없어요'}</Text>
-                    <Text numberOfLines={1} style={styles.foodBlockContainerText}><Text style={styles.foodBlockContainerLeft}>아침 </Text>{this.state.food? this.state.food.breakfast : '없어요'}</Text>
-                    <Text numberOfLines={1} style={styles.foodBlockContainerText}><Text style={styles.foodBlockContainerLeft}>점심 </Text>{this.state.food? this.state.food.lunch : '없어요'}</Text>
-                    <Text numberOfLines={1} style={styles.foodBlockContainerText}><Text style={styles.foodBlockContainerLeft}>저녁 </Text>{this.state.food? this.state.food.dinner : '없어요'}</Text>
+                    <Text style={styles.foodBlockContainerLeft}>조기 </Text><Text style={styles.foodBlockContainerText}>{this.state.food? this.state.food.dawn : '없어요\n'}</Text>
+                    <Text style={styles.foodBlockContainerLeft}>아침 </Text><Text style={styles.foodBlockContainerText}>{this.state.food? this.state.food.breakfast : '없어요\n'}</Text>
+                    <Text style={styles.foodBlockContainerLeft}>점심 </Text><Text style={styles.foodBlockContainerText}>{this.state.food? this.state.food.lunch : '없어요\n'}</Text>
+                    <Text style={styles.foodBlockContainerLeft}>저녁 </Text><Text style={styles.foodBlockContainerText}>{this.state.food? this.state.food.dinner : '없어요\n'}</Text>
                 </View>
             </View>
         )
@@ -238,10 +292,10 @@ class FoodBlock extends Component {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.foodBlockContainer}>
-                    <Text numberOfLines={1} style={styles.foodBlockContainerText}><Text style={styles.foodBlockContainerLeft}>정식 </Text>{this.state.food? this.state.food.combo : '없어요'}</Text>
-                    <Text numberOfLines={1} style={styles.foodBlockContainerText}><Text style={styles.foodBlockContainerLeft}>특식 </Text>{this.state.food? this.state.food.special : '없어요'}</Text>
-                    <Text numberOfLines={1} style={styles.foodBlockContainerText}><Text style={styles.foodBlockContainerLeft}>양식 </Text>{this.state.food? this.state.food.western : '없어요'}</Text>
-                    <Text numberOfLines={1} style={styles.foodBlockContainerText}><Text style={styles.foodBlockContainerLeft}>저녁 </Text>{this.state.food? this.state.food.dinner : '없어요'}</Text>
+                    <Text style={styles.foodBlockContainerLeft}>정식 </Text><Text style={styles.foodBlockContainerText}>{this.state.food? this.state.food.combo+'\n' : '없어요\n'}</Text>
+                    <Text style={styles.foodBlockContainerLeft}>특식 </Text><Text style={styles.foodBlockContainerText}>{this.state.food? this.state.food.special+'\n' : '없어요\n'}</Text>
+                    <Text style={styles.foodBlockContainerLeft}>양식 </Text><Text style={styles.foodBlockContainerText}>{this.state.food? this.state.food.western+'\n' : '없어요\n'}</Text>
+                    <Text style={styles.foodBlockContainerLeft}>저녁 </Text><Text style={styles.foodBlockContainerText}>{this.state.food? this.state.food.dinner+'\n' : '없어요\n'}</Text>
                 </View>
             </View>
         )
@@ -249,6 +303,7 @@ class FoodBlock extends Component {
 }
 
 const styles = StyleSheet.create({
+
     foodBlock: {
         borderWidth:0.5,
         borderColor:'#d7d7d7',
@@ -271,15 +326,34 @@ const styles = StyleSheet.create({
     },
     foodBlockContainer: {
         backgroundColor:'#ffffff',
-        paddingHorizontal: 16,
-        paddingVertical: 12,
+        paddingHorizontal: 14,
+        paddingVertical: 16,
+        paddingTop:9
+        // flexDirection: "row",
     },
     foodBlockContainerText: {
-        lineHeight:normalize(16),
-        color:'#000000'
+        lineHeight:normalize(13),
+        color:'#000000',
     },
     foodBlockContainerLeft: {
+        lineHeight:normalize(15),
         color:'#334955',
         fontWeight:'bold',
-    }
+        // width: "10%",
+        // flexWrap: "wrap",
+        // position: "absolute",
+        // marginHorizontal: 14,
+        // marginVertical: 12,
+
+    },
+    // foodBlockContainerRight: {
+    //     lineHeight:normalize(12),
+    //     color:'#000000',
+    //     height: "auto",
+    //     flexWrap: "wrap",
+    //     width: 'auto',
+    //     // position: "relative",
+    //     // marginTop: 3,
+    //     // marginLeft: 34
+    // }
 })

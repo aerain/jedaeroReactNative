@@ -2,7 +2,7 @@ let listText = (call) => [
     {
         key: 'haksik',
         name: '신관',
-        subtitle: '학생회관 밥',
+        subtitle: '"학생회관 밥. 학식메뉴"',
         _clickFood: () => {
             call.props.navigation.navigate("Haksik")
         },
@@ -10,7 +10,7 @@ let listText = (call) => [
     {
         key: 'dormitory',
         name: '학생생활관',
-        subtitle: '긱사 밥 노맛',
+        subtitle: '"기숙사 식당 메뉴"',
         _clickFood: () => {
             call.props.navigation.navigate("Dormitory")
         },
@@ -18,7 +18,7 @@ let listText = (call) => [
     {
         key: 'korean',
         name: '한식',
-        subtitle: '갈비찜 존맛탱',
+        subtitle: '"제주대에 한식당이 뭐가있을까?"',
         _clickFood: () => {
             call.props.navigation.navigate("Hansik")
         },
@@ -26,7 +26,7 @@ let listText = (call) => [
     {
         key: 'foreign',
         name: '중•일•양식',
-        subtitle: '짬뽕 존맛탱',
+        subtitle: '"아니 이 산중턱에 배달이 온다고??"',
         _clickFood: () => {
             call.props.navigation.navigate("Etcera")
         },
@@ -34,7 +34,7 @@ let listText = (call) => [
     {
         key: 'chicken',
         name: '치킨',
-        subtitle: '치킨은 양념이지',
+        subtitle: '"명품치킨 순살 맛있음 퍽!퍽!쌀"',
         _clickFood: () => {
             call.props.navigation.navigate("Chicken")
         },
