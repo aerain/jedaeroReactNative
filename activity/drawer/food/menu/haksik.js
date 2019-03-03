@@ -4,6 +4,8 @@ import { createMaterialTopTabNavigator, SafeAreaView } from 'react-navigation';
 import haksikCrawl from '../../../JedaeroAPI/HaksikAPI'
 import { foodTabNavStyles, menuTopTabOptions } from '../../../jedaeroCSS';
 import getWeek from '../../../../tool/getWeek';
+import h_time from '../../../../jsons/h_time.json';
+
 
 class Haksik extends Component {
     constructor(props) {
@@ -39,11 +41,11 @@ class Haksik extends Component {
                     />
                 }
               >
-                <HaksikList title="정식" food={this.state.meal.combo}/>
-                <HaksikList title="특식" food={this.state.meal.special}/>
-                <HaksikList title="양식" food={this.state.meal.western}/>
-                <HaksikList title="중식" food={this.state.meal.chinese}/>
-                <HaksikList title="정식 저녁" food={this.state.meal.dinner}/>
+                <HaksikList title="정식" food={this.state.meal.combo} time={h_time.combo}/>
+                <HaksikList title="특식" food={this.state.meal.special} time={h_time.special} />
+                <HaksikList title="양식" food={this.state.meal.western} time={h_time.chinese}/>
+                <HaksikList title="중식" food={this.state.meal.chinese} time={h_time.chinese}/>
+                <HaksikList title="정식 저녁" food={this.state.meal.dinner} time={h_time.dinner}/>
               </ScrollView>
             )
           }
@@ -60,6 +62,7 @@ class HaksikList extends Component {
             </View>
             <View style={foodTabNavStyles.subContainer}>
               <Text style={foodTabNavStyles.foodlist}>{this.props.food}</Text>
+              <Text style={foodTabNavStyles.foodtime}>*Time{'\n'}{this.props.time.times}</Text>
             </View>
           </TouchableOpacity>
         </View>
