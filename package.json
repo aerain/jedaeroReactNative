@@ -12,6 +12,7 @@
     "cheerio-without-node-native": "^0.20.2",
     "chromeless": "^1.5.2",
     "iconv-lite": "^0.4.23",
+    "link": "^0.1.5",
     "react": "16.6.0-alpha.8af6728",
     "react-native": "0.57.1",
     "react-native-communications": "^2.2.1",

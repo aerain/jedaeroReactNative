@@ -18,7 +18,6 @@ export default class App extends Component {
     }
   }
 
-
   componentDidMount = () => {
     setTimeout(() => {
       this.setState({ isLoaded: true})
@@ -39,8 +38,6 @@ export default class App extends Component {
               <Splash />
             )
         }
-            {/* { this._renderImage('https://i.ytimg.com/vi/KEgC50mX8ho/maxresdefault.jpg') }
-            { this._renderImage('https://2.bp.blogspot.com/-cSrGv7coXVw/Wgob96OTlQI/AAAAAAAAqHc/6SjE_18xRyEfGFlRREm5wl-PVDvRMjQ-wCLcBGAs/s1600/15105276785212.jpg')} */}
         </View>
     )
   }
