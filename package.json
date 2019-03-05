@@ -21,6 +21,7 @@
     "react-native-scaled-image": "0.0.1",
     "react-native-swiper": "^1.5.14",
     "react-native-vector-icons": "^4.6.0",
+    "react-native-video": "^4.4.0",
     "react-navigation": "^2.9.1",
     "react-navigation-material-bottom-tabs": "^0.4.0",
     "rn-fetch-blob": "^0.10.12",

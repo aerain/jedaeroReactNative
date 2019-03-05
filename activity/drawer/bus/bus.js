@@ -6,7 +6,6 @@ import HaksikAPI from '../../JedaeroAPI/HaksikAPI';
 import DormitoryAPI from '../../JedaeroAPI/DormitoryAPI';
 import getWeek from '../../../tool/getWeek';
 import BusTb from '../../../jsons/busschedule.json';
-
 import BusTime from '../../../tool/bustime';
 import Swiper from 'react-native-swiper';
 
