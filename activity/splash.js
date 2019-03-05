@@ -20,15 +20,15 @@ export default class splash extends Component {
          
         return (
         <View style={styles.box}> 
-        {/* <ImageBackground style={styles.wrap}
-            source={require('../images/hi2.webp')}
+        <ImageBackground style={styles.wrap}
+            source={require('../images/home.webp')}
          >
             <Animated.Image style={{...styles.logo, opacity: this.state.opacity}}
                source={require('../images/logo.png')}
             />
             <ActivityIndicator size="large" color="#FFFFFF" />
-         </ImageBackground>  */}
-         <Video source={require('../images/ggue.mp4')}   // Can be a URL or a local file.
+         </ImageBackground> 
+         {/* <Video source={require('../images/ggue.mp4')}   // Can be a URL or a local file.
             ref={(ref) => {
                 this.player = ref
             }}                                      // Store reference
@@ -39,7 +39,7 @@ export default class splash extends Component {
             <Animated.Image style={{...styles.logo, opacity: this.state.opacity}}
                source={require('../images/logo.png')}
             />
-            <ActivityIndicator size="large" color="#FFFFFF" />
+            <ActivityIndicator size="large" color="#FFFFFF" /> */}
          </View>
         )
     }
