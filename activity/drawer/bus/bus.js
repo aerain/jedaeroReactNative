@@ -52,20 +52,10 @@ export default class Bus extends Component {
     render = () => {
         return (
             <View style={{flex:1, backgroundColor:'#ffffff'}}>
-                    <View style={styles.foodBlock}>
-                        <View style={styles.foodBlockTitle}>
-                            <Text style={styles.foodBlockTitleText}>정문출발버스</Text>
-                            <TouchableOpacity
-                                onPress={this.props.onRefresh}
-                            >
-                                <Icon name="refresh" color="#ffffff" size={normalize(16)} />
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.foodBlockContainer}>
-                            <Text style={styles.foodBlockContainerText}>A노선 : {BusTime(BusTb.timeTable.A)}</Text>
-                            <Text style={styles.foodBlockContainerText}>B노선 : {BusTime(BusTb.timeTable.B)}</Text>
-                        </View>
-                    </View>
+                    <Bustime name="정문 버스 도착시간"
+                             type1="A노선 :" A = {BusTime(BusTb.timeTable.A)}
+                             type2="B노선 :" B= {BusTime(BusTb.timeTable.B)}
+                    />
                     <Swiper style={{marginBottom:-90}} showsPagination={false}  >
                         <FoodBlock name="오늘의 학식" food={this.state.haksik} onRefresh={() => this.getHaksik(true)}/>
                         <DormBlock name="오늘의 숙사밥" food={this.state.dormitory} onRefresh={() => this.getDormitory(true)}/>
@@ -79,6 +69,34 @@ export default class Bus extends Component {
         )
     }
 }
+
+class Bustime extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state= {};
+    }
+
+    render() {
+        return(
+            <View style={styles.foodBlock}>
+                <View style={styles.foodBlockTitle}>
+                    <Text style={styles.foodBlockTitleText}>{this.props.name}</Text>
+                    <TouchableOpacity
+                        onPress={this.props.onRefresh}
+                    >
+                     <Icon name="refresh" color="#ffffff" size={normalize(16)} />
+                    </TouchableOpacity>
+                 </View>
+                <View style={styles.foodBlockContainer}>
+                    <Text style={styles.foodBlockContainerText}>{this.props.type1} {this.props.A}</Text>
+                    <Text style={styles.foodBlockContainerText}>{this.props.type2} {this.props.B}</Text>
+                </View>
+            </View>
+        )
+    }
+}
+
 class AdBlock extends Component {
     constructor(props) {
         super(props);
@@ -310,17 +328,17 @@ const styles = StyleSheet.create({
         marginHorizontal:8,
         borderRadius:8,
         overflow:'hidden',
-        elevation: 5,
+        elevation: 1,
     },
     foodBlockTitle: {
-        backgroundColor:'#334955',
+        backgroundColor:'#ffffff',
         paddingHorizontal:16,
         paddingVertical:8,
         justifyContent:'space-between',
         flexDirection:'row',
     },
     foodBlockTitleText: {
-        color:'#ffffff',
+        color:'#252c41',
         fontSize:normalize(16),
     },
     foodBlockContainer: {

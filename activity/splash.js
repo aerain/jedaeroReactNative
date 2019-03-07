@@ -21,7 +21,7 @@ export default class splash extends Component {
         return (
         <View style={styles.box}> 
         <ImageBackground style={styles.wrap}
-            source={require('../images/home.webp')}
+            source={require('../images/home2.webp')}
          >
             <Animated.Image style={{...styles.logo, opacity: this.state.opacity}}
                source={require('../images/logo.png')}
@@ -29,17 +29,17 @@ export default class splash extends Component {
             <ActivityIndicator size="large" color="#FFFFFF" />
          </ImageBackground> 
          {/* <Video source={require('../images/ggue.mp4')}   // Can be a URL or a local file.
-            ref={(ref) => {
-                this.player = ref
-            }}                                      // Store reference
-            onBuffer={this.onBuffer}                // Callback when remote video is buffering
-            onError={this.videoError}               // Callback when video cannot be loaded
-            style={styles.backgroundVideo}>
-        </Video>
-            <Animated.Image style={{...styles.logo, opacity: this.state.opacity}}
-               source={require('../images/logo.png')}
+                ref={(ref) => {
+                    this.player = ref
+                }}                                      // Store reference
+                onBuffer={this.onBuffer}                // Callback when remote video is buffering
+                onError={this.videoError}               // Callback when video cannot be loaded
+                style={styles.backgroundVideo}>
+             </Video>
+                <Animated.Image style={{...styles.logo, opacity: this.state.opacity}}
+                source={require('../images/logo.png')}
             />
-            <ActivityIndicator size="large" color="#FFFFFF" /> */}
+                <ActivityIndicator size="large" color="#FFFFFF" /> */}
          </View>
         )
     }
