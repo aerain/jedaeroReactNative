@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Platform, AsyncStorage, Button } from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Platform, AsyncStorage, Button, } from 'react-native';
 import { normalize } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import HaksikAPI from '../../JedaeroAPI/HaksikAPI';
@@ -12,12 +12,28 @@ import Swiper from 'react-native-swiper';
 export default class Bus extends Component {
     constructor(props) {
         super(props);
-        this.state={};
+        this.state={
+
+        };
     }
+
     static navigationOptions = () => {
         return {
             headerTitle: '홈',
         } 
+    }
+  
+    update() {
+         //bustime refresh
+       this.setState(
+           <BusTime />
+       )
+    }
+
+    buscheck() {
+       setInterval( () => {
+           this.update();
+       }, 1000)
     }
 
     getHaksik = async (isRefresh = false) => {
@@ -48,13 +64,15 @@ export default class Bus extends Component {
     componentDidMount = async () => {
         this.getHaksik();
         this.getDormitory();
+        this.buscheck(); // setInterval , 1000
+        
     }
     render = () => {
         return (
             <View style={{flex:1, backgroundColor:'#ffffff'}}>
                     <Bustime name="정문 버스 도착시간"
                              type1="A노선 :" A = {BusTime(BusTb.timeTable.A)}
-                             type2="B노선 :" B= {BusTime(BusTb.timeTable.B)}
+                             type2="B노선 :" B = {BusTime(BusTb.timeTable.B)}
                     />
                     <Swiper style={{marginBottom:-90}} showsPagination={false}  >
                         <FoodBlock name="오늘의 학식" food={this.state.haksik} onRefresh={() => this.getHaksik(true)}/>
@@ -74,7 +92,9 @@ class Bustime extends Component {
 
     constructor(props) {
         super(props);
-        this.state= {};
+        this.state= {
+     
+        };
     }
 
     render() {
@@ -85,7 +105,7 @@ class Bustime extends Component {
                     <TouchableOpacity
                         onPress={this.props.onRefresh}
                     >
-                     <Icon name="refresh" color="#ffffff" size={normalize(16)} />
+                     <Icon name="refresh" color="#000000" size={normalize(16)} />
                     </TouchableOpacity>
                  </View>
                 <View style={styles.foodBlockContainer}>
@@ -146,8 +166,6 @@ render() {
         )
     }
 }
-
-
 
 class DormBlock extends Component {
     constructor(props) {
@@ -219,7 +237,7 @@ class DormBlock extends Component {
                     <TouchableOpacity
                         onPress={this.props.onRefresh}
                     >
-                        <Icon name="refresh" color="#ffffff" size={normalize(16)} />
+                        <Icon name="refresh" color="#000000" size={normalize(16)} />
                     </TouchableOpacity>
                 </View>
                 <View style={styles.foodBlockContainer}>
@@ -305,7 +323,7 @@ class FoodBlock extends Component {
                     <TouchableOpacity
                         onPress={this.props.onRefresh}
                     >
-                        <Icon name="refresh" color="#ffffff" size={normalize(16)} />
+                        <Icon name="refresh" color="#000000" size={normalize(16)} />
                     </TouchableOpacity>
                 </View>
                 <View style={styles.foodBlockContainer}>

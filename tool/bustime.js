@@ -11,8 +11,9 @@ export default function (timeTable) {
             else if(Number(slice[1])===0){
                 return lefttime(timeTable[i]);
             }
-        }    
+        }  
     }
+    return "운행 종료"
 }
 
 
