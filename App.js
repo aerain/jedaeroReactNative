@@ -22,24 +22,22 @@ export default class App extends Component {
     setTimeout(() => {
       this.setState({ isLoaded: true})
     }, 2800)
-    if(Platform.OS === 'android') { StatusBar.setBackgroundColor('#ffffff'); }
-    StatusBar.setBarStyle('dark-content');
+   
    
   }
 
   render() {
     const { isLoaded } = this.state;
-    return (
-        <View style={{flex:1}}>
-        {isLoaded ?   
-          (
-            <MainDrawer/>
-          ) : (
-              <Splash />
-            )
-        }
-        </View>
-    )
+    if(!isLoaded) {
+      if(Platform.OS === 'android') { StatusBar.setBackgroundColor('#ffffff00'); }
+      StatusBar.setTranslucent(true);
+      StatusBar.setBarStyle('light-content');
+    } else {
+      if(Platform.OS === 'android') { StatusBar.setBackgroundColor('#ffffffff'); }
+      StatusBar.setTranslucent(false);
+      StatusBar.setBarStyle('dark-content');
+    }
+    return isLoaded ? <MainDrawer/> : <Splash />
   }
 }
 
