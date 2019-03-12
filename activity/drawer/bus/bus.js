@@ -369,8 +369,10 @@ const styles = StyleSheet.create({
     foodBlockContainerText: {
         lineHeight:normalize(13),
         color:'#000000',
+        fontSize:normalize(12)
     },
     foodBlockContainerLeft: {
+        fontSize:normalize(10),
         lineHeight:normalize(15),
         color:'#334955',
         fontWeight:'bold',

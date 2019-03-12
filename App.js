@@ -18,7 +18,6 @@ export default class App extends Component {
     }
   }
 
-
   componentDidMount = () => {
     setTimeout(() => {
       this.setState({ isLoaded: true})

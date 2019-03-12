@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text,Image, StyleSheet,ActivityIndicator, ImageBackground, Animated} from 'react-native';
-import Video from 'react-native-video'
+import { View, Text,Image, StyleSheet,ActivityIndicator, ImageBackground, Animated } from 'react-native';
+
 export default class splash extends Component {
     constructor(props) {
         super(props);
@@ -12,35 +12,26 @@ export default class splash extends Component {
     componentDidMount = () => {
         Animated.timing(
             this.state.opacity,
-            { toValue: 1, duration: 3000}
+            { toValue: 1, duration: 1500}
         ).start()
     }
-
     render = () => {
          
         return (
-        <View style={styles.box}> 
-        <ImageBackground style={styles.wrap}
-            source={require('../images/home2.webp')}
-         >
-            <Animated.Image style={{...styles.logo, opacity: this.state.opacity}}
-               source={require('../images/logo.png')}
-            />
-            <ActivityIndicator size="large" color="#FFFFFF" />
-         </ImageBackground> 
-         {/* <Video source={require('../images/ggue.mp4')}   // Can be a URL or a local file.
-                ref={(ref) => {
-                    this.player = ref
-                }}                                      // Store reference
-                onBuffer={this.onBuffer}                // Callback when remote video is buffering
-                onError={this.videoError}               // Callback when video cannot be loaded
-                style={styles.backgroundVideo}>
-             </Video>
-                <Animated.Image style={{...styles.logo, opacity: this.state.opacity}}
-                source={require('../images/logo.png')}
-            />
-                <ActivityIndicator size="large" color="#FFFFFF" /> */}
-         </View>
+            <ImageBackground style={{flex:1, alignItems:"center", backgroundColor:"black",justifyContent:'center'}}
+                source={require('../images/test.gif')}
+            >
+               <Animated.Image style={{...styles.box, opacity: this.state.opacity}}
+                  source={require('../images/logo.png')}
+                />
+                <ActivityIndicator size="large" color="#FFFFFF"/>
+            </ImageBackground>
+        //   <ImageBackground
+        //     source={require('../images/tumblr.gif')}
+        //     style={{flex: 1}}
+        //   >
+        //     <Text>왜 안되냐고</Text>
+        //   </ImageBackground>
         )
     }
 }
@@ -52,8 +43,9 @@ const styles = StyleSheet.create({
     },
     logo: {
         width: "70%",
+        height: 300,
         resizeMode: "contain",
-        marginBottom: 230,
+        marginBottom: 200,
 
     },
     wrap: {
