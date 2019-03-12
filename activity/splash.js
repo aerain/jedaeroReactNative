@@ -18,20 +18,16 @@ export default class splash extends Component {
     render = () => {
          
         return (
-            <ImageBackground style={{flex:1, alignItems:"center", backgroundColor:"black",justifyContent:'center'}}
-                source={require('../images/test.gif')}
-            >
-               <Animated.Image style={{...styles.box, opacity: this.state.opacity}}
-                  source={require('../images/logo.png')}
-                />
-                <ActivityIndicator size="large" color="#FFFFFF"/>
-            </ImageBackground>
-        //   <ImageBackground
-        //     source={require('../images/tumblr.gif')}
-        //     style={{flex: 1}}
-        //   >
-        //     <Text>왜 안되냐고</Text>
-        //   </ImageBackground>
+            <View style={styles.box}> 
+                <ImageBackground style={styles.wrap}
+                    source={require('../images/home2.webp')}
+                >
+            <Animated.Image style={{...styles.logo, opacity: this.state.opacity}}
+               source={require('../images/logo.png')}
+            />
+            <ActivityIndicator size="large" color="#FFFFFF" />
+         </ImageBackground> 
+        </View>
         )
     }
 }

@@ -13,7 +13,7 @@ export default class Bus extends Component {
     constructor(props) {
         super(props);
         this.state={
-
+            
         };
     }
 
@@ -21,19 +21,6 @@ export default class Bus extends Component {
         return {
             headerTitle: '홈',
         } 
-    }
-  
-    update() {
-         //bustime refresh
-       this.setState(
-           <BusTime />
-       )
-    }
-
-    buscheck() {
-       setInterval( () => {
-           this.update();
-       }, 1000)
     }
 
     getHaksik = async (isRefresh = false) => {
@@ -64,16 +51,12 @@ export default class Bus extends Component {
     componentDidMount = async () => {
         this.getHaksik();
         this.getDormitory();
-        this.buscheck(); // setInterval , 1000
         
     }
     render = () => {
         return (
             <View style={{flex:1, backgroundColor:'#ffffff'}}>
-                    <Bustime name="정문 버스 도착시간"
-                             type1="A노선 :" A = {BusTime(BusTb.timeTable.A)}
-                             type2="B노선 :" B = {BusTime(BusTb.timeTable.B)}
-                    />
+                    <Bustime name="정문 버스 도착시간" />
                     <Swiper style={{marginBottom:-90}} showsPagination={false}  >
                         <FoodBlock name="오늘의 학식" food={this.state.haksik} onRefresh={() => this.getHaksik(true)}/>
                         <DormBlock name="오늘의 숙사밥" food={this.state.dormitory} onRefresh={() => this.getDormitory(true)}/>
@@ -93,8 +76,20 @@ class Bustime extends Component {
     constructor(props) {
         super(props);
         this.state= {
-     
+            A: BusTime(BusTb.timeTable.A),
+            B: BusTime(BusTb.timeTable.B),
         };
+    }
+
+    componentDidMount = () => this.buscheck();
+
+    buscheck = () => {
+        setInterval( () => {
+            this.setState({
+                A: BusTime(BusTb.timeTable.A),
+                B: BusTime(BusTb.timeTable.B)})
+               
+        }, 1000)
     }
 
     render() {
@@ -109,8 +104,8 @@ class Bustime extends Component {
                     </TouchableOpacity>
                  </View>
                 <View style={styles.foodBlockContainer}>
-                    <Text style={styles.foodBlockContainerText}>{this.props.type1} {this.props.A}</Text>
-                    <Text style={styles.foodBlockContainerText}>{this.props.type2} {this.props.B}</Text>
+                    <Text style={styles.foodBlockContainerText}>A 노선: {this.state.A}</Text>
+                    <Text style={styles.foodBlockContainerText}>B 노선: {this.state.B}</Text>
                 </View>
             </View>
         )
@@ -241,10 +236,10 @@ class DormBlock extends Component {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.foodBlockContainer}>
-                    <Text style={styles.foodBlockContainerLeft}>조기 </Text><Text style={styles.foodBlockContainerText}>{this.state.food? this.state.food.dawn : '없어요\n'}</Text>
-                    <Text style={styles.foodBlockContainerLeft}>아침 </Text><Text style={styles.foodBlockContainerText}>{this.state.food? this.state.food.breakfast : '없어요\n'}</Text>
-                    <Text style={styles.foodBlockContainerLeft}>점심 </Text><Text style={styles.foodBlockContainerText}>{this.state.food? this.state.food.lunch : '없어요\n'}</Text>
-                    <Text style={styles.foodBlockContainerLeft}>저녁 </Text><Text style={styles.foodBlockContainerText}>{this.state.food? this.state.food.dinner : '없어요\n'}</Text>
+                    <Text style={styles.foodBlockContainerLeft}>조기 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.dawn : '없어요\n'}</Text>
+                    <Text style={styles.foodBlockContainerLeft}>아침 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.breakfast : '없어요\n'}</Text>
+                    <Text style={styles.foodBlockContainerLeft}>점심 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.lunch : '없어요\n'}</Text>
+                    <Text style={styles.foodBlockContainerLeft}>저녁 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.dinner : '없어요\n'}</Text>
                 </View>
             </View>
         )
@@ -327,10 +322,10 @@ class FoodBlock extends Component {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.foodBlockContainer}>
-                    <Text style={styles.foodBlockContainerLeft}>정식 </Text><Text style={styles.foodBlockContainerText}>{this.state.food? this.state.food.combo+'\n' : '없어요\n'}</Text>
-                    <Text style={styles.foodBlockContainerLeft}>특식 </Text><Text style={styles.foodBlockContainerText}>{this.state.food? this.state.food.special+'\n' : '없어요\n'}</Text>
-                    <Text style={styles.foodBlockContainerLeft}>양식 </Text><Text style={styles.foodBlockContainerText}>{this.state.food? this.state.food.western+'\n' : '없어요\n'}</Text>
-                    <Text style={styles.foodBlockContainerLeft}>저녁 </Text><Text style={styles.foodBlockContainerText}>{this.state.food? this.state.food.dinner+'\n' : '없어요\n'}</Text>
+                    <Text style={styles.foodBlockContainerLeft}>정식 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.combo+'\n' : '없어요\n'}</Text>
+                    <Text style={styles.foodBlockContainerLeft}>특식 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.special+'\n' : '없어요\n'}</Text>
+                    <Text style={styles.foodBlockContainerLeft}>양식 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.western+'\n' : '없어요\n'}</Text>
+                    <Text style={styles.foodBlockContainerLeft}>저녁 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.dinner+'\n' : '없어요\n'}</Text>
                 </View>
             </View>
         )
