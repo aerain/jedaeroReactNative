@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text,Image, StyleSheet,ActivityIndicator, ImageBackground, Animated } from 'react-native';
 
-
 export default class splash extends Component {
     constructor(props) {
         super(props);
-
         this.state ={
             opacity: new Animated.Value(0)
         }
@@ -34,18 +32,36 @@ export default class splash extends Component {
         //   >
         //     <Text>왜 안되냐고</Text>
         //   </ImageBackground>
-               
-           
         )
     }
 }
 
 const styles = StyleSheet.create({
     box: {
+        flex:1, 
+        backgroundColor:"black",
+    },
+    logo: {
         width: "70%",
         height: 300,
         resizeMode: "contain",
         marginBottom: 200,
 
-    }
+    },
+    wrap: {
+        height: "100%",
+        alignItems:"center", 
+        resizeMode: "cover", 
+        justifyContent:'center', 
+    },
+
+    backgroundVideo: {
+        width: "100%",
+        height: "100%",
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0,
+      },
 })

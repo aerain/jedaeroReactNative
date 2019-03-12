@@ -21,7 +21,7 @@ export default class App extends Component {
   componentDidMount = () => {
     setTimeout(() => {
       this.setState({ isLoaded: true})
-    }, 1500)
+    }, 2800)
     if(Platform.OS === 'android') { StatusBar.setBackgroundColor('#ffffff'); }
     StatusBar.setBarStyle('dark-content');
    
