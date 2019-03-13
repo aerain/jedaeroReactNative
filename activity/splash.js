@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text,Image, StyleSheet,ActivityIndicator, ImageBackground, Animated } from 'react-native';
+import { View, Text,Image, StyleSheet,ActivityIndicator, ImageBackground, Animated, Platform, StatusBar } from 'react-native';
 
 export default class splash extends Component {
     constructor(props) {
@@ -15,6 +15,7 @@ export default class splash extends Component {
             { toValue: 1, duration: 1500}
         ).start()
     }
+
     render = () => {
          
         return (
