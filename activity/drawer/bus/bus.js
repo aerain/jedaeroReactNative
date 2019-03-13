@@ -89,7 +89,7 @@ class Bustime extends Component {
                 A: BusTime(BusTb.timeTable.A),
                 B: BusTime(BusTb.timeTable.B)})
                
-        }, 1000)
+        }, 25000)
     }
 
     render() {
