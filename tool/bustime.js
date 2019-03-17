@@ -7,39 +7,38 @@ export default function daycheck(timeTable) {
     var a = moment();
     var day = a.day();
     // 0:일요일 ~ 6:토요일 즉,주말일때 운행없음
-    if(day===0 || 6) { 
-        return bus(timeTable); 
+    if(day === 0 || day === 6) { 
+       return "운행없어요..."
     }
     else { 
-     
-        return "운행없어요.."
+       return bus(timeTable);
     }
 }
 
-_storeData = async (i) => {
-    try {
-      await AsyncStorage.setItem(i);
-    } catch (error) {
-      // Error saving data
-    }
-  };
+// _storeData = async (i) => {
+//     try {
+//       await AsyncStorage.setItem(i);
+//     } catch (error) {
+//       // Error saving data
+//     }
+//   };
 
-  _retrieveData = async (i) => {
-    try {
-      const value = await AsyncStorage.getItem(i);
-      if (value !== null) {
-        // We have data!!
-        console.log(value);
-      }
-    } catch (error) {
-      // Error retrieving data
-    }
-  };
+//   _retrieveData = async (i) => {
+//     try {
+//       const value = await AsyncStorage.getItem(i);
+//       if (value !== null) {
+//         // We have data!!
+//         console.log(value);
+//       }
+//     } catch (error) {
+//       // Error retrieving data
+//     }
+//   };
 
 function bus(timeTable, i){
     var thistime = moment().format('kk:mm:ss');
     
-    for(++i; i<timeTable.length; i++){
+    for(i=0; i<timeTable.length; i++){
         var a = moment(`'${timeTable[i]}'`,'kk:mm:ss').format('kk:mm:ss');
         var result = moment(thistime,'kk:mm:ss').diff(moment(a,'kk:mm:ss'));
         var b = moment.duration(result);
@@ -47,10 +46,10 @@ function bus(timeTable, i){
         if(s > 0 )
         {
             //TODO Logic (Asyncstorage)
-            return _storeData(i);
+            return "ㅂ2";
         }
         else {
-            return s;
+            return Math.floor(b.asHours());
         }
     }
     return "운행종료";
