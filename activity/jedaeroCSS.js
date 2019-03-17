@@ -40,7 +40,7 @@ let stackNavigationOptions = {
     headerLayoutPreset: 'left',
     navigationOptions : ({navigation}) => {
         return {
-            headerTintColor: '#344955',
+            headerTintColor: '#000000',
             headerStyle: {
                 backgroundColor:'#ffffff',
                 borderBottomWidth: 0,
@@ -110,7 +110,7 @@ let foodMenuListStyles = StyleSheet.create({
         paddingBottom: 32,
         backgroundColor:'#ffffff',
         borderBottomWidth:0.5,
-        borderBottomColor:'#d7d7d7'
+        borderBottomColor:'#e7e7e7'
     },
     labelStyle: {
         fontSize:normalize(20),
@@ -121,21 +121,22 @@ let foodTabStyles = StyleSheet.create({
     listTitleStyle: {
       textAlign: 'center',
       fontSize: normalize(20),
-      color: '#344955',
+      color: '#000000',
     },
     listSubtitleStyle: {
       textAlign:'center',
       color: '#7d7d7d',
+      fontSize: 10
     },
     listContainerStyle: {
       paddingTop:24,
       paddingBottom:16,
       backgroundColor:'white',
       borderWidth: 0.5,
-      borderColor:'#d7d7d7',
-      marginHorizontal:8,
+      borderColor:'#e7e7e7',
+      marginHorizontal:10,
       marginBottom:16,
-      borderRadius:8,
+      borderRadius:4,
       overflow:'hidden'
     }
 })
@@ -143,17 +144,17 @@ let foodTabStyles = StyleSheet.create({
 let foodTabNavStyles = StyleSheet.create({
     scrollContainer: {
       paddingTop:8,
+      backgroundColor: '#f7f7f7'
     },
     container: {
       flex:1,
       backgroundColor:'#ffffff',
-      borderRadius:8,
-      borderColor:'#d7d7d7',
+      borderRadius:4,
+      borderColor:'#e7e7e7',
       borderWidth:0.5,
       overflow:'hidden',
       marginHorizontal:8,
       marginBottom: 16,
-      elevation:5,
     },
     title: {
       justifyContent:'center',
@@ -178,7 +179,6 @@ let foodTabNavStyles = StyleSheet.create({
       width: '32%' 
     },
     foodlistContainer: {
-      backgroundColor:'#344955',
       paddingVertical:4,
     },
     foodlistTitle: {
@@ -194,14 +194,13 @@ let foodTabNavStyles = StyleSheet.create({
 
 let mainTabOptions = {
     tabBarOptions: {
-      activeTintColor: '#344955',
+      activeTintColor: '#000000',
       inactiveTintColor: '#d7d7d7',
       showLabel: false,
       style: {
         backgroundColor:'#ffffff',
-        elevation:5,
         borderTopWidth:0.5,
-        borderTopColor:'#d7d7d7',
+        borderTopColor:'#e7e7e7',
         height:65
       },
     }
@@ -245,7 +244,7 @@ let menuTopTabOptions = {
     tabBarPosition: 'top',
     tabBarOptions: {
         showIcon:false,
-        activeTintColor: "#344955",
+        activeTintColor: "#000000",
         inactiveTintColor:'#d7d7d7',
         tabStyle:{
             justifyContent:'center',
@@ -258,6 +257,7 @@ let menuTopTabOptions = {
           backgroundColor:'#ffffff',
           borderBottomWidth:0.5,
           borderBottomColor:'#d7d7d7',
+          elevation:0
         },
         indicatorStyle: {
           marginBottomWidth:0,

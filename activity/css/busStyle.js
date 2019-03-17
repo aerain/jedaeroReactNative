@@ -88,7 +88,11 @@ const mainScreen = StyleSheet.create({
         
     },
     foodBlockContainerTitle: {
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontSize: 12
+    },
+    foodBlockContainerText: {
+        fontSize: 12
     },
     foodViewBlockContainer: {
         borderLeftWidth: 0.5,

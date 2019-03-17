@@ -41,11 +41,11 @@ class Haksik extends Component {
                     />
                 }
               >
-                <HaksikList title="정식" food={this.state.meal.combo} time={h_time.combo}/>
-                <HaksikList title="특식" food={this.state.meal.special} time={h_time.special} />
-                <HaksikList title="양식" food={this.state.meal.western} time={h_time.chinese}/>
-                <HaksikList title="중식" food={this.state.meal.chinese} time={h_time.chinese}/>
-                <HaksikList title="정식 저녁" food={this.state.meal.dinner} time={h_time.dinner}/>
+                <HaksikList title="정식" food={this.state.meal.combo} time={h_time.combo} color="#f57c00" />
+                <HaksikList title="특식" food={this.state.meal.special} time={h_time.special} color="#689f38" />
+                <HaksikList title="양식" food={this.state.meal.western} time={h_time.chinese} color="#0097a7" />
+                <HaksikList title="중식" food={this.state.meal.chinese} time={h_time.chinese} color="#1976d2" />
+                <HaksikList title="정식 저녁" food={this.state.meal.dinner} time={h_time.dinner} color="#7b1fa2"/>
               </ScrollView>
             )
           }
@@ -57,7 +57,7 @@ class HaksikList extends Component {
       return (
         <View style={foodTabNavStyles.container}>
           <TouchableOpacity style={foodTabNavStyles.list} activeOpacity={0.8}>
-            <View style={foodTabNavStyles.foodlistContainer}>
+            <View style={{...foodTabNavStyles.foodlistContainer, backgroundColor: this.props.color}}>
               <Text style={foodTabNavStyles.foodlistTitle}>{this.props.title}</Text>
             </View>
             <View style={foodTabNavStyles.subContainer}>
