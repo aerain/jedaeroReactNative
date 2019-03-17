@@ -9,6 +9,8 @@ import BusTb from '../../../jsons/busschedule.json';
 import BusTime from '../../../tool/bustime';
 import Swiper from 'react-native-swiper';
 
+import { mainScreen } from '../../css/busStyle';
+
 export default class Bus extends Component {
     constructor(props) {
         super(props);
@@ -55,17 +57,17 @@ export default class Bus extends Component {
     }
     render = () => {
         return (
-            <View style={{flex:1, backgroundColor:'#ffffff'}}>
-                    <Bustime name="정문 버스 도착시간" />
-                    <Swiper style={{marginBottom:-90}} showsPagination={false}  >
+            <View style={mainScreen.busView}>
+                    <Bustime name="버스 시간" />
+                    <Swiper style={{backgroundColor: 'red', flex: 0}} containerStyle={mainScreen.foodBlockSwiper} showsPagination={false}>
                         <FoodBlock name="오늘의 학식" food={this.state.haksik} onRefresh={() => this.getHaksik(true)}/>
                         <DormBlock name="오늘의 숙사밥" food={this.state.dormitory} onRefresh={() => this.getDormitory(true)}/>
                     </Swiper>
-                    <Swiper style={{marginTop:75}} showsPagination={false} autoplay={true} autoplayTimeout={3}>
-                        <SmartBlock name="스마트 출첵" />
+                    <Swiper style={{backgroundColor: 'blue', flexGrow: 0, flexShrink: 1, flexBasis: 50}} containerStyle={mainScreen.foodBlockSwiper} showsPagination={false} autoplay={true} autoplayTimeout={3}>
                         <AdBlock name="광고배너" />
                         <AdBlock name="광고배너2" />
                     </Swiper>
+                    <SmartBlock name="스마트 출첵" />
             </View>
         )
     }
@@ -94,18 +96,21 @@ class Bustime extends Component {
 
     render() {
         return(
-            <View style={styles.foodBlock}>
-                <View style={styles.foodBlockTitle}>
-                    <Text style={styles.foodBlockTitleText}>{this.props.name}</Text>
-                    <TouchableOpacity
+            <View style={mainScreen.blockView}>
+                <View style={{...mainScreen.blockViewTitle, backgroundColor: '#81c784',}}>
+                    <Text style={mainScreen.blockViewTitleText}>{this.props.name}</Text>
+                    <Text style={mainScreen.blockViewHelpText}>정문 기준</Text>
+                    {/* <TouchableOpacity
                         onPress={this.props.onRefresh}
                     >
                      <Icon name="refresh" color="#000000" size={normalize(16)} />
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                  </View>
-                <View style={styles.foodBlockContainer}>
-                    <Text style={styles.foodBlockContainerText}>A 노선: {this.state.A}</Text>
-                    <Text style={styles.foodBlockContainerText}>B 노선: {this.state.B}</Text>
+                <View style={{...mainScreen.blockViewContainer, flexDirection: 'row',}}>
+                    <View style={mainScreen.blockViewContainerMain}><Text style={mainScreen.blockTitle}>A</Text></View>
+                    <View style={mainScreen.blockViewContainerSub}><Text style={mainScreen.blockText}>{this.state.A}</Text></View>
+                    <View style={mainScreen.blockViewContainerMain}><Text style={mainScreen.blockTitle}>B</Text></View>
+                    <View style={mainScreen.blockViewContainerSub}><Text style={mainScreen.blockText}>{this.state.B}</Text></View>
                 </View>
             </View>
         )
@@ -120,7 +125,7 @@ class AdBlock extends Component {
     
     render() {
         return (
-            <View style={styles.foodBlock}>
+            <View style={mainScreen.blockView}>
                 <View style={styles.foodBlockTitle}>
                   <Text style={styles.foodBlockTitleText}>{this.props.name}</Text>
                     {/* <TouchableOpacity
@@ -145,7 +150,7 @@ class SmartBlock extends Component {
 
 render() {
     return (
-        <View style={styles.foodBlock}>
+        <View style={mainScreen.blockView}>
             <View style={styles.foodBlockTitle}>
               <Text style={styles.foodBlockTitleText}>{this.props.name}</Text>
                 {/* <TouchableOpacity
@@ -226,20 +231,20 @@ class DormBlock extends Component {
 
     render() {
         return (
-            <View style={styles.foodBlock}>
-                <View style={styles.foodBlockTitle}>
-                    <Text style={styles.foodBlockTitleText}>{this.props.name}</Text>
+            <View style={mainScreen.blockView}>
+                <View style={{...mainScreen.blockViewTitle, backgroundColor: '#4dd0e1'}}>
+                    <Text style={mainScreen.blockViewTitleText}>{this.props.name}</Text>
                     <TouchableOpacity
                         onPress={this.props.onRefresh}
                     >
                         <Icon name="refresh" color="#000000" size={normalize(16)} />
                     </TouchableOpacity>
                 </View>
-                <View style={styles.foodBlockContainer}>
-                    <Text style={styles.foodBlockContainerLeft}>조기 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.dawn : '없어요\n'}</Text>
-                    <Text style={styles.foodBlockContainerLeft}>아침 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.breakfast : '없어요\n'}</Text>
-                    <Text style={styles.foodBlockContainerLeft}>점심 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.lunch : '없어요\n'}</Text>
-                    <Text style={styles.foodBlockContainerLeft}>저녁 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.dinner : '없어요\n'}</Text>
+                <View style={{...mainScreen.foodViewBlockContainer, flexDirection: 'column'}}>
+                    <Text style={mainScreen.foodBlockContainerTitle}>조기 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.dawn : '없어요\n'}</Text>
+                    <Text style={mainScreen.foodBlockContainerTitle}>아침 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.breakfast : '없어요\n'}</Text>
+                    <Text style={mainScreen.foodBlockContainerTitle}>점심 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.lunch : '없어요\n'}</Text>
+                    <Text style={mainScreen.foodBlockContainerTitle}>저녁 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.dinner : '없어요\n'}</Text>
                 </View>
             </View>
         )
@@ -312,20 +317,20 @@ class FoodBlock extends Component {
 
     render() {
         return (
-            <View style={styles.foodBlock}>
-                <View style={styles.foodBlockTitle}>
-                    <Text style={styles.foodBlockTitleText}>{this.props.name}</Text>
+            <View style={mainScreen.blockView}>
+                <View style={{...mainScreen.blockViewTitle, backgroundColor: '#ffd54f',}}>
+                    <Text style={mainScreen.blockViewTitleText}>{this.props.name}</Text>
                     <TouchableOpacity
                         onPress={this.props.onRefresh}
                     >
                         <Icon name="refresh" color="#000000" size={normalize(16)} />
                     </TouchableOpacity>
                 </View>
-                <View style={styles.foodBlockContainer}>
-                    <Text style={styles.foodBlockContainerLeft}>정식 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.combo+'\n' : '없어요\n'}</Text>
-                    <Text style={styles.foodBlockContainerLeft}>특식 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.special+'\n' : '없어요\n'}</Text>
-                    <Text style={styles.foodBlockContainerLeft}>양식 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.western+'\n' : '없어요\n'}</Text>
-                    <Text style={styles.foodBlockContainerLeft}>저녁 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.dinner+'\n' : '없어요\n'}</Text>
+                <View style={{...mainScreen.foodViewBlockContainer, flexDirection: 'column',}}>
+                    <Text style={mainScreen.foodBlockContainerTitle}>정식 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.combo+'\n' : '없어요\n'}</Text>
+                    <Text style={mainScreen.foodBlockContainerTitle}>특식 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.special+'\n' : '없어요\n'}</Text>
+                    <Text style={mainScreen.foodBlockContainerTitle}>양식 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.western+'\n' : '없어요\n'}</Text>
+                    <Text style={mainScreen.foodBlockContainerTitle}>저녁 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.dinner+'\n' : '없어요\n'}</Text>
                 </View>
             </View>
         )
@@ -337,8 +342,8 @@ const styles = StyleSheet.create({
     foodBlock: {
         borderWidth:0.5,
         borderColor:'#d7d7d7',
-        marginBottom:16,
-        marginHorizontal:8,
+        // marginBottom:16,
+        // marginHorizontal:8,
         borderRadius:8,
         overflow:'hidden',
         elevation: 1,

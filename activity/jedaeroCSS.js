@@ -5,6 +5,8 @@ import EvilIcon from 'react-native-vector-icons/EvilIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { normalize } from 'react-native-elements';
 
+import './css/busStyle'
+
 
 let drawerContentComponent = (props) => (
     <ScrollView>
