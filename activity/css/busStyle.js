@@ -10,8 +10,11 @@ const mainScreen = StyleSheet.create({
     foodBlockSwiper: {
         backgroundColor: 'red',
         
+        
     },
     blockView: {
+        flex:1,
+        height : "auto",
         borderTopLeftRadius: 4,
         borderTopRightRadius: 4,
         borderColor: '#e7e7e7',
@@ -36,7 +39,7 @@ const mainScreen = StyleSheet.create({
         color:'#ffffff',
     },
     blockViewHelpText: {
-        fontSize: 10,
+        fontSize: 11,
         color: '#ffffff',
     },
     blockViewContainer: {
@@ -73,11 +76,16 @@ const mainScreen = StyleSheet.create({
     blockTitle: {
         fontSize: 24,
         fontWeight: 'bold',
-        color: '#000000'
+        color: '#000000',
+        paddingVertical:5,
+        paddingHorizontal:15,
+        borderRightWidth:0.3,
+        borderColor:"#D3D3D3",
     },
     blockText: {
         fontSize: 16,
-        color: '#000000'
+        color: '#000000',
+        
     },
     foodBlockContainerTitle: {
         fontWeight: 'bold'
