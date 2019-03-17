@@ -2,14 +2,15 @@ import { StyleSheet } from 'react-native';
 
 const mainScreen = StyleSheet.create({
     busView: {
-        flex:1, 
+        // flex:1, 
+        minHeight: '100%',
         backgroundColor:'#ffffff',
         flexDirection: 'column', 
-        // justifyContent:'flex-start'
+        justifyContent: 'flex-start',
     },
     foodBlockSwiper: {
-        backgroundColor: 'red',
-        
+        backgroundColor: 'yellow',
+        height: 'auto'
     },
     blockView: {
         borderTopLeftRadius: 4,
@@ -18,8 +19,8 @@ const mainScreen = StyleSheet.create({
         marginLeft: 10,
         marginRight: 10,
         marginBottom: 10,
-        backgroundColor: '#ffffff',   
-        overflow: 'hidden',     
+        backgroundColor: '#ffffff',
+        overflow: 'hidden',
     },
     blockViewTitle: {
         paddingTop: 10,
