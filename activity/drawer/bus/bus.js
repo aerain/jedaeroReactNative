@@ -8,8 +8,9 @@ import getWeek from '../../../tool/getWeek';
 import BusTb from '../../../jsons/busschedule.json';
 import BusTime from '../../../tool/bustime';
 import Swiper from 'react-native-swiper';
-
 import { mainScreen } from '../../css/busStyle';
+
+
 
 export default class Bus extends Component {
     constructor(props) {
@@ -57,17 +58,18 @@ export default class Bus extends Component {
     }
     render = () => {
         return (
-            <ScrollView contentContainerStyle={mainScreen.busView}>
-                <Bustime name="버스 시간" />
-                    <FoodBlock name="오늘의 학식" food={this.state.haksik} onRefresh={() => this.getHaksik(true)}/>
-                    <DormBlock name="오늘의 숙사밥" food={this.state.dormitory} onRefresh={() => this.getDormitory(true)}/>
-                    {/* <Swiper height={120} showsPagination={false} autoplay={true} autoplayTimeout={3}>
+            <View style={mainScreen.busView}>
+                    <Bustime name="버스 시간" />
+                    <Swiper style={{flex: 1}} containerStyle={mainScreen.foodBlockSwiper} showsPagination={false}>
+                        <FoodBlock name="오늘의 학식" food={this.state.haksik} onRefresh={() => this.getHaksik(true)}/>
+                        <DormBlock name="오늘의 숙사밥" food={this.state.dormitory} onRefresh={() => this.getDormitory(true)}/>
+                    </Swiper>
+                    {/* <Swiper style={{flex: 1}} containerStyle={mainScreen.foodBlockSwiper} showsPagination={false} autoplay={true} autoplayTimeout={3}>
                         <AdBlock name="광고배너" />
                         <AdBlock name="광고배너2" />
                     </Swiper> */}
-                
-                <SmartBlock name="스마트 출첵" />
-            </ScrollView>
+                    <SmartBlock name="스마트 출첵1111" />
+            </View>
         )
     }
 }
@@ -125,16 +127,16 @@ class AdBlock extends Component {
     render() {
         return (
             <View style={mainScreen.blockView}>
-                <View style={{...mainScreen.blockViewTitle, backgroundColor: '#334955'}}>
-                  <Text style={mainScreen.blockViewTitleText}>{this.props.name}</Text>
+                <View style={styles.foodBlockTitle}>
+                  <Text style={styles.foodBlockTitleText}>{this.props.name}</Text>
                     {/* <TouchableOpacity
                         onPress={this.props.onRefresh}
                     >
                         <Icon name="refresh" color="#ffffff" size={normalize(16)} />
                     </TouchableOpacity> */}
                 </View>
-                <View style={mainScreen.blockViewContainer}>
-                  <Text style={{textAlign:"center"}}>광고 or 학과배너 게시예정</Text>
+                <View style={styles.foodBlockContainer}>
+                  <Text style={{textAlign:"center", height:70}}>광고 or 학과배너 게시예정</Text>
                 </View>
             </View>
             )
@@ -159,7 +161,7 @@ render() {
                 </TouchableOpacity> */}
             </View>
             <View style={mainScreen.blockViewContainer}>
-                 <Text style={{textAlign:"center"}}>스마트 출첵 서비스 예정!!!</Text>
+                 <Text style={{textAlign:"center", height:70}}>스마트 출첵 서비스 예정!!!</Text>
             </View>
         </View>
         )
@@ -255,6 +257,7 @@ class FoodBlock extends Component {
         super(props);
         this.state={};
     }
+
 
     componentWillReceiveProps = (nextProps) => {
         console.log(nextProps, '입니다');

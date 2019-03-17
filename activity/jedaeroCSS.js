@@ -160,7 +160,13 @@ let foodTabNavStyles = StyleSheet.create({
       justifyContent:'center',
       alignItems:'center'
     },
-    foodlist: {fontSize: normalize(14), textAlign:'left', color: '#000000', width:'68%', paddingLeft: 20},
+    foodlist: {
+      fontSize: normalize(14), 
+      textAlign:'left', 
+      color: '#000000', 
+      width:'68%', 
+      paddingLeft: 20
+    },
     foodtime: {
       fontSize: normalize(8),
       fontWeight: 'bold',
