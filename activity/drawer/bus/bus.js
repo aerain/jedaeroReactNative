@@ -96,7 +96,7 @@ class Bustime extends Component {
     render() {
         return(
             <View style={mainScreen.blockView}>
-                <View style={{...mainScreen.blockViewTitle, backgroundColor: '#81c784',}}>
+                <View style={{...mainScreen.blockViewTitle, backgroundColor: '#66bb6a',}}>
                     <Text style={mainScreen.blockViewTitleText}>{this.props.name}</Text>
                     <Text style={mainScreen.blockViewHelpText}>정문 기준</Text>
                     {/* <TouchableOpacity
@@ -231,12 +231,12 @@ class DormBlock extends Component {
     render() {
         return (
             <View style={mainScreen.blockView}>
-                <View style={{...mainScreen.blockViewTitle, backgroundColor: '#4dd0e1'}}>
+                <View style={{...mainScreen.blockViewTitle, backgroundColor: '#00acc1'}}>
                     <Text style={mainScreen.blockViewTitleText}>{this.props.name}</Text>
                     <TouchableOpacity
                         onPress={this.props.onRefresh}
                     >
-                        <Icon name="refresh" color="#000000" size={normalize(16)} />
+                        <Icon name="refresh" color="#ffffff" size={normalize(16)} />
                     </TouchableOpacity>
                 </View>
                 <View style={{...mainScreen.foodViewBlockContainer, flexDirection: 'column'}}>
@@ -316,12 +316,12 @@ class FoodBlock extends Component {
     render() {
         return (
             <View style={mainScreen.blockView}>
-                <View style={{...mainScreen.blockViewTitle, backgroundColor: '#ffd54f',}}>
+                <View style={{...mainScreen.blockViewTitle, backgroundColor: '#fbc02d',}}>
                     <Text style={mainScreen.blockViewTitleText}>{this.props.name}</Text>
                     <TouchableOpacity
                         onPress={this.props.onRefresh}
                     >
-                        <Icon name="refresh" color="#000000" size={normalize(16)} />
+                        <Icon name="refresh" color="#ffffff" size={normalize(16)} />
                     </TouchableOpacity>
                 </View>
                 <View style={{...mainScreen.foodViewBlockContainer, flexDirection: 'column',}}>
