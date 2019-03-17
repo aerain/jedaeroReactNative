@@ -8,8 +8,9 @@ import getWeek from '../../../tool/getWeek';
 import BusTb from '../../../jsons/busschedule.json';
 import BusTime from '../../../tool/bustime';
 import Swiper from 'react-native-swiper';
-
 import { mainScreen } from '../../css/busStyle';
+
+
 
 export default class Bus extends Component {
     constructor(props) {
