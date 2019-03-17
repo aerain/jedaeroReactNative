@@ -59,11 +59,11 @@ export default class Bus extends Component {
         return (
             <View style={mainScreen.busView}>
                     <Bustime name="버스 시간" />
-                    <Swiper style={{backgroundColor: 'red', flex: 0}} containerStyle={mainScreen.foodBlockSwiper} showsPagination={false}>
+                    <Swiper style={{flex: 1}} containerStyle={mainScreen.foodBlockSwiper} showsPagination={false}>
                         <FoodBlock name="오늘의 학식" food={this.state.haksik} onRefresh={() => this.getHaksik(true)}/>
                         <DormBlock name="오늘의 숙사밥" food={this.state.dormitory} onRefresh={() => this.getDormitory(true)}/>
                     </Swiper>
-                    <Swiper style={{backgroundColor: 'blue', flexGrow: 0, flexShrink: 1, flexBasis: 50}} containerStyle={mainScreen.foodBlockSwiper} showsPagination={false} autoplay={true} autoplayTimeout={3}>
+                    <Swiper style={{flex: 1}} containerStyle={mainScreen.foodBlockSwiper} showsPagination={false} autoplay={true} autoplayTimeout={3}>
                         <AdBlock name="광고배너" />
                         <AdBlock name="광고배너2" />
                     </Swiper>
@@ -151,15 +151,15 @@ class SmartBlock extends Component {
 render() {
     return (
         <View style={mainScreen.blockView}>
-            <View style={styles.foodBlockTitle}>
-              <Text style={styles.foodBlockTitleText}>{this.props.name}</Text>
+            <View style={{...mainScreen.blockViewTitle, backgroundColor: '#64b5f6'}}>
+              <Text style={mainScreen.blockViewTitleText}>{this.props.name}</Text>
                 {/* <TouchableOpacity
                     onPress={this.props.onRefresh}
                 >
                     <Icon name="refresh" color="#ffffff" size={normalize(16)} />
                 </TouchableOpacity> */}
             </View>
-            <View style={styles.foodBlockContainer}>
+            <View style={mainScreen.blockViewContainer}>
                  <Text style={{textAlign:"center", height:70}}>스마트 출첵 서비스 예정!!!</Text>
             </View>
         </View>

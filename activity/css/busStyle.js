@@ -8,7 +8,8 @@ const mainScreen = StyleSheet.create({
         // justifyContent:'flex-start'
     },
     foodBlockSwiper: {
-        flex: 1
+        backgroundColor: 'red',
+        
     },
     blockView: {
         borderTopLeftRadius: 4,
@@ -56,7 +57,7 @@ const mainScreen = StyleSheet.create({
         textAlign: 'center',
         paddingTop: 20,
         paddingBottom: 20,
-        justifyContent:'center',
+        justifyContent:'center', 
         alignItems:'center',
         borderColor:'#e7e7e7'
     },
