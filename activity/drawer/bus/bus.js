@@ -54,8 +54,6 @@ export default class Bus extends Component {
     componentDidMount = async () => {
         this.getHaksik();
         this.getDormitory();
-        StatusBar.setBarStyle('dark-content');
-        changeNavigationBarColor('#ffffff', true);
     }
     render = () => {
         return (

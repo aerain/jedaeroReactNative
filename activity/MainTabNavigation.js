@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { StatusBar } from 'react-native';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import { StackActions, NavigationActions } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation';
@@ -65,6 +66,7 @@ export default class MainTabNavigation extends Component {
     }
 
     componentDidMount = () => {
+        StatusBar.setBarStyle('dark-content')
         changeNavigationBarColor('#ffffff', true);
     }
     render() {
