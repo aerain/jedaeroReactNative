@@ -16,7 +16,6 @@ export default class DetailMenu extends Component {
     }
 
     render () {
-        console.log(this.item);
         return (
             <View style={{flex: 1}}>
                 <PinchZoom style={{flex : 6}}>
@@ -38,7 +37,6 @@ class CallBlock extends Component {
 
     render() {
         let tel = this.props.tel;
-        console.warn(tel);
         if(this.props.tel !== "") {
             return (
                 <TouchableOpacity style = {{flex:1, opacity:0.7, backgroundColor:'#344955', justifyContent:'center', alignItems:'center'}}onPress={()=> Comu.phonecall(this.props.tel,true)}>

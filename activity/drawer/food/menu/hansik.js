@@ -29,6 +29,8 @@ export default class Hansik extends Component {
         }
     }
 
+    _keyExtractor = (item, index) => item.name
+
     _renderItem = ({item}) => (
         <TouchableOpacity
             onPress={() => {this.props.navigation.navigate("DetailMenu", item)}}
@@ -43,10 +45,12 @@ export default class Hansik extends Component {
         let dataSource = this.state.foodMenu;
         console.log(dataSource);
         return (
-            <View style={{flex: 1}}>
+            <View style={{flexGrow: 1, backgroundColor: '#ffffff', paddingHorizontal:10}}>
                 <FlatList
+                    contentContainerStyle={{flexDirection: 'column', justifyContent: 'space-between'}}
                     data={dataSource}
                     renderItem={this._renderItem}
+                    keyExtractor={this._keyExtractor}
                 />
             </View>
         )

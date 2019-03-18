@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { normalize } from 'react-native-elements';
 
 const mainScreen = StyleSheet.create({
     busView: {
@@ -34,12 +35,12 @@ const mainScreen = StyleSheet.create({
         alignItems: 'center',
     },
     blockViewTitleText: {
-        fontSize: 16,
+        fontSize: normalize(16),
         fontWeight: 'bold',
         color:'#ffffff',
     },
     blockViewHelpText: {
-        fontSize: 11,
+        fontSize: normalize(11),
         color: '#ffffff',
     },
     blockViewContainer: {
@@ -74,7 +75,7 @@ const mainScreen = StyleSheet.create({
         borderColor: '#e7e7e7'
     },
     blockTitle: {
-        fontSize: 24,
+        fontSize: normalize(24),
         fontWeight: 'bold',
         color: '#000000',
         paddingVertical:5,
@@ -83,16 +84,16 @@ const mainScreen = StyleSheet.create({
         borderColor:"#D3D3D3",
     },
     blockText: {
-        fontSize: 16,
+        fontSize: normalize(16),
         color: '#000000',
         
     },
     foodBlockContainerTitle: {
         fontWeight: 'bold',
-        fontSize: 12
+        fontSize: normalize(12)
     },
     foodBlockContainerText: {
-        fontSize: 12
+        fontSize: normalize(12)
     },
     foodViewBlockContainer: {
         borderLeftWidth: 0.5,
