@@ -6,9 +6,11 @@
 
 import React, { Component } from 'react';
 import { StatusBar, Platform, View, Text, TextInput ,ActivityIndicator} from 'react-native';
-// import { SafeAreaView } from 'react-navigation';
+import changeNavigationBarColor, { ShowNavigationBar } from 'react-native-navigation-bar-color'
+import { SafeAreaView } from 'react-navigation';
 import MainDrawer from './activity/MainTabNavigation';
 import Splash from './activity/splash'
+import SplashStackNavigator from './activity/SplashStackNavigator';
 
 export default class App extends Component {
   constructor(props) {
@@ -19,26 +21,30 @@ export default class App extends Component {
   }
 
   componentDidMount = () => {
-    setTimeout(() => {
-      this.setState({ isLoaded: true})
-    }, 2800)
-   
-   
+    // setTimeout(() => {
+    //   this.setState({ isLoaded: true})
+    // }, 2800)
+    StatusBar.setTranslucent(true);
+    StatusBar.setBarStyle('dark-content')
+    StatusBar.setBackgroundColor('#ffffff00');
+
+    changeNavigationBarColor('#ffffff', true);
   }
 
   render() {
     const { isLoaded } = this.state;
-    if(!isLoaded) {
-      if(Platform.OS === 'android') { StatusBar.setBackgroundColor('#ffffff00'); }
-      StatusBar.setTranslucent(true);
-      StatusBar.setBarStyle('light-content');
-    } else {
-      if(Platform.OS === 'android') { StatusBar.setBackgroundColor('#ffffffff'); }
-      StatusBar.setTranslucent(false);
-      StatusBar.setBarStyle('dark-content');
-    }
+    // if(!isLoaded) {
+    //   if(Platform.OS === 'android') { StatusBar.setBackgroundColor('#ffffff00'); }
+    //   StatusBar.setTranslucent(true);
+    //   StatusBar.setBarStyle('light-content');
+    // } else {
+    //   if(Platform.OS === 'android') { StatusBar.setBackgroundColor('#ffffffff'); }
+    //   StatusBar.setTranslucent(false);
+    //   StatusBar.setBarStyle('dark-content');
+    // }
     // return isLoaded ? <MainDrawer/> : <Splash />
-    return <MainDrawer />
+
+    return <SafeAreaView style={{flex: 1}} forceInset={{top: 'always'}}><SplashStackNavigator /></SafeAreaView>
   }
 }
 

@@ -14,6 +14,9 @@ export default class splash extends Component {
             this.state.opacity,
             { toValue: 1, duration: 1500}
         ).start()
+        setTimeout(() => {
+            this.props.navigation.navigate("mainTab")
+        }, 2800)
     }
 
     render = () => {
