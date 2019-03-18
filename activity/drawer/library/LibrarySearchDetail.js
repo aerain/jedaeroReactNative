@@ -52,8 +52,8 @@ export default class LibrarySearchDetail extends Component {
                         <Text style={libdetailStyles.subtitleStyle}>{status} <Text style={{color: (cState === '대출불가' ? 'red' : 'green')}}>{cState}</Text></Text>
                     </View>    
                 }
-                titleStyle={{fontSize:normalize(20), fontWeight:'bold'}}
-                containerStyle={{backgroundColor:'#f7f7f7', borderBottomWidth: 0.5, borderBottomColor:'#d7d7d7'}}
+                titleStyle={{fontSize:normalize(16), fontWeight:'bold'}}
+                containerStyle={{borderWidth: 0.5, borderColor:'#e7e7e7', marginHorizontal: 10, marginBottom: 8, borderRadius: 4}}
                 onPress={() => this.props.navigation.navigate('BookDetail', item)}
                 chevron
             />
@@ -68,30 +68,37 @@ export default class LibrarySearchDetail extends Component {
         // </View>
         // ) : 
         return (
-        <ScrollView contentContainerStyle={libdetailStyles.container} nestedScrollEnabled={true}>
-            <Text style={libdetailStyles.textStyle}> 
+        <View style={libdetailStyles.container} nestedScrollEnabled={true}>
+            {/* <Text style={libdetailStyles.textStyle}> 
                 <Text style={{fontSize:normalize(32)}}>{this.props.navigation.getParam('search', 'none')}</Text> 에 대한 검색결과
-            </Text>
-            <Text style={libdetailStyles.textStyle}>
-                <Text style={{fontSize:normalize(32)}}>{this.state.totalCount}</Text> 건
-            </Text>
+            </Text> */}
+            {
+                (this.state.list.length !== 0) ? (
+                    <Text style={libdetailStyles.textStyle}>
+                        <Text style={{fontSize:normalize(14)}}>{this.state.totalCount}</Text> 건
+                    </Text>
+                ) : undefined
+            }
+            
 
             <FlatList 
                 data={this.state.list}
                 renderItem={this._renderItem}
                 onEndReached={this._getData}
-                style={{borderTopWidth:0.5, borderTopColor:'#d7d7d7'}}
+                // style={{borderTopWidth:0.5, borderTopColor:'#d7d7d7'}}
             />
-        </ScrollView>
+        </View>
         )
     }
 }
 
 let libdetailStyles = StyleSheet.create({
     container: {
-        backgroundColor:'#ffffff',
+        backgroundColor:'#f7f7f7',
+        flex: 1,
+        paddingTop: 8
     },
 
-    textStyle: {marginHorizontal: 8, marginBottom: 4, fontSize:normalize(20), textAlign:'center',},
-    subtitleStyle: {fontSize:normalize(14),}
+    textStyle: {marginHorizontal: 8, marginBottom: 4, fontSize:normalize(12), textAlign:'right',color: '#000000'},
+    subtitleStyle: {fontSize:normalize(12),}
 })
