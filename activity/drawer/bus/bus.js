@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Platform, AsyncStorage, Button, } from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Platform, AsyncStorage, Button, StatusBar} from 'react-native';
 import { normalize } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import HaksikAPI from '../../JedaeroAPI/HaksikAPI';
@@ -9,7 +9,7 @@ import BusTb from '../../../jsons/busschedule.json';
 import BusTime from '../../../tool/bustime';
 import Swiper from 'react-native-swiper';
 import { mainScreen } from '../../css/busStyle';
-
+import changeNavigationBarColor from 'react-native-navigation-bar-color';
 
 
 export default class Bus extends Component {
@@ -54,7 +54,8 @@ export default class Bus extends Component {
     componentDidMount = async () => {
         this.getHaksik();
         this.getDormitory();
-        
+        StatusBar.setBarStyle('dark-content');
+        changeNavigationBarColor('#ffffff', true);
     }
     render = () => {
         return (

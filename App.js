@@ -6,7 +6,7 @@
 
 import React, { Component } from 'react';
 import { StatusBar, Platform, View, Text, TextInput ,ActivityIndicator} from 'react-native';
-import changeNavigationBarColor, { ShowNavigationBar } from 'react-native-navigation-bar-color'
+import changeNavigationBarColor, { HideNavigationBar } from 'react-native-navigation-bar-color'
 import { SafeAreaView } from 'react-navigation';
 import MainDrawer from './activity/MainTabNavigation';
 import Splash from './activity/splash'
@@ -21,14 +21,11 @@ export default class App extends Component {
   }
 
   componentDidMount = () => {
-    // setTimeout(() => {
-    //   this.setState({ isLoaded: true})
-    // }, 2800)
+    
     StatusBar.setTranslucent(true);
     StatusBar.setBarStyle('dark-content')
     StatusBar.setBackgroundColor('#ffffff00');
-
-    changeNavigationBarColor('#ffffff', true);
+    HideNavigationBar();
   }
 
   render() {
@@ -44,7 +41,9 @@ export default class App extends Component {
     // }
     // return isLoaded ? <MainDrawer/> : <Splash />
 
-    return <SafeAreaView style={{flex: 1}} forceInset={{top: 'always'}}><SplashStackNavigator /></SafeAreaView>
+    return (
+      <SplashStackNavigator />
+    )
   }
 }
 

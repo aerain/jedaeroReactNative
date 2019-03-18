@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text,Image, StyleSheet,ActivityIndicator, ImageBackground, Animated, Platform, StatusBar } from 'react-native';
+import { StackActions, NavigationActions } from 'react-navigation'
 
 export default class splash extends Component {
     constructor(props) {
@@ -10,12 +11,16 @@ export default class splash extends Component {
     }
 
     componentDidMount = () => {
+       
         Animated.timing(
             this.state.opacity,
             { toValue: 1, duration: 1500}
         ).start()
         setTimeout(() => {
-            this.props.navigation.navigate("mainTab")
+            this.props.navigation.dispatch(StackActions.reset({ index: 0 , actions: [
+                NavigationActions.navigate({ routeName: 'mainTab'})
+            ]}))
+            // this.props.navigation.navigate("mainTab")
         }, 2800)
     }
 
