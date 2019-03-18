@@ -40,10 +40,10 @@ class Dorm extends Component {
             />
           }
         >
-          <DormList title="조기" food={this.state.meal.dawn} time={d_time.dawn}/>
-          <DormList title="아침" food={this.state.meal.breakfast} time={d_time.breakfast}/>
-          <DormList title="점심" food={this.state.meal.lunch} time={d_time.lunch}/>
-          <DormList title="저녁" food={this.state.meal.dinner} time={d_time.dinner}/>
+          <DormList title="조기" food={this.state.meal.dawn} time={d_time.dawn} color="#f57c00"/>
+          <DormList title="아침" food={this.state.meal.breakfast} time={d_time.breakfast} color="#689f38"/>
+          <DormList title="점심" food={this.state.meal.lunch} time={d_time.lunch} color="#0097a7" />
+          <DormList title="저녁" food={this.state.meal.dinner} time={d_time.dinner} color="#1976d2"/>
         </ScrollView>
       )
     }
@@ -55,7 +55,7 @@ class DormList extends Component {
     return (
       <View style={foodTabNavStyles.container}>
         <TouchableOpacity style={foodTabNavStyles.list} activeOpacity={0.8}>
-          <View style={foodTabNavStyles.foodlistContainer}>
+          <View style={{...foodTabNavStyles.foodlistContainer, backgroundColor: this.props.color}}>
             <Text style={foodTabNavStyles.foodlistTitle}>{this.props.title}</Text>
           </View>
           <View style={foodTabNavStyles.subContainer}>
