@@ -66,8 +66,7 @@ export default class MainTabNavigation extends Component {
     }
 
     componentDidMount = () => {
-        StatusBar.setBarStyle('dark-content')
-        changeNavigationBarColor('#ffffff', true);
+       
     }
     render() {
         return <TabNav />
