@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Platform, AsyncStorage, Button, StatusBar} from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Platform, AsyncStorage, Button, StatusBar,FlatList,Dimensions} from 'react-native';
 import { normalize } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import HaksikAPI from '../../JedaeroAPI/HaksikAPI';
@@ -56,19 +56,34 @@ export default class Bus extends Component {
         this.getDormitory();
     }
     render = () => {
+        
         return (
-            <ScrollView contentContainerStyle={mainScreen.busView}>
-                    <Bustime name="버스 시간" />
-                    {/* <Swiper style={{flex: 1}} containerStyle={mainScreen.foodBlockSwiper} showsPagination={false}> */}
+            <ScrollView contentContainerStyle={mainScreen.busView} >
+            <Bustime name="버스 시간" />
+                    <Swiper style={{flex:1}}containerStyle={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height }} showsPagination={false}>
                     <FoodBlock name="오늘의 학식" food={this.state.haksik} onRefresh={() => this.getHaksik(true)}/>
                     <DormBlock name="오늘의 숙사밥" food={this.state.dormitory} onRefresh={() => this.getDormitory(true)}/>
-                    {/* </Swiper> */}
-                    {/* <Swiper style={{flex: 1}} containerStyle={mainScreen.foodBlockSwiper} showsPagination={false} autoplay={true} autoplayTimeout={3}>
-                        <AdBlock name="광고배너" />
-                        <AdBlock name="광고배너2" />
-                    </Swiper> */}
+                    </Swiper>
+                    <Swiper style={{flex:1}}containerStyle={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height }}containerStyle={mainScreen.foodBlockSwiper} showsPagination={false} autoplay={true} autoplayTimeout={3}>
+                    <FoodBlock name="오늘의 학식" food={this.state.haksik} onRefresh={() => this.getHaksik(true)}/>
+                    <DormBlock name="오늘의 숙사밥" food={this.state.dormitory} onRefresh={() => this.getDormitory(true)}/>
+                    </Swiper>
+                    
                     <SmartBlock name="스마트 출첵1111" />
             </ScrollView>
+        )
+    }
+}
+
+class Gogo extends Component {
+    render() {
+        return(
+            <View style={{flex: 1}}>
+                <Swiper  containerStyle={mainScreen.foodBlockSwiper} showsPagination={false}>
+                <FoodBlock name="오늘의 학식" food={this.state.haksik} onRefresh={() => this.getHaksik(true)}/>
+                <DormBlock name="오늘의 숙사밥" food={this.state.dormitory} onRefresh={() => this.getDormitory(true)}/>
+                </Swiper>
+             </View>
         )
     }
 }
@@ -100,12 +115,7 @@ class Bustime extends Component {
                 <View style={{...mainScreen.blockViewTitle, backgroundColor: '#66bb6a',}}>
                     <Text style={mainScreen.blockViewTitleText}>{this.props.name}</Text>
                     <Text style={mainScreen.blockViewHelpText}>정문 기준</Text>
-                    {/* <TouchableOpacity
-                        onPress={this.props.onRefresh}
-                    >
-                     <Icon name="refresh" color="#000000" size={normalize(16)} />
-                    </TouchableOpacity> */}
-                 </View>
+                </View>
                 <View style={{...mainScreen.blockViewContainer, flexDirection: 'row',}}>
                 {/* A버스 시간 안내 */}
                     <View style={mainScreen.blockViewContainerMain}>

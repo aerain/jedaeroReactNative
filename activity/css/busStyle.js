@@ -5,17 +5,13 @@ const mainScreen = StyleSheet.create({
     busView: {
         // flex:1, 
         minHeight: '100%',
-        backgroundColor:'#ffffff',
+        backgroundColor:'#e7e7e7',
         flexDirection: 'column', 
         justifyContent: 'flex-start',
     },
-    foodBlockSwiper: {
-        backgroundColor: 'yellow',
-        height: 'auto'
-    },
+   
     blockView: {
-        flex:1,
-        height : "auto",
+        height:"auto",
         borderTopLeftRadius: 4,
         borderTopRightRadius: 4,
         borderColor: '#e7e7e7',
