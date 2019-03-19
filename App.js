@@ -25,7 +25,7 @@ export default class App extends Component {
     StatusBar.setTranslucent(true);
     StatusBar.setBarStyle('dark-content')
     StatusBar.setBackgroundColor('#ffffff00');
-    changeNavigationBarColor('#000000', true)
+    //changeNavigationBarColor('#000000', true)
     // HideNavigationBar();
   }
 

@@ -107,10 +107,22 @@ class Bustime extends Component {
                     </TouchableOpacity> */}
                  </View>
                 <View style={{...mainScreen.blockViewContainer, flexDirection: 'row',}}>
-                    <View style={mainScreen.blockViewContainerMain}><Text style={mainScreen.blockTitle}>A</Text></View>
-                    <View style={mainScreen.blockViewContainerSub}><Text style={mainScreen.blockText}>{this.state.A}</Text></View>
-                    <View style={mainScreen.blockViewContainerMain}><Text style={mainScreen.blockTitle}>B</Text></View>
-                    <View style={mainScreen.blockViewContainerSub}><Text style={mainScreen.blockText}>{this.state.B}</Text></View>
+                {/* A버스 시간 안내 */}
+                    <View style={mainScreen.blockViewContainerMain}>
+                        <Text style={mainScreen.blockTitle}>A</Text>
+                        <Text style={mainScreen.busWay}>반시계방향</Text>
+                    </View>
+                    <View style={mainScreen.blockViewContainerSub}>
+                        <Text style={mainScreen.blockText}>{this.state.A}</Text>
+                    </View>
+                {/* B버스 시간 안내 */}     
+                    <View style={mainScreen.blockViewContainerMain}>
+                        <Text style={mainScreen.blockTitle}>B</Text>
+                        <Text style={mainScreen.busWay}>시계방향</Text>
+                    </View>
+                    <View style={mainScreen.blockViewContainerSub}>
+                        <Text style={mainScreen.blockText}>{this.state.B}</Text>
+                    </View>
                 </View>
             </View>
         )

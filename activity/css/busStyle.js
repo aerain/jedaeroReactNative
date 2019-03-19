@@ -84,9 +84,14 @@ const mainScreen = StyleSheet.create({
         borderColor:"#D3D3D3",
     },
     blockText: {
-        fontSize: normalize(16),
+        fontSize: normalize(13),
         color: '#000000',
         
+    },
+    busWay: {
+        fontSize: normalize(8),
+        marginTop: -5
+
     },
     foodBlockContainerTitle: {
         fontWeight: 'bold',

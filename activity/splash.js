@@ -29,10 +29,10 @@ export default class splash extends Component {
         return (
             <View style={styles.box}> 
                 <ImageBackground style={styles.wrap}
-                    source={require('../images/home2.webp')}
+                    source={require('../images/Splash_image.webp')}
                 >
             <Animated.Image style={{...styles.logo, opacity: this.state.opacity}}
-               source={require('../images/Splash_logo.png')}
+               source={require('../images/logo.png')}
             />
             <ActivityIndicator size="large" color="#FFFFFF" />
          </ImageBackground> 
