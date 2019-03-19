@@ -1,8 +1,7 @@
-import React from 'react';
-import { ScrollView, View, Image } from 'react-native';
-import { SafeAreaView, DrawerItems } from 'react-navigation';
-import { normalize } from 'react-native-elements';
-import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
+import React, { Component } from 'react';
+import { StatusBar } from 'react-native';
+import changeNavigationBarColor from 'react-native-navigation-bar-color';
+import { StackActions, NavigationActions } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation';
 import BusStack from './drawer/bus/BusStackNavigation';
 import FoodStack from './drawer/food/FoodListStackNavigation';
@@ -14,7 +13,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import SmartCheck from './drawer/smartcheck/smartcheck';
 
 
-export default createBottomTabNavigator({
+const TabNav = createBottomTabNavigator({
     Bus: {
         screen: BusStack,
         navigationOptions: {
@@ -58,3 +57,19 @@ export default createBottomTabNavigator({
     //     }
     // },
 }, mainTabOptions)
+
+export default class MainTabNavigation extends Component {
+    static router = TabNav.router;
+
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidMount = () => {
+        StatusBar.setBarStyle('dark-content')
+        changeNavigationBarColor('#ffffff', true);
+    }
+    render() {
+        return <TabNav />
+    }
+}

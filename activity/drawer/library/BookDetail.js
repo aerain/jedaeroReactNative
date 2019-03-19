@@ -32,7 +32,7 @@ export default class BookDetail extends Component {
         return (
         <ScrollView contentContainerStyle={bookdetailStyles.container} style={bookdetailStyles.container}>
             <Text style={bookdetailStyles.title}> 도서정보 </Text>
-            <View style={bookdetailStyles.innerContainer}>
+            <View style={{...bookdetailStyles.innerContainer, borderWidth: 0.5, borderColor: '#e7e7e7', overflow: 'hidden', borderRadius: 4}}>
                 <BookRow left="자료유형" right={getParam('biblioType').name} />
                 <BookRow style={{fontWeight:'bold'}} left="도서명" right={getParam('titleStatement')} />
                 <BookRow left="저자" right={getParam('author')} />
@@ -51,7 +51,6 @@ class StoreBook extends Component {
     }
     render () {
         if(this.props.data && this.props.data.length !== 0 && this.props.branchVolumes !== null) {
-            console.log(this.props.data[this.props.branchVolumes.id], '입니다.');
             return (
                 <View style={bookdetailStyles.innerContainer}>
                     {
@@ -98,6 +97,7 @@ let bookdetailStyles = StyleSheet.create({
         paddingTop:16,
         paddingHorizontal:8,
         paddingBottom: 56,
+        
     },
     title: {
         fontSize:normalize(24),
@@ -108,6 +108,10 @@ let bookdetailStyles = StyleSheet.create({
     innerContainer: {
         marginBottom:16,
         justifyContent: 'center',
+        // borderRadius: 4,
+        // borderColor: '#e7e7e7',
+        // borderWidth: 0.5,
+        // overflow: 'hidden',
     },
     text: {
         ...lightText,
@@ -116,7 +120,8 @@ let bookdetailStyles = StyleSheet.create({
     },
     storebook: {
         borderWidth: 0.5,
-        borderColor: '#d7d7d7',
+        borderColor: '#e7e7e7',
         marginBottom: 16,
+        borderRadius: 4
     }
 });

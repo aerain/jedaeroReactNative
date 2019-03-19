@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Platform, AsyncStorage, Button, } from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Platform, AsyncStorage, Button, StatusBar} from 'react-native';
 import { normalize } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import HaksikAPI from '../../JedaeroAPI/HaksikAPI';
@@ -9,7 +9,7 @@ import BusTb from '../../../jsons/busschedule.json';
 import BusTime from '../../../tool/bustime';
 import Swiper from 'react-native-swiper';
 import { mainScreen } from '../../css/busStyle';
-
+import changeNavigationBarColor from 'react-native-navigation-bar-color';
 
 
 export default class Bus extends Component {
@@ -54,22 +54,21 @@ export default class Bus extends Component {
     componentDidMount = async () => {
         this.getHaksik();
         this.getDormitory();
-        
     }
     render = () => {
         return (
-            <View style={mainScreen.busView}>
+            <ScrollView contentContainerStyle={mainScreen.busView}>
                     <Bustime name="버스 시간" />
-                    <Swiper style={{flex: 1}} containerStyle={mainScreen.foodBlockSwiper} showsPagination={false}>
-                        <FoodBlock name="오늘의 학식" food={this.state.haksik} onRefresh={() => this.getHaksik(true)}/>
-                        <DormBlock name="오늘의 숙사밥" food={this.state.dormitory} onRefresh={() => this.getDormitory(true)}/>
-                    </Swiper>
+                    {/* <Swiper style={{flex: 1}} containerStyle={mainScreen.foodBlockSwiper} showsPagination={false}> */}
+                    <FoodBlock name="오늘의 학식" food={this.state.haksik} onRefresh={() => this.getHaksik(true)}/>
+                    <DormBlock name="오늘의 숙사밥" food={this.state.dormitory} onRefresh={() => this.getDormitory(true)}/>
+                    {/* </Swiper> */}
                     {/* <Swiper style={{flex: 1}} containerStyle={mainScreen.foodBlockSwiper} showsPagination={false} autoplay={true} autoplayTimeout={3}>
                         <AdBlock name="광고배너" />
                         <AdBlock name="광고배너2" />
                     </Swiper> */}
                     <SmartBlock name="스마트 출첵1111" />
-            </View>
+            </ScrollView>
         )
     }
 }

@@ -106,14 +106,20 @@ let jedaeroStyles = StyleSheet.create({
 
 let foodMenuListStyles = StyleSheet.create({
     container: {
-        paddingLeft: 16,
-        paddingBottom: 32,
-        backgroundColor:'#ffffff',
-        borderBottomWidth:0.5,
-        borderBottomColor:'#e7e7e7'
+        // marginHorizontal: 5,
+        // marginVertical: 5,
+        paddingHorizontal: 20,
+        paddingVertical: 15,
+        // borderBottomWidth:0.5,
+        borderBottomWidth: 0.5,
+        borderColor: '#e7e7e7',
+        borderRadius: 4,
+
+        // justifyContent: 'flex-end',
     },
     labelStyle: {
-        fontSize:normalize(20),
+        fontSize:normalize(16),
+        color: '#000000'
     }
 })
 
@@ -126,7 +132,7 @@ let foodTabStyles = StyleSheet.create({
     listSubtitleStyle: {
       textAlign:'center',
       color: '#7d7d7d',
-      fontSize: 10
+      fontSize: normalize(10)
     },
     listContainerStyle: {
       paddingTop:24,

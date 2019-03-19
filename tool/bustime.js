@@ -36,9 +36,29 @@ export default function daycheck(timeTable) {
 //   };
 
 function bus(timeTable, i){
-    var thistime = moment().format('kk:mm:ss');
+//     var thistime = moment().format('kk:mm:ss');
     
+//     for(i=0; i<timeTable.length; i++){
+//         var a = moment(timeTable[i],'kk:mm:ss').format('kk:mm:ss');
+//         var result = moment(thistime,'kk:mm:ss').diff(moment(a,'kk:mm:ss'));
+//         var b = moment.duration(result);
+//         var s =  Math.floor(b.asHours()) + moment.utc(result).format(":mm:ss");
+//         if(s < 0 )
+//         {
+//             //TODO Logic (Asyncstorage)
+//             // return "ㅂ2";
+            
+//         }
+//         else {
+//             return  s;
+//         }
+//     }
+//     return "운행종료";
+// }
+
+    var thistime = new Date();
     for(i=0; i<timeTable.length; i++){
+<<<<<<< HEAD
         var a = moment(timeTable[i],'kk:mm:ss').format('kk:mm:ss');
         var result = moment(thistime,'kk:mm:ss').diff(moment(a,'kk:mm:ss'));
         var b = moment.duration(result);
@@ -50,30 +70,44 @@ function bus(timeTable, i){
         }
         else {
             return  s;
+=======
+        var a = timeTable[i];
+        slice = a.split(':');
+        var time_set_sec = 0;
+        timetb_set_sec = Number(slice[0]*60*60)+Number(slice[1]*60)+Number(slice[2])
+        this_time_sec = thistime.getHours()*60*60+thistime.getMinutes()*60+thistime.getSeconds()
+        hours = parseInt((timetb_set_sec-this_time_sec)/3600)
+        minutes = parseInt((timetb_set_sec-this_time_sec)%3600/60)
+        if(timetb_set_sec > this_time_sec){
+            return `${hours}시간 ${minutes}분 전`
+>>>>>>> ce0b2212a1ac411ffc1c9cbacc34dc3885438bda
         }
     }
-    return "운행종료";
+    return "운행 종료"
 }
+// function bus2(timetable) {
+    
+//     var thistime = new Date();
+//     for(i=0; i<timeTable.length; i++){
+//         var a = timeTable[i];
+//         slice = a.split(':');
+//         if(Number(slice[0]) > thistime.getHours()){
+//             // if(Number(slice[1]) >= thistime.getMinutes()){
+//                 return result_time(timeTable[i]);
+//             // }
+            
+//         }else if(slice[0]=== thistime.getHours()){
+//             if(Number(slice[1])>thistime.getHours()){
+//                 return result_time(timeTable[i],1);
+//             }
+//         }  
+//     }
+//     return "운행 종료"
+// }
 
-    // var thistime = new Date();
-    // for(i=0; i<timeTable.length; i++){
-    //     var a = timeTable[i];
-    //     slice = a.split(':');
-    //     if(Number(slice[0]) >= thistime.getHours()){
-    //         if(Number(slice[1]) >= thistime.getMinutes()){
-    //             return lefttime(timeTable[i]);
-    //         }
-    //         else if(Number(slice[1])===0){
-    //             return lefttime(timeTable[i]);
-    //         }
-    //     }  
-    // }
-    // return "운행 종료"
-//}
 
 
-
-function result_time(params) {
+function result_time(params,im) {
     var slicetime = params.split(':');
     var thistime = new Date(); //현재시간 
     var hours = Number(slicetime[0]) - thistime.getHours();
@@ -84,8 +118,12 @@ function result_time(params) {
     }
 
     if(minutes<0){
+        hours -=1
         minutes = 60 + minutes;
         
+    }
+    if(im==1){
+        hours -= 1;
     }
   
     return `${hours}시간 ${minutes}분 전`;
