@@ -24,7 +24,7 @@ export default class splash extends Component {
                     source={require('../images/home2.webp')}
                 >
             <Animated.Image style={{...styles.logo, opacity: this.state.opacity}}
-               source={require('../images/logo.png')}
+               source={require('../images/Splash_logo.png')}
             />
             <ActivityIndicator size="large" color="#FFFFFF" />
          </ImageBackground> 

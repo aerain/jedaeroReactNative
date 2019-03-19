@@ -37,7 +37,7 @@ export default class App extends Component {
       StatusBar.setTranslucent(false);
       StatusBar.setBarStyle('dark-content');
     }
-    // return isLoaded ? <MainDrawer/> : <Splash />
+    return isLoaded ? <MainDrawer/> : <Splash />
     return <MainDrawer />
   }
 }

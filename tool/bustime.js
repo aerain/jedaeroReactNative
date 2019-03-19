@@ -42,7 +42,7 @@ function bus(timeTable, i){
         var a = moment(timeTable[i],'kk:mm:ss').format('kk:mm:ss');
         var result = moment(thistime,'kk:mm:ss').diff(moment(a,'kk:mm:ss'));
         var b = moment.duration(result);
-        var s =   moment.utc(result).format(":mm:ss");
+        var s = /*Math.floor((b.asHours())) +*/ moment.utc(result).format(":mm:ss");
         if(s > 0 )
         {
             //TODO Logic (Asyncstorage)
