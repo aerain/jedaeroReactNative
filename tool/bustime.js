@@ -58,6 +58,19 @@ function bus(timeTable, i){
 
     var thistime = new Date();
     for(i=0; i<timeTable.length; i++){
+<<<<<<< HEAD
+        var a = moment(timeTable[i],'kk:mm:ss').format('kk:mm:ss');
+        var result = moment(thistime,'kk:mm:ss').diff(moment(a,'kk:mm:ss'));
+        var b = moment.duration(result);
+        var s = /*Math.floor((b.asHours())) +*/ moment.utc(result).format(":mm:ss");
+        if(s > 0 )
+        {
+            //TODO Logic (Asyncstorage)
+            return "ㅂ2";
+        }
+        else {
+            return  s;
+=======
         var a = timeTable[i];
         slice = a.split(':');
         var time_set_sec = 0;
@@ -67,6 +80,7 @@ function bus(timeTable, i){
         minutes = parseInt((timetb_set_sec-this_time_sec)%3600/60)
         if(timetb_set_sec > this_time_sec){
             return `${hours}시간 ${minutes}분 전`
+>>>>>>> ce0b2212a1ac411ffc1c9cbacc34dc3885438bda
         }
     }
     return "운행 종료"

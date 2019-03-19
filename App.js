@@ -31,6 +31,19 @@ export default class App extends Component {
 
   render() {
     const { isLoaded } = this.state;
+<<<<<<< HEAD
+    if(!isLoaded) {
+      if(Platform.OS === 'android') { StatusBar.setBackgroundColor('#ffffff00'); }
+      StatusBar.setTranslucent(true);
+      StatusBar.setBarStyle('light-content');
+    } else {
+      if(Platform.OS === 'android') { StatusBar.setBackgroundColor('#ffffffff'); }
+      StatusBar.setTranslucent(false);
+      StatusBar.setBarStyle('dark-content');
+    }
+    return isLoaded ? <MainDrawer/> : <Splash />
+    return <MainDrawer />
+=======
     // if(!isLoaded) {
     //   if(Platform.OS === 'android') { StatusBar.setBackgroundColor('#ffffff00'); }
     //   StatusBar.setTranslucent(true);
@@ -45,6 +58,7 @@ export default class App extends Component {
     return (
       <SplashStackNavigator />
     )
+>>>>>>> ce0b2212a1ac411ffc1c9cbacc34dc3885438bda
   }
 }
 
