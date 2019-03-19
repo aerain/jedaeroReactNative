@@ -5,15 +5,14 @@ const mainScreen = StyleSheet.create({
     busView: {
         // flex:1, 
         minHeight: '100%',
-        backgroundColor:'#e7e7e7',
+        backgroundColor:'#ffffff',
         flexDirection: 'column', 
         justifyContent: 'flex-start',
     },
    
     blockView: {
         height:"auto",
-        borderTopLeftRadius: 4,
-        borderTopRightRadius: 4,
+        borderRadius: 4,
         borderColor: '#e7e7e7',
         marginLeft: 10,
         marginRight: 10,
@@ -46,14 +45,14 @@ const mainScreen = StyleSheet.create({
         // paddingRight: 15,
         borderLeftWidth: 0.5,
         borderRightWidth: 0.5,
-        borderBottomWidth: 0.5,
+        borderBottomWidth: 1,
         borderBottomLeftRadius: 4,
         borderBottomRightRadius: 4,
         borderColor: '#e7e7e7',
         overflow: 'hidden',
     },
     blockViewContainerSub: {
-        flex: 2,
+        flex: 1,
         textAlign: 'center',
         paddingTop: 20,
         paddingBottom: 20,
@@ -62,10 +61,10 @@ const mainScreen = StyleSheet.create({
         borderColor:'#e7e7e7'
     },
     blockViewContainerMain: {
-        flex: 1,
         textAlign: 'center',
-        paddingTop:20,
-        paddingBottom:20,
+        marginVertical: 20,
+        paddingHorizontal: 10,
+        borderRightWidth: 0.5,
         justifyContent:'center',
         alignItems:'center',
         borderColor: '#e7e7e7'
@@ -74,10 +73,10 @@ const mainScreen = StyleSheet.create({
         fontSize: normalize(24),
         fontWeight: 'bold',
         color: '#000000',
-        paddingVertical:5,
-        paddingHorizontal:15,
-        borderRightWidth:0.3,
-        borderColor:"#D3D3D3",
+        // paddingVertical:8,
+        // paddingHorizontal:15,
+        // borderRightWidth:0.5,
+        borderColor:"#e7e7e7",
     },
     blockText: {
         fontSize: normalize(13),
