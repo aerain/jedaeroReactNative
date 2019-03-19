@@ -40,7 +40,7 @@ class Schedule extends Component {
             >
                 <Text style={haksaStyles.calendarMonth}>{month}</Text>
                 <Text>월</Text>
-                {(isNextYear) ? (<Text>{new Date().getFullYear() + 1}</Text>) : null}
+                {(isNextYear) ? (<Text>{new Date().getFullYear() + 1}년</Text>) : null}
             </TouchableOpacity>
             // <ListItem 
             //     key={item['month_title']}

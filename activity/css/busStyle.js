@@ -88,6 +88,13 @@ const mainScreen = StyleSheet.create({
         marginTop: -5
 
     },
+    swiperStyle: {
+        flex: null
+    },
+    swiperContainerStyle: {
+        flex: null
+    },
+    
     foodBlockContainerTitle: {
         fontWeight: 'bold',
         fontSize: normalize(12)

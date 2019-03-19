@@ -60,11 +60,11 @@ export default class Bus extends Component {
         return (
             <ScrollView contentContainerStyle={mainScreen.busView} >
             <Bustime name="버스 시간" />
-                    {/* <Swiper style={{ width: Dimensions.get('window').width, height: 70 }}  showsPagination={false}> */}
-                <FoodBlock name="오늘의 학식" food={this.state.haksik} onRefresh={() => this.getHaksik(true)}/>
-                <DormBlock name="오늘의 숙사밥" food={this.state.dormitory} onRefresh={() => this.getDormitory(true)}/>
-                    {/* </Swiper> */}
-                    <SmartBlock name="스마트 출첵1111" />
+                {/* <Swiper style={mainScreen.swiperStyle} containerStyle={mainScreen.swiperContainerStyle} showsPagination={false}> */}
+                    <FoodBlock name="오늘의 학식" food={this.state.haksik} onRefresh={() => this.getHaksik(true)}/>
+                    <DormBlock name="오늘의 숙사밥" food={this.state.dormitory} onRefresh={() => this.getDormitory(true)}/>
+                {/* </Swiper> */}
+                    {/* <SmartBlock name="스마트 출첵" /> */}
             </ScrollView>
         )
     }
