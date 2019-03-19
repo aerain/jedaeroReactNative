@@ -72,14 +72,14 @@ class TableRow extends Component {
 
     render () {
         return (
-            <View style={styles.rowUnit}>
+            <TouchableOpacity style={styles.rowUnit}>
                 <View style={styles.rowUnitLeft}>
                     <Text style={styles.rowUnitTextLeft}>{this.props.left}</Text>
                 </View>
                 <View style={styles.rowUnitRight}>
                     <Text style={styles.rowUnitTextRight}>{this.props.right}</Text>
                 </View>
-            </View>
+            </TouchableOpacity>
         )
     }
 }
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     rowUnitLeft: {
         flex:2.5,
         paddingHorizontal:8,
-        paddingVertical: 4,
+        paddingVertical: 6,
         justifyContent:'center'
     },
     rowUnitRight: {
