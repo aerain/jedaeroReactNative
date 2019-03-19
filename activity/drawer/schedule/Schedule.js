@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView, StyleSheet, ActivityIndicator } from 'react-native';
+import { Text, View, ScrollView, StyleSheet, ActivityIndicator, FlatList, TouchableOpacity } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import { ListItem, normalize } from 'react-native-elements';
-
+import haksaStyles from '../../css/haksaStyle'
 import { stackNavigationOptions } from '../../jedaeroCSS';
 
 import HaksaAPI from '../../JedaeroAPI/HaksaAPI';
@@ -29,6 +29,29 @@ class Schedule extends Component {
         });
     }
 
+    _renderItem = (item, index) => {
+        let isNextYear = parseInt(index / 12) ? true : false;
+        let month = index % 12 + 1;
+        return (
+            <TouchableOpacity 
+                key={index} 
+                style={haksaStyles.calendarBlock}
+                onPress={() => this.props.navigation.navigate('ScheduleDetail', item)}
+            >
+                <Text style={haksaStyles.calendarMonth}>{month}</Text>
+                <Text>월</Text>
+                {(isNextYear) ? (<Text>{new Date().getFullYear() + 1}</Text>) : null}
+            </TouchableOpacity>
+            // <ListItem 
+            //     key={item['month_title']}
+            //     title={item['month_title']}
+            //     containerStyle={haksaStyles.listContainer}
+            //     titleStyle={{textAlign:'center', fontSize: normalize(20)}}
+            //     chevron
+            //     onPress={() => this.props.navigation.navigate('ScheduleDetail', item)}
+            // />
+        )
+    }
     render() {
         return (!this.state.dataSource) 
         ? (
@@ -36,39 +59,36 @@ class Schedule extends Component {
             <ActivityIndicator size='large' color='#344955'/>
         </View>
         ) : (
-        <View style={{backgroundColor:'#ffffff', flex: 1}}>
-            <ScrollView contentContainerStyle={haksaStyles.container}>
-                {
-                    this.state.dataSource.month.map(item => (
-                        <ListItem 
-                            key={item['month_title']}
-                            title={item['month_title']}
-                            containerStyle={haksaStyles.listContainer}
-                            titleStyle={{textAlign:'center', fontSize: normalize(20)}}
-                            chevron
-                            onPress={() => this.props.navigation.navigate('ScheduleDetail', item)}
-                        />
-                    ))
-                }
+        <ScrollView contentContainerStyle={haksaStyles.container}>
+            {
+                this.state.dataSource.month.map(this._renderItem)
+                // this.state.dataSource.month.map(item => (
+                //     <ListItem 
+                //         key={item['month_title']}
+                //         title={item['month_title']}
+                //         containerStyle={haksaStyles.listContainer}
+                //         titleStyle={{textAlign:'center', fontSize: normalize(20)}}
+                //         chevron
+                //         onPress={() => this.props.navigation.navigate('ScheduleDetail', item)}
+                //     />
+                // ))
+            }
         </ScrollView>
-        </View>
-        
-        
         )
     }
 }
 
-let haksaStyles = StyleSheet.create({
-    container: {
-        paddingBottom: 56,
-    },
-    listContainer: {
-        backgroundColor:'#ffffff'
-    },
-    onLoading: {
-        alignItems: 'center', paddingTop:20, flex:1, backgroundColor:'#ffffff'
-    }
-})
+// let haksaStyles = StyleSheet.create({
+//     container: {
+//         paddingBottom: 56,
+//     },
+//     listContainer: {
+//         backgroundColor:'#ffffff'
+//     },
+//     onLoading: {
+//         alignItems: 'center', paddingTop:20, flex:1, backgroundColor:'#ffffff'
+//     }
+// })
 export default ScheduleStackNavigator = createStackNavigator({
     Schedule: {
         screen: Schedule,
