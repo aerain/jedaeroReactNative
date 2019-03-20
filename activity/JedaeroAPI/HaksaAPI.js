@@ -16,9 +16,10 @@ export default function () {
                     schedule: []
                 };
                 eachMonth["month_title"] = $(this).find('caption').text();
-                $(this).find('tr > td').each(function() {
+                $(this).find('tr > td').each(function(index) {
                     let day = {};
                     let temp = $(this).text().replace(/(\s*~\s*)/gi, ' ~ ').replace(/(^\s*)|(\s*$)/g, '');
+                    day["key"] = toString(index);
                     day["haksa"] = temp;
                     eachMonth.schedule.push(day);
                 });

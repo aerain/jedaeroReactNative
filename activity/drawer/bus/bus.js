@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Platform, AsyncStorage, Button, Alert } from 'react-native';
+=======
+import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Platform, AsyncStorage, Button, StatusBar,FlatList,Dimensions} from 'react-native';
+>>>>>>> c975809b73a1f16f79f292c1adc7050a12e6c2d8
 import { normalize } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import HaksikAPI from '../../JedaeroAPI/HaksikAPI';
@@ -9,7 +13,7 @@ import BusTb from '../../../jsons/busschedule.json';
 import BusTime from '../../../tool/bustime';
 import Swiper from 'react-native-swiper';
 import { mainScreen } from '../../css/busStyle';
-
+import changeNavigationBarColor from 'react-native-navigation-bar-color';
 
 
 export default class Bus extends Component {
@@ -62,22 +66,31 @@ export default class Bus extends Component {
     componentDidMount = async () => {
         this.getHaksik();
         this.getDormitory();
-        
     }
     render = () => {
+        
         return (
-            <ScrollView contentContainerStyle={mainScreen.busView}>
-                    <Bustime name="버스 시간" />
-                    {/* <Swiper style={{flex: 1}} containerStyle={mainScreen.foodBlockSwiper} showsPagination={false}> */}
+            <ScrollView contentContainerStyle={mainScreen.busView} >
+            <Bustime name="버스 시간" />
+                {/* <Swiper style={mainScreen.swiperStyle} containerStyle={mainScreen.swiperContainerStyle} showsPagination={false}> */}
                     <FoodBlock name="오늘의 학식" food={this.state.haksik} onRefresh={() => this.getHaksik(true)}/>
                     <DormBlock name="오늘의 숙사밥" food={this.state.dormitory} onRefresh={() => this.getDormitory(true)}/>
-                    {/* </Swiper> */}
-                    {/* <Swiper style={{flex: 1}} containerStyle={mainScreen.foodBlockSwiper} showsPagination={false} autoplay={true} autoplayTimeout={3}>
-                        <AdBlock name="광고배너" />
-                        <AdBlock name="광고배너2" />
-                    </Swiper> */}
-                    <SmartBlock name="스마트 출첵1111" />
+                {/* </Swiper> */}
+                    {/* <SmartBlock name="스마트 출첵" /> */}
             </ScrollView>
+        )
+    }
+}
+
+class Gogo extends Component {
+    render() {
+        return(
+            <View style={{flex: 1}}>
+                <Swiper  containerStyle={mainScreen.foodBlockSwiper} showsPagination={false}>
+                <FoodBlock name="오늘의 학식" food={this.state.haksik} onRefresh={() => this.getHaksik(true)}/>
+                <DormBlock name="오늘의 숙사밥" food={this.state.dormitory} onRefresh={() => this.getDormitory(true)}/>
+                </Swiper>
+             </View>
         )
     }
 }
@@ -109,17 +122,24 @@ class Bustime extends Component {
                 <View style={{...mainScreen.blockViewTitle, backgroundColor: '#66bb6a',}}>
                     <Text style={mainScreen.blockViewTitleText}>{this.props.name}</Text>
                     <Text style={mainScreen.blockViewHelpText}>정문 기준</Text>
-                    {/* <TouchableOpacity
-                        onPress={this.props.onRefresh}
-                    >
-                     <Icon name="refresh" color="#000000" size={normalize(16)} />
-                    </TouchableOpacity> */}
-                 </View>
+                </View>
                 <View style={{...mainScreen.blockViewContainer, flexDirection: 'row',}}>
-                    <View style={mainScreen.blockViewContainerMain}><Text style={mainScreen.blockTitle}>A</Text></View>
-                    <View style={mainScreen.blockViewContainerSub}><Text style={mainScreen.blockText}>{this.state.A}</Text></View>
-                    <View style={mainScreen.blockViewContainerMain}><Text style={mainScreen.blockTitle}>B</Text></View>
-                    <View style={mainScreen.blockViewContainerSub}><Text style={mainScreen.blockText}>{this.state.B}</Text></View>
+                {/* A버스 시간 안내 */}
+                    <View style={mainScreen.blockViewContainerMain}>
+                        <Text style={mainScreen.blockTitle}>A</Text>
+                        <Text style={mainScreen.busWay}>반시계방향</Text>
+                    </View>
+                    <View style={mainScreen.blockViewContainerSub}>
+                        <Text style={mainScreen.blockText}>{this.state.A}</Text>
+                    </View>
+                {/* B버스 시간 안내 */}     
+                    <View style={mainScreen.blockViewContainerMain}>
+                        <Text style={mainScreen.blockTitle}>B</Text>
+                        <Text style={mainScreen.busWay}>시계방향</Text>
+                    </View>
+                    <View style={mainScreen.blockViewContainerSub}>
+                        <Text style={mainScreen.blockText}>{this.state.B}</Text>
+                    </View>
                 </View>
             </View>
         )
