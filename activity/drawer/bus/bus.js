@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Platform, AsyncStorage, Button, } from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Platform, AsyncStorage, Button, Alert } from 'react-native';
 import { normalize } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import HaksikAPI from '../../JedaeroAPI/HaksikAPI';
@@ -19,10 +19,18 @@ export default class Bus extends Component {
             
         };
     }
-
-    static navigationOptions = () => {
+    static navigationOptions = ({ navigation }) => {
+        const { params } = navigation.state;
         return {
             headerTitle: '홈',
+            //개발자정보& 띄우기
+            headerRight: (
+                <Text 
+                style={{paddingRight:22}}
+                onPress={()=>{
+                }}
+                >(i)</Text>
+              ),
         } 
     }
 
@@ -142,6 +150,19 @@ class AdBlock extends Component {
             )
         }
     
+}
+class Info extends Component{
+    constructor(props){
+        super(props);
+        this.state={};
+    }
+    render(){
+        return(
+            <View>
+                <Text>(i)</Text>
+            </View>
+        )
+    }
 }
 class SmartBlock extends Component {
     constructor(props) {
