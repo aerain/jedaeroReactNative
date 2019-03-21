@@ -23,7 +23,7 @@ export default class Bus extends Component {
         const { params } = navigation.state;
         return {
             headerTitle: '홈',
-            //개발자정보& 띄우기
+            //TODO 개발자정보& 띄우기
             headerRight: (
                 <TouchableOpacity  onPress={() => {
                     console.log(navigation);
