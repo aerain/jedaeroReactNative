@@ -4,7 +4,6 @@ import { SafeAreaView, DrawerItems } from 'react-navigation';
 import EvilIcon from 'react-native-vector-icons/EvilIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { normalize } from 'react-native-elements';
-
 import './css/busStyle'
 
 
@@ -170,7 +169,7 @@ let foodTabNavStyles = StyleSheet.create({
       fontSize: normalize(14), 
       textAlign:'left', 
       color: '#000000', 
-      width:'68%', 
+      width:'70%', 
       paddingLeft: 20
     },
     foodtime: {
@@ -182,7 +181,7 @@ let foodTabNavStyles = StyleSheet.create({
       paddingLeft: 12, 
       borderLeftWidth: 0.3, 
       borderColor:"#D3D3D3",
-      width: '32%' 
+      width: '30%' 
     },
     foodlistContainer: {
       paddingVertical:4,

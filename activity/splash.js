@@ -31,12 +31,12 @@ export default class splash extends Component {
                 <ImageBackground style={styles.wrap}
                     source={require('../images/Splash_image.webp')}
                 >
-            <Animated.Image style={{...styles.logo, opacity: this.state.opacity}}
-               source={require('../images/logo.png')}
-            />
-            <ActivityIndicator size="large" color="#FFFFFF" />
-         </ImageBackground> 
-        </View>
+                <Animated.Image style={{...styles.logo, opacity: this.state.opacity}}
+                source={require('../images/logo.png')}
+                />
+                <ActivityIndicator size="large" color="#FFFFFF" />
+                 </ImageBackground> 
+            </View>
         )
     }
 }

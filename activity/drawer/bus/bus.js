@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Platform, AsyncStorage, Button, Alert } from 'react-native';
-=======
-import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Platform, AsyncStorage, Button, StatusBar,FlatList,Dimensions} from 'react-native';
->>>>>>> c975809b73a1f16f79f292c1adc7050a12e6c2d8
+import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Platform, AsyncStorage, Button} from 'react-native';
 import { normalize } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import HaksikAPI from '../../JedaeroAPI/HaksikAPI';
@@ -27,7 +23,7 @@ export default class Bus extends Component {
         const { params } = navigation.state;
         return {
             headerTitle: '홈',
-            //개발자정보& 띄우기
+            //TODO 개발자정보& 띄우기
             headerRight: (
                 <Text 
                 style={{paddingRight:22}}
