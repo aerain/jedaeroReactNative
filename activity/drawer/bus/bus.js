@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Platform, AsyncStorage, Button, StatusBar,FlatList,Dimensions} from 'react-native';
+import { NavigationActions } from 'react-navigation'
 import { normalize } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import HaksikAPI from '../../JedaeroAPI/HaksikAPI';
@@ -27,8 +28,8 @@ export default class Bus extends Component {
             headerRight: (
                 <TouchableOpacity  onPress={() => {
                     console.log(navigation);
-                    // navigation.navigate('splash')
-                }}>
+                    navigation.navigate('Detail');
+                }}> 
                     <Text 
                         style={{paddingRight:22}}
                        

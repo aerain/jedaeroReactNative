@@ -10,7 +10,7 @@ export default class Detail extends Component {
         super(props);
     }
 
-    componentDidMount = () => DreamyAPI("2014108205", "gkrtnfqn1!");
+    // componentDidMount = () => DreamyAPI("2014108205", "gkrtnfqn1!");
     
     render = () => {
         return (
