@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Platform, AsyncStorage, Button, Alert } from 'react-native';
-=======
 import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Platform, AsyncStorage, Button, StatusBar,FlatList,Dimensions} from 'react-native';
->>>>>>> c975809b73a1f16f79f292c1adc7050a12e6c2d8
 import { normalize } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import HaksikAPI from '../../JedaeroAPI/HaksikAPI';
@@ -29,11 +25,18 @@ export default class Bus extends Component {
             headerTitle: '홈',
             //개발자정보& 띄우기
             headerRight: (
-                <Text 
-                style={{paddingRight:22}}
-                onPress={()=>{
-                }}
-                >(i)</Text>
+                <TouchableOpacity  onPress={() => {
+                    console.log(navigation);
+                    // navigation.navigate('splash')
+                }}>
+                    <Text 
+                        style={{paddingRight:22}}
+                       
+                        >
+                        (i)
+                    </Text>
+                </TouchableOpacity>
+                
               ),
         } 
     }
@@ -66,6 +69,7 @@ export default class Bus extends Component {
     componentDidMount = async () => {
         this.getHaksik();
         this.getDormitory();
+        console.log('알고싶다', this.props.navigation)
     }
     render = () => {
         
