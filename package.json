@@ -25,6 +25,7 @@
     "react-native-swiper": "git+https://github.com/rbrbrb7290/react-native-swiper.git",
     "react-native-vector-icons": "^4.6.0",
     "react-native-video": "^4.4.0",
+    "react-native-webp-support": "github:TGPSKI/react-native-webp-support",
     "react-navigation": "^2.9.1",
     "react-navigation-material-bottom-tabs": "^0.4.0",
     "rn-fetch-blob": "^0.10.15",
