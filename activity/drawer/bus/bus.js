@@ -81,7 +81,7 @@ export default class Bus extends Component {
                     <FoodBlock name="오늘의 학식" food={this.state.haksik} onRefresh={() => this.getHaksik(true)}/>
                     <DormBlock name="오늘의 숙사밥" food={this.state.dormitory} onRefresh={() => this.getDormitory(true)}/>
                 {/* </Swiper> */}
-                    {/* <SmartBlock name="스마트 출첵" /> */}
+                    <SmartBlock name="스마트 출첵" />
             </ScrollView>
         )
     }
@@ -175,19 +175,6 @@ class AdBlock extends Component {
             )
         }
     
-}
-class Info extends Component{
-    constructor(props){
-        super(props);
-        this.state={};
-    }
-    render(){
-        return(
-            <View>
-                <Text>(i)</Text>
-            </View>
-        )
-    }
 }
 class SmartBlock extends Component {
     constructor(props) {

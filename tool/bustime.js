@@ -36,7 +36,22 @@ export default function daycheck(timeTable) {
 //   };
 
 function bus(timeTable, i){
-//     var thistime = moment().format('kk:mm:ss');
+    var thistime = new Date();
+    for(i=0; i<timeTable.length; i++){
+        var a = timeTable[i];
+        slice = a.split(':');
+        var time_set_sec = 0;
+        timetb_set_sec = Number(slice[0]*60*60)+Number(slice[1]*60)+Number(slice[2])
+        this_time_sec = thistime.getHours()*60*60+thistime.getMinutes()*60+thistime.getSeconds()
+        hours = parseInt((timetb_set_sec-this_time_sec)/3600)
+        minutes = parseInt((timetb_set_sec-this_time_sec)%3600/60)
+        if(timetb_set_sec > this_time_sec){
+            return `${hours}시간 ${minutes}분 전`
+        }
+    }
+    return "운행 종료"
+
+    //     var thistime = moment().format('kk:mm:ss');
     
 //     for(i=0; i<timeTable.length; i++){
 //         var a = moment(timeTable[i],'kk:mm:ss').format('kk:mm:ss');
@@ -55,21 +70,6 @@ function bus(timeTable, i){
 //     }
 //     return "운행종료";
 // }
-
-    var thistime = new Date();
-    for(i=0; i<timeTable.length; i++){
-        var a = timeTable[i];
-        slice = a.split(':');
-        var time_set_sec = 0;
-        timetb_set_sec = Number(slice[0]*60*60)+Number(slice[1]*60)+Number(slice[2])
-        this_time_sec = thistime.getHours()*60*60+thistime.getMinutes()*60+thistime.getSeconds()
-        hours = parseInt((timetb_set_sec-this_time_sec)/3600)
-        minutes = parseInt((timetb_set_sec-this_time_sec)%3600/60)
-        if(timetb_set_sec > this_time_sec){
-            return `${hours}시간 ${minutes}분 전`
-        }
-    }
-    return "운행 종료"
 }
 // function bus2(timetable) {
     
