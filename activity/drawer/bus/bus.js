@@ -87,19 +87,6 @@ export default class Bus extends Component {
     }
 }
 
-class Gogo extends Component {
-    render() {
-        return(
-            <View style={{flex: 1}}>
-                <Swiper  containerStyle={mainScreen.foodBlockSwiper} showsPagination={false}>
-                <FoodBlock name="오늘의 학식" food={this.state.haksik} onRefresh={() => this.getHaksik(true)}/>
-                <DormBlock name="오늘의 숙사밥" food={this.state.dormitory} onRefresh={() => this.getDormitory(true)}/>
-                </Swiper>
-             </View>
-        )
-    }
-}
-
 class Bustime extends Component {
 
     constructor(props) {

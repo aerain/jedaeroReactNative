@@ -45,8 +45,9 @@
 		721CC2541CEC45C9AA9C3878 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1762BFFDFF548B2B2EA0EDD /* NotoSansCJKkr-Regular.otf */; };
 		78844D16B8534C19BE3C957F /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B90B32B98494989ADD749D1 /* libRNVectorIcons.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		A0BC68AA2247BC800025A678 /* WebPDemux.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0BC687F2247BC7F0025A678 /* WebPDemux.framework */; };
-		A0BC68AB2247BC800025A678 /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0BC68A92247BC800025A678 /* WebP.framework */; };
+		A05C9EEF224A4DD800CE56BB /* libReactNativeWebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A05C9EEE224A4D3A00CE56BB /* libReactNativeWebp.a */; };
+		A05C9EF0224A4E4D00CE56BB /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05C9ED8224A4A1C00CE56BB /* WebP.framework */; };
+		A05C9EF1224A4E4D00CE56BB /* WebPDemux.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05C9EAE224A4A1C00CE56BB /* WebPDemux.framework */; };
 		A9295ACB768C49B3B669DAB7 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40D877B548FE41B08DE9ACC7 /* Octicons.ttf */; };
 		A9A27C08812E4BA99826E6EF /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BFFCE5683A5B4A218006D2FF /* MaterialIcons.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
@@ -300,6 +301,13 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		A05C9EED224A4D3A00CE56BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A05C9EE9224A4D3A00CE56BB /* ReactNativeWebp.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = ReactNativeWebp;
+		};
 		A0CD419F223EC97B009C266F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
@@ -405,6 +413,9 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		89110B71D83A44F0AB0AB841 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		9C66EF4421184D35B3F8374B /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		A05C9EAE224A4A1C00CE56BB /* WebPDemux.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebPDemux.framework; sourceTree = "<group>"; };
+		A05C9ED8224A4A1C00CE56BB /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebP.framework; sourceTree = "<group>"; };
+		A05C9EE9224A4D3A00CE56BB /* ReactNativeWebp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeWebp.xcodeproj; path = "../node_modules/react-native-webp-support/ReactNativeWebp.xcodeproj"; sourceTree = "<group>"; };
 		A0BC687F2247BC7F0025A678 /* WebPDemux.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebPDemux.framework; sourceTree = "<group>"; };
 		A0BC68A92247BC800025A678 /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebP.framework; sourceTree = "<group>"; };
 		AA57DC9E1C2E40798A5900D8 /* libRCTVideo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTVideo.a; sourceTree = "<group>"; };
@@ -431,9 +442,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0BC68AA2247BC800025A678 /* WebPDemux.framework in Frameworks */,
-				A0BC68AB2247BC800025A678 /* WebP.framework in Frameworks */,
+				A05C9EF0224A4E4D00CE56BB /* WebP.framework in Frameworks */,
+				A05C9EF1224A4E4D00CE56BB /* WebPDemux.framework in Frameworks */,
 				ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */,
+				A05C9EEF224A4DD800CE56BB /* libReactNativeWebp.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -659,6 +671,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				A05C9EE9224A4D3A00CE56BB /* ReactNativeWebp.xcodeproj */,
+				A05C9ED8224A4A1C00CE56BB /* WebP.framework */,
+				A05C9EAE224A4A1C00CE56BB /* WebPDemux.framework */,
 				13B07FAE1A68108700A75B9A /* jedaeroReactNative */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* jedaeroReactNativeTests */,
@@ -679,6 +694,14 @@
 				00E356EE1AD99517003FC87E /* jedaeroReactNativeTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* jedaeroReactNative-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* jedaeroReactNative-tvOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A05C9EEA224A4D3A00CE56BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A05C9EEE224A4D3A00CE56BB /* libReactNativeWebp.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -914,6 +937,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = A05C9EEA224A4D3A00CE56BB /* Products */;
+					ProjectRef = A05C9EE9224A4D3A00CE56BB /* ReactNativeWebp.xcodeproj */;
 				},
 				{
 					ProductGroup = A0CD41AB223EC97C009C266F /* Products */;
@@ -1157,6 +1184,13 @@
 			fileType = archive.ar;
 			path = libRCTText.a;
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A05C9EEE224A4D3A00CE56BB /* libReactNativeWebp.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libReactNativeWebp.a;
+			remoteRef = A05C9EED224A4D3A00CE56BB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		A0CD41A0223EC97B009C266F /* libjsi.a */ = {
@@ -1442,13 +1476,23 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/../node_modules/react-native-webp-support";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
-					"$(SRCROOT)..\node_modules\neact-native-videoios/**",
-					"$(SRCROOT)..\node_modules\nn-fetch-blobios/**",
+					"$(SRCROOT)..",
+					ode_modules,
+					"eact-native-vector-iconsRNVectorIconsManager",
+					"$(SRCROOT)..",
+					ode_modules,
+					"eact-native-videoios/**",
+					"$(SRCROOT)..",
+					ode_modules,
+					"n-fetch-blobios/**",
 				);
-				"HEADER_SEARCH_PATHS[sdk=iphonesimulator*]" = "/Users/okoon/Desktop/jedaeroReactNative/node_modules/react-native-webp-support";
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					"$(SRCROOT)/../node_modules/react-native",
+					"-webp-support",
+				);
 				INFOPLIST_FILE = jedaeroReactNative/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1476,13 +1520,20 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				"FRAMEWORK_SEARCH_PATHS[sdk=iphonesimulator*]" = "/Users/okoon/Desktop/jedaeroReactNative/node_modules/react-native-webp-support";
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/../node_modules/react-native-webp-support";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
-					"$(SRCROOT)..\node_modules\neact-native-videoios/**",
-					"$(SRCROOT)..\node_modules\nn-fetch-blobios/**",
+					"$(SRCROOT)..",
+					ode_modules,
+					"eact-native-vector-iconsRNVectorIconsManager",
+					"$(SRCROOT)..",
+					ode_modules,
+					"eact-native-videoios/**",
+					"$(SRCROOT)..",
+					ode_modules,
+					"n-fetch-blobios/**",
 				);
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/../node_modules/react-native-webp-support";
 				INFOPLIST_FILE = jedaeroReactNative/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
