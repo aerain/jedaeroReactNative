@@ -1,4 +1,4 @@
-let json = {
+let json ={
     "license": [
         {
             "name": "@babel/runtime",
