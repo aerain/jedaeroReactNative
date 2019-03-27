@@ -8,6 +8,7 @@ import DormitoryAPI from '../../JedaeroAPI/DormitoryAPI';
 import getWeek from '../../../tool/getWeek';
 import BusTb from '../../../jsons/busschedule.json';
 import BusTime from '../../../tool/bustime';
+import Header from '../../../activity/drawer/bus/Header.js'
 import Swiper from 'react-native-swiper';
 import { mainScreen } from '../../css/busStyle';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
@@ -26,16 +27,7 @@ export default class Bus extends Component {
             headerTitle: '홈',
             //TODO 개발자정보& 띄우기
             headerRight: (
-                <TouchableOpacity  onPress={() => {
-                    console.log(navigation);
-                    navigation.navigate('Detail');
-                }}> 
-                   <Image />
-                   <Image 
-                    style={{width:25, height:25, marginRight:18, marginTop:5}}
-                    source={require('../../../images/Info.png')}/>
-                </TouchableOpacity>
-                
+                <Header />
               ),
         } 
     }
