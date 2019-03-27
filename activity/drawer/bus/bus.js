@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Platform, AsyncStorage, Button, StatusBar,FlatList,Dimensions} from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Platform, AsyncStorage,StatusBar,Dimensions, Image} from 'react-native';
 import { NavigationActions } from 'react-navigation'
 import { normalize } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
@@ -30,12 +30,10 @@ export default class Bus extends Component {
                     console.log(navigation);
                     navigation.navigate('Detail');
                 }}> 
-                    <Text 
-                        style={{paddingRight:22}}
-                       
-                        >
-                        (i)
-                    </Text>
+                   <Image />
+                   <Image 
+                    style={{width:25, height:25, marginRight:18, marginTop:5}}
+                    source={require('../../../images/Info.png')}/>
                 </TouchableOpacity>
                 
               ),
