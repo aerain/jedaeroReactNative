@@ -24,7 +24,6 @@ export default class BookDetail extends Component {
         let data = await res.json();
         console.log(data.data);
         this.setState({data: data.data});
-        
     }
 
     render() {

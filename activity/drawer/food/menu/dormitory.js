@@ -7,6 +7,7 @@ import getWeek from '../../../../tool/getWeek';
 import d_time from '../../../../jsons/d_time.json';
 
 class Dorm extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -40,10 +41,10 @@ class Dorm extends Component {
             />
           }
         >
-          <DormList title="조기" food={this.state.meal.dawn} time={d_time.dawn} color="#f57c00"/>
-          <DormList title="아침" food={this.state.meal.breakfast} time={d_time.breakfast} color="#689f38"/>
-          <DormList title="점심" food={this.state.meal.lunch} time={d_time.lunch} color="#0097a7" />
-          <DormList title="저녁" food={this.state.meal.dinner} time={d_time.dinner} color="#1976d2"/>
+          <DormList title="조기" food={this.state.meal.dawn} time={d_time.dawn} color="#334955"/>
+          <DormList title="아침" food={this.state.meal.breakfast} time={d_time.breakfast} color="#334955"/>
+          <DormList title="점심" food={this.state.meal.lunch} time={d_time.lunch} color="#334955" />
+          <DormList title="저녁" food={this.state.meal.dinner} time={d_time.dinner} color="#334955"/>
         </ScrollView>
       )
     }
@@ -116,6 +117,9 @@ let DormTap = createMaterialTopTabNavigator(
 );
 
 export default class DormitoryMain extends Component {
+  static navigationOptions = {
+    title: "기숙사 식당"
+  }
   constructor(props) {
     super(props);
     this.state = {

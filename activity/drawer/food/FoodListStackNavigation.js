@@ -6,7 +6,7 @@ import FoodList from './foodlist';
 import Haksik from './menu/haksik';
 import Dormitory from './menu/dormitory';
 import Hansik from './menu/hansik';
-import DetailMenu from './menu/detailmenu'
+import DetailMenu from './menu/detailmenu';
 
 export default createStackNavigator(
     {

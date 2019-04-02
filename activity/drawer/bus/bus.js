@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Platform, AsyncStorage,StatusBar,Dimensions, Image} from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Platform, AsyncStorage,StatusBar,Dimensions, Image, Alert} from 'react-native';
 import { NavigationActions } from 'react-navigation'
 import { normalize } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
@@ -8,7 +8,7 @@ import DormitoryAPI from '../../JedaeroAPI/DormitoryAPI';
 import getWeek from '../../../tool/getWeek';
 import BusTb from '../../../jsons/busschedule.json';
 import BusTime from '../../../tool/bustime';
-import Header from '../../../activity/drawer/bus/Header.js'
+import Header from '../../../activity/drawer/bus/Header'
 import Swiper from 'react-native-swiper';
 import { mainScreen } from '../../css/busStyle';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
@@ -22,12 +22,27 @@ export default class Bus extends Component {
         };
     }
     static navigationOptions = ({ navigation }) => {
-        const { params } = navigation.state;
+        const { navigate} = navigation.state;
         return {
             headerTitle: '홈',
             //TODO 개발자정보& 띄우기
             headerRight: (
-                <Header />
+                <View style={{flexDirection:"row"}}>
+                {/* <TouchableOpacity>
+                    <Image style={{width:30, height:30, marginRight:15, marginTop:5}}
+                        source={require('../../../images/share.png')}      
+                    />
+                </TouchableOpacity>  */}
+                <TouchableOpacity  onPress={() => {
+                    navigation.navigate(`Detail`);
+                }}> 
+                   <Image 
+                    style={{width:30, height:32, marginRight:15, marginTop:5}}
+                    source={require('../../../images/Info.png')}/>
+                </TouchableOpacity>
+                </View>
+                
+                
               ),
         } 
     }
@@ -68,8 +83,8 @@ export default class Bus extends Component {
             <ScrollView contentContainerStyle={mainScreen.busView} >
             <Bustime name="버스 시간" />
                 {/* <Swiper style={mainScreen.swiperStyle} containerStyle={mainScreen.swiperContainerStyle} showsPagination={false}> */}
-                    <FoodBlock name="오늘의 학식" food={this.state.haksik} onRefresh={() => this.getHaksik(true)}/>
-                    <DormBlock name="오늘의 숙사밥" food={this.state.dormitory} onRefresh={() => this.getDormitory(true)}/>
+                    <FoodBlock name="오늘의 학식" navigation={this.props.navigation} food={this.state.haksik} onRefresh={() => this.getHaksik(true)}/>
+                    <DormBlock name="오늘의 숙사밥" navigation={this.props.navigation} food={this.state.dormitory} onRefresh={() => this.getDormitory(true)}/>
                 {/* </Swiper> */}
                     <SmartBlock name="스마트 출첵" />
             </ScrollView>
@@ -101,7 +116,7 @@ class Bustime extends Component {
     render() {
         return(
             <View style={mainScreen.blockView}>
-                <View style={{...mainScreen.blockViewTitle, backgroundColor: '#66bb6a',}}>
+                <View style={{...mainScreen.blockViewTitle, backgroundColor: '#334955',}}>
                     <Text style={mainScreen.blockViewTitleText}>{this.props.name}</Text>
                     <Text style={mainScreen.blockViewHelpText}>정문 기준</Text>
                 </View>
@@ -162,7 +177,7 @@ class SmartBlock extends Component {
 render() {
     return (
         <View style={mainScreen.blockView}>
-            <View style={{...mainScreen.blockViewTitle, backgroundColor: '#64b5f6'}}>
+            <View style={{...mainScreen.blockViewTitle, backgroundColor: '#334955'}}>
               <Text style={mainScreen.blockViewTitleText}>{this.props.name}</Text>
                 {/* <TouchableOpacity
                     onPress={this.props.onRefresh}
@@ -241,9 +256,14 @@ class DormBlock extends Component {
     }
 
     render() {
+        const week = new Array('dormMon', 'dormMon', 'dormTue', 'dormWed', 'dormThu', 'dormFri', 'dormSat');
+        let today = new Date().getDay();
+        let day = week[today];
+        
+        const { navigation } = this.props;
         return (
             <View style={mainScreen.blockView}>
-                <View style={{...mainScreen.blockViewTitle, backgroundColor: '#00acc1'}}>
+                <View style={{...mainScreen.blockViewTitle, backgroundColor: '#334955'}}>
                     <Text style={mainScreen.blockViewTitleText}>{this.props.name}</Text>
                     <TouchableOpacity
                         onPress={this.props.onRefresh}
@@ -251,12 +271,14 @@ class DormBlock extends Component {
                         <Icon name="refresh" color="#ffffff" size={normalize(16)} />
                     </TouchableOpacity>
                 </View>
+                <TouchableOpacity onPress={() => {(navigation.navigate(day))}}>
                 <View style={{...mainScreen.foodViewBlockContainer, flexDirection: 'column'}}>
                     <Text style={mainScreen.foodBlockContainerTitle}>조기 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.dawn : '없어요\n'}</Text>
                     <Text style={mainScreen.foodBlockContainerTitle}>아침 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.breakfast : '없어요\n'}</Text>
                     <Text style={mainScreen.foodBlockContainerTitle}>점심 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.lunch : '없어요\n'}</Text>
                     <Text style={mainScreen.foodBlockContainerTitle}>저녁 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.dinner : '없어요\n'}</Text>
                 </View>
+                </TouchableOpacity>
             </View>
         )
     }
@@ -327,9 +349,14 @@ class FoodBlock extends Component {
     }
 
     render() {
+        const week = new Array('HaksikMon', 'HaksikMon', 'HaksikTue', 'HaksikWed', 'HaksikThu', 'HaksikFri', 'HaksikMon');
+        let today = new Date().getDay();
+        let day = week[today];
+
+        const { navigation } = this.props;
         return (
             <View style={mainScreen.blockView}>
-                <View style={{...mainScreen.blockViewTitle, backgroundColor: '#fbc02d',}}>
+                <View style={{...mainScreen.blockViewTitle, backgroundColor: '#334955',}}>
                     <Text style={mainScreen.blockViewTitleText}>{this.props.name}</Text>
                     <TouchableOpacity
                         onPress={this.props.onRefresh}
@@ -337,12 +364,14 @@ class FoodBlock extends Component {
                         <Icon name="refresh" color="#ffffff" size={normalize(16)} />
                     </TouchableOpacity>
                 </View>
+                <TouchableOpacity onPress = {() => {navigation.navigate(day)}}>
                 <View style={{...mainScreen.foodViewBlockContainer, flexDirection: 'column',}}>
                     <Text style={mainScreen.foodBlockContainerTitle}>정식 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.combo+'\n' : '없어요\n'}</Text>
                     <Text style={mainScreen.foodBlockContainerTitle}>특식 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.special+'\n' : '없어요\n'}</Text>
                     <Text style={mainScreen.foodBlockContainerTitle}>양식 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.western+'\n' : '없어요\n'}</Text>
                     <Text style={mainScreen.foodBlockContainerTitle}>저녁 </Text><Text numberOfLines={1} style={styles.foodBlockContainerText}>{this.state.food? this.state.food.dinner+'\n' : '없어요\n'}</Text>
                 </View>
+                </TouchableOpacity>
             </View>
         )
     }

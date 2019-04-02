@@ -41,11 +41,11 @@ class Haksik extends Component {
                     />
                 }
               >
-                <HaksikList title="정식" food={this.state.meal.combo} time={h_time.combo} color="#f57c00" />
-                <HaksikList title="특식" food={this.state.meal.special} time={h_time.special} color="#689f38" />
-                <HaksikList title="양식" food={this.state.meal.western} time={h_time.chinese} color="#0097a7" />
-                <HaksikList title="중식" food={this.state.meal.chinese} time={h_time.chinese} color="#1976d2" />
-                <HaksikList title="정식 저녁" food={this.state.meal.dinner} time={h_time.dinner} color="#7b1fa2"/>
+                <HaksikList title="정식" food={this.state.meal.combo} time={h_time.combo} color="#334955" />
+                <HaksikList title="특식" food={this.state.meal.special} time={h_time.special} color="#334955" />
+                <HaksikList title="양식" food={this.state.meal.western} time={h_time.chinese} color="#334955" />
+                <HaksikList title="중식" food={this.state.meal.chinese} time={h_time.chinese} color="#334955" />
+                <HaksikList title="정식 저녁" food={this.state.meal.dinner} time={h_time.dinner} color="#334955"/>
               </ScrollView>
             )
           }
