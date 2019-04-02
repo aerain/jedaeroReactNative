@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Platform, AsyncStorage,StatusBar,Dimensions, Image, Alert} from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity, StyleSheet, AsyncStorage,Dimensions, Image, Alert, Linking} from 'react-native';
 import { NavigationActions } from 'react-navigation'
 import { normalize } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
@@ -176,19 +176,26 @@ class SmartBlock extends Component {
 
 render() {
     return (
-        <View style={mainScreen.blockView}>
-            <View style={{...mainScreen.blockViewTitle, backgroundColor: '#334955'}}>
-              <Text style={mainScreen.blockViewTitleText}>{this.props.name}</Text>
-                {/* <TouchableOpacity
-                    onPress={this.props.onRefresh}
-                >
-                    <Icon name="refresh" color="#ffffff" size={normalize(16)} />
-                </TouchableOpacity> */}
+        <TouchableOpacity style={mainScreen.blockView} onPress = {() => Linking.openURL("https://elearning.jejunu.ac.kr/")}>
+        {/* <View style={mainScreen.blockView}>
+        <Text style={mainScreen.blockViewTitleText}>{this.props.name}</Text>
+            <View style={{...mainScreen.blockViewTitle, backgroundColor: '#ffffff'}}>
+              
             </View>
             <View style={mainScreen.blockViewContainer}>
-                 <Text style={{textAlign:"center", height:70}}>스마트 출첵 서비스 예정!!!</Text>
+                 <Text style={{textAlign:"center", height:70}}>출첵하러 가기!</Text>
             </View>
+        </View> */}
+         <Text style={{fontSize: normalize(16),
+        fontWeight: 'bold',
+        color:'#334955',}}>{this.props.name}</Text>
+        <View style={{borderColor:"#021E44",borderWidth:1.5, borderRadius:10}}>
+        
+          <View>
+            <Text style={{fontSize: normalize(16),textAlign:"center", height:100, color:"#021E44"}}>출첵하러 가기!</Text>
+          </View>
         </View>
+        </TouchableOpacity>
         )
     }
 }

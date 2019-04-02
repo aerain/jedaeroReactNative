@@ -118,7 +118,7 @@ let DormTap = createMaterialTopTabNavigator(
 
 export default class DormitoryMain extends Component {
   static navigationOptions = {
-    title: "기숙사 식당"
+    title:"기숙사 식당"
   }
   constructor(props) {
     super(props);
