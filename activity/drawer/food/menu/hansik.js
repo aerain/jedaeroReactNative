@@ -18,9 +18,14 @@ export default class Hansik extends Component {
     }
 
     componentDidMount = () => this._setFood();
-
-    _setFood = () => {
+    
+    _ajaxList = async () => {
+        const baseURI = 'https://raw.githubusercontent.com/aerain/jedaeroReactNative/master/jsons/';
+        let res = await fetch(`${baseURI}`)
+    }
+    _setFood = async () => {
         if(this.props.list === 'hansik') {
+            let foodMenu
             this.setState({ foodMenu : hansik });
         } else if(this.props.list === 'etcera') {
             this.setState({ foodMenu : etcera });
