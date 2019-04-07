@@ -75,7 +75,7 @@ export default class Bus extends Component {
     componentDidMount = async () => {
         this.getHaksik();
         this.getDormitory();
-        console.log('알고싶다', this.props.navigation)
+        // console.log('알고싶다', this.props.navigation)
     }
     render = () => {
         
@@ -191,8 +191,8 @@ render() {
         color:'#334955',}}>{this.props.name}</Text>
         <View style={{borderColor:"#021E44",borderWidth:1.5, borderRadius:10}}>
         
-          <View>
-            <Text style={{fontSize: normalize(16),textAlign:"center", height:100, color:"#021E44"}}>출첵하러 가기!</Text>
+          <View style={{justifyContent:'center', alignItems:'center', paddingVertical: 20}}>
+            <Text style={{fontSize: normalize(16), color:"#021E44"}}>출첵하러 가기!</Text>
           </View>
         </View>
         </TouchableOpacity>
