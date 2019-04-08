@@ -59,21 +59,24 @@ class Schedule extends Component {
             <ActivityIndicator size='large' color='#344955'/>
         </View>
         ) : (
-        <ScrollView contentContainerStyle={haksaStyles.container}>
-            {
-                this.state.dataSource.month.map(this._renderItem)
-                // this.state.dataSource.month.map(item => (
-                //     <ListItem 
-                //         key={item['month_title']}
-                //         title={item['month_title']}
-                //         containerStyle={haksaStyles.listContainer}
-                //         titleStyle={{textAlign:'center', fontSize: normalize(20)}}
-                //         chevron
-                //         onPress={() => this.props.navigation.navigate('ScheduleDetail', item)}
-                //     />
-                // ))
-            }
-        </ScrollView>
+            <View style={{flex: 1, backgroundColor: '#ffffff'}}>
+                <ScrollView contentContainerStyle={haksaStyles.container}>
+                    {
+                        this.state.dataSource.month.map(this._renderItem)
+                        // this.state.dataSource.month.map(item => (
+                        //     <ListItem 
+                        //         key={item['month_title']}
+                        //         title={item['month_title']}
+                        //         containerStyle={haksaStyles.listContainer}
+                        //         titleStyle={{textAlign:'center', fontSize: normalize(20)}}
+                        //         chevron
+                        //         onPress={() => this.props.navigation.navigate('ScheduleDetail', item)}
+                        //     />
+                        // ))
+                    }
+                </ScrollView>
+            </View>
+        
         )
     }
 }

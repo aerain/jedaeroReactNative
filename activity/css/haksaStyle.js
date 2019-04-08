@@ -5,7 +5,6 @@ export default StyleSheet.create({
     container: {
         paddingHorizontal: 5,
         paddingBottom: 16,
-        height: '100%',
         backgroundColor: '#ffffff',
         flexDirection: 'row',
         flexWrap: 'wrap',
