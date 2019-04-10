@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, TouchableOpacity, StyleSheet, AsyncStorage,Dimensions, Image, Alert, Linking} from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Dimensions, Image, Alert, Linking} from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import { NavigationActions } from 'react-navigation'
 import { normalize } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
@@ -17,9 +18,7 @@ import changeNavigationBarColor from 'react-native-navigation-bar-color';
 export default class Bus extends Component {
     constructor(props) {
         super(props);
-        this.state={
-            
-        };
+        this.state = {};
     }
     static navigationOptions = ({ navigation }) => {
         const { navigate} = navigation.state;
