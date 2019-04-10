@@ -29,14 +29,14 @@ function encode64(input) {
     return output;
 }
 
-var uri = 'dreamy.jejunu.ac.kr';
+const uri = 'https://dreamy.jejunu.ac.kr/frame';
 
 export default function (id, pwd) {
     let baseid = encode64(id),
         basepwd = encode64(pwd);
 
     console.log(baseid, basepwd);
-    fetch(`http://${uri}/frame/index.do`, {
+    fetch(`${uri}/index.do`, {
         'method':'GET',
         // 'credentials':'include',  
         'headers': {
@@ -47,7 +47,7 @@ export default function (id, pwd) {
     .then(response => {
         console.log(response, "메인");
 
-        fetch(`http://${uri}/frame/sysUser.do?next=`, {
+        fetch(`${uri}/sysUser.do?next=`, {
             'method': 'POST',
             'credentials':'include',
             'mode': 'no-cors',
