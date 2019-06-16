@@ -1,6 +1,6 @@
 # 제대로 가자 for React-Native
 
-Original: https://github.com/aerain/jedaero
+Original: https://github.com/aerain/jedaero <br>
 Play Store: https://play.google.com/store/apps/details?id=com.jedaeroreactnative
 
 ## 개발 목적
