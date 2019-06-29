@@ -29,7 +29,7 @@ export default createStackNavigator(
             }
         }, 
         Etcera: {
-            screen: props => <Hansik navigation={props.navigation} list='etcera' />,
+            screen: props => <Hansik navigation={props.navigation} list='etc' />,
             navigationOptions: {
                 headerTitle: '중•일•양식'
             }

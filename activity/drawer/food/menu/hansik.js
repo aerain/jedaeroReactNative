@@ -17,16 +17,30 @@ export default class Hansik extends Component {
         }
     }
 
+    
     componentDidMount = () => this._setFood();
+    _ajax = () => {
 
-    _setFood = () => {
-        if(this.props.list === 'hansik') {
-            this.setState({ foodMenu : hansik });
-        } else if(this.props.list === 'etcera') {
-            this.setState({ foodMenu : etcera });
-        } else if(this.props.list === 'chicken') {
-            this.setState({ foodMenu : chicken});
+    }
+    _setFood = async () => {
+        let { list } = this.props;
+        let baseURI = 'https://raw.githubusercontent.com/aerain/jedaeroReactNative/master/jsons/';
+        try {
+            let res = await fetch(`${baseURI}${list}.json`);
+            let data = await res.json();
+            this.setState({ foodMenu: data });
+        } catch(err) {
+            console.log(err);
         }
+        
+        
+        // if(this.props.list === 'hansik') {
+        //     this.setState({ foodMenu : hansik });
+        // } else if(this.props.list === 'etcera') {
+        //     this.setState({ foodMenu : etcera });
+        // } else if(this.props.list === 'chicken') {
+        //     this.setState({ foodMenu : chicken});
+        // }
     }
 
     _keyExtractor = (item, index) => item.name

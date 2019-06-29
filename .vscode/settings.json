@@ -1,3 +1,4 @@
 {
-    "java.configuration.updateBuildConfiguration": "disabled"
+    "java.configuration.updateBuildConfiguration": "disabled",
+    "java.home": "/Library/Java/JavaVirtualMachines/java-se-8u40-ri"
 }
