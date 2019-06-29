@@ -14,7 +14,7 @@ export default class License extends Component {
 
     _render_item = ({item}) => {
         return (<TouchableOpacity 
-                style={styles.list} onPress={() => Linking.openURL(item.agreement)}>
+                    style={styles.list} onPress={() => Linking.openURL(item.agreement)}>
                     <Text style={{textAlign: 'center',fontSize: normalize(20), color: '#000000'}}>
                         {item.name}
                     </Text>
@@ -24,9 +24,7 @@ export default class License extends Component {
             </TouchableOpacity>)
     }
     render(){
-
         return (
-           
             <FlatList 
                 data = {license.license}
                 renderItem={this._render_item}
