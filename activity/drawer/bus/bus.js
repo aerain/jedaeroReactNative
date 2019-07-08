@@ -80,12 +80,12 @@ export default class Bus extends Component {
         
         return (
             <ScrollView contentContainerStyle={mainScreen.busView} >
+            <SmartBlock name="스마트 출첵" />
             <Bustime name="버스 시간" />
                 {/* <Swiper style={mainScreen.swiperStyle} containerStyle={mainScreen.swiperContainerStyle} showsPagination={false}> */}
                     <FoodBlock name="오늘의 학식" navigation={this.props.navigation} food={this.state.haksik} onRefresh={() => this.getHaksik(true)}/>
                     <DormBlock name="오늘의 숙사밥" navigation={this.props.navigation} food={this.state.dormitory} onRefresh={() => this.getDormitory(true)}/>
                 {/* </Swiper> */}
-                    <SmartBlock name="스마트 출첵" />
             </ScrollView>
         )
     }
@@ -185,13 +185,11 @@ render() {
                  <Text style={{textAlign:"center", height:70}}>출첵하러 가기!</Text>
             </View>
         </View> */}
-         <Text style={{fontSize: normalize(16),
-        fontWeight: 'bold',
-        color:'#334955',}}>{this.props.name}</Text>
+    
         <View style={{borderColor:"#021E44",borderWidth:1.5, borderRadius:10}}>
         
-          <View style={{justifyContent:'center', alignItems:'center', paddingVertical: 20}}>
-            <Text style={{fontSize: normalize(16), color:"#021E44"}}>출첵하러 가기!</Text>
+          <View style={{justifyContent:'center', alignItems:'center', paddingVertical: 10}}>
+            <Text style={{ fontWeight: 'bold', fontSize: normalize(10), color:"#021E44"}}>출첵하러 가기!</Text>
           </View>
         </View>
         </TouchableOpacity>

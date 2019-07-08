@@ -14,14 +14,14 @@ export default class splash extends Component {
        
         Animated.timing(
             this.state.opacity,
-            { toValue: 1, duration: 1500}
+            { toValue: 1, duration: 2500}
         ).start()
         setTimeout(() => {
             this.props.navigation.dispatch(StackActions.reset({ index: 0 , actions: [
                 NavigationActions.navigate({ routeName: 'mainTab'})
             ]}))
             // this.props.navigation.navigate("mainTab")
-        }, 2800)
+        }, 1500)
     }
 
     render = () => {
