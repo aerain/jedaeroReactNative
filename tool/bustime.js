@@ -8,7 +8,7 @@ export default function daycheck(timeTable) {
     var day = a.day();
     // 0:일요일 ~ 6:토요일 즉,주말일때 운행없음
     if(day === 0 || day === 6) { 
-       return "운행없어요..."
+       return "운행없어요.."
     }
     else { 
        return bus(timeTable);
