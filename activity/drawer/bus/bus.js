@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Dimensions, Image, Alert, Linking} from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Dimensions, Image, Alert, Linking, Picker} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { NavigationActions } from 'react-navigation'
 import { normalize } from 'react-native-elements';
@@ -9,6 +9,7 @@ import DormitoryAPI from '../../JedaeroAPI/DormitoryAPI';
 import getWeek from '../../../tool/getWeek';
 import BusTb from '../../../jsons/busschedule.json';
 import BusTime from '../../../tool/bustime';
+import BusStop from '../bus/busStop'
 import Header from '../../../activity/drawer/bus/Header'
 import Swiper from 'react-native-swiper';
 import { mainScreen } from '../../css/busStyle';
@@ -92,7 +93,6 @@ export default class Bus extends Component {
 }
 
 class Bustime extends Component {
-
     constructor(props) {
         super(props);
         this.state= {
@@ -117,7 +117,26 @@ class Bustime extends Component {
             <View style={mainScreen.blockView}>
                 <View style={{...mainScreen.blockViewTitle, backgroundColor: '#334955',}}>
                     <Text style={mainScreen.blockViewTitleText}>{this.props.name}</Text>
-                    <Text style={mainScreen.blockViewHelpText}>정문 기준</Text>
+                <Text style={mainScreen.blockViewHelpText}>정류장:</Text>
+                <Picker
+                        selectedValue={this.state.language}
+                        style={{height:25, width: 100, color:'white'}}
+                        onValueChange={(itemValue, itemIndex) =>
+                            this.setState({language: itemValue})
+                        }>
+                          <Picker.Item label = "정문" value = "0" />
+                            <Picker.Item label = "제2도서관" value = "1" />
+                            <Picker.Item label = "해양대 1호관" value = "2" />
+                            <Picker.Item label = "본관" value = "3" />
+                            <Picker.Item label = "학생회관" value = "4" />
+                            <Picker.Item label = "인대 서쪽" value = "5" />
+                            <Picker.Item label = "기숙사" value = "6" />
+                            <Picker.Item label = "인대 동쪽" value = "7" />
+                            <Picker.Item label = "중앙도서관" value = "8" />
+                            <Picker.Item label = "의전원" value = "9" />
+                            <Picker.Item label = "공대 4호관" value = "10" />
+                            <Picker.Item label = "교양동" value = "11" />
+                          </Picker>
                 </View>
                 <View style={{...mainScreen.blockViewContainer, flexDirection: 'row',}}>
                 {/* A버스 시간 안내 */}
@@ -186,10 +205,10 @@ render() {
             </View>
         </View> */}
     
-        <View style={{borderColor:"#021E44",borderWidth:1.5, borderRadius:10}}>
+        <View style={{borderColor:"#021E44",borderWidth:1.2, borderRadius:10}}>
         
           <View style={{justifyContent:'center', alignItems:'center', paddingVertical: 10}}>
-            <Text style={{ fontWeight: 'bold', fontSize: normalize(10), color:"#021E44"}}>출첵하러 가기!</Text>
+            <Text style={{ fontWeight: 'bold', fontSize: normalize(10), color:"#021E44"}}>스마트 출첵</Text>
           </View>
         </View>
         </TouchableOpacity>
