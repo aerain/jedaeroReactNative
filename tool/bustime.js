@@ -35,6 +35,7 @@ export default function daycheck(timeTable) {
 //     }
 //   };
 
+
 function bus(timeTable, i){
     var thistime = new Date();
     for(i=0; i<timeTable.length; i++){
