@@ -8,20 +8,18 @@ import HaksikAPI from '../../JedaeroAPI/HaksikAPI';
 import DormitoryAPI from '../../JedaeroAPI/DormitoryAPI';
 import getWeek from '../../../tool/getWeek';
 import BusTb from '../../../jsons/busschedule.json';
-import BusTime from '../../../tool/bustime';
+import BusA from '../../../tool/busA';
+import BusB from '../../../tool/busB';
 import BusRoute from '../../../jsons/bus_stop.json';
-import Header from '../../../activity/drawer/bus/Header'
-import Swiper from 'react-native-swiper';
 import { mainScreen } from '../../css/busStyle';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import Picker from 'react-native-simple-modal-picker'
-import busStop from './busStop';
 
 export default class Bus extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            modalVisible: false
+
         };
         
     }
@@ -101,34 +99,34 @@ class Bustime extends Component {
     constructor(props) {
         super(props);
         this.state= {
+            selectedIndex: 0,
             //버스시간 알고리즘 리턴 값
-            A: BusTime(BusTb.timeTable.A, 0),
-            B: BusTime(BusTb.timeTable.B, 0),
+            A: BusA(BusTb.timeTable.A, 0),
+            B: BusB(BusTb.timeTable.B, 0),
             // bustop: BusTb.routeName.A
-            selectedIndex: 0
         };
         //정거장 목록
         this.data = BusRoute.routeName.A
+       
     }
  
-    componentDidMount = () => this.buscheck();
+    // componentDidMount = () => this.buscheck();
 
     buscheck = () => {
         setInterval( () => {
             this.setState({
-                A: BusTime(BusTb.timeTable.A),
-                B: BusTime(BusTb.timeTable.B)})
+                A: BusA(BusTb.timeTable.A, this.state.value),
+                B: BusB(BusTb.timeTable.B, this.state.value)})
             
         }, 25000)
     }
-
 
     render() {
         return(
             <View style={mainScreen.blockView}>
                <View style={{...mainScreen.blockViewTitle, backgroundColor: '#334955',}}>
                   <Text style={mainScreen.blockViewTitleText}>
-                        {this.data[this.state.selectedIndex].name} {this.props.name}
+                        <Text style={{color: '#d6ecfa'}}>{this.data[this.state.selectedIndex].name}</Text> {this.props.name}
                   </Text>
                   <Picker 
                     ref={instance => this.dropDownPicker = instance} 
@@ -136,16 +134,17 @@ class Bustime extends Component {
                     label={'name'} 
                     value={'value'}
                     onValueChange={(value, selectedIndex) => {
-                           this.setState({
-                               selectedIndex,
-                               A: BusTime(BusTb.timeTable.A, value),
-                               B: BusTime(BusTb.timeTable.B, value)
-                            })
-                  
+                          this.setState({
+                            selectedIndex,
+                            value,
+                            A: BusA(BusTb.timeTable.A, value),
+                            B: BusB(BusTb.timeTable.B, value)
+                         })
+                            this.buscheck()
                         }
                     }/>
                   <TouchableOpacity onPress={() => this.dropDownPicker.setModalVisible(true)}>
-                     <Text style={mainScreen.blockViewHelpText}>정류장별 보기</Text>
+                     <Text style={styles.busStopViewer}>정류장별 보기</Text>
                   </TouchableOpacity>
                 </View>
                 <View style={{...mainScreen.blockViewContainer, flexDirection: 'row',}}>
@@ -455,6 +454,11 @@ const styles = StyleSheet.create({
         // marginHorizontal: 14,
         // marginVertical: 12,
 
+    },
+    busStopViewer: {
+        paddingHorizontal:6,
+        fontSize: normalize(11),
+        color: '#f4f7f7',
     },
     // foodBlockContainerRight: {
     //     lineHeight:normalize(12),
