@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Dimensions, Image, Alert, Linking, Picker , Modal, TouchableHighlight} from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Dimensions, Image, Alert, Linking,  Modal, TouchableHighlight} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { NavigationActions } from 'react-navigation'
 import { normalize } from 'react-native-elements';
@@ -9,12 +9,13 @@ import DormitoryAPI from '../../JedaeroAPI/DormitoryAPI';
 import getWeek from '../../../tool/getWeek';
 import BusTb from '../../../jsons/busschedule.json';
 import BusTime from '../../../tool/bustime';
-import BusStop from '../bus/busStop'
-import ModalTest from '../bus/modal_example'
+import BusRoute from '../../../jsons/bus_stop.json';
 import Header from '../../../activity/drawer/bus/Header'
 import Swiper from 'react-native-swiper';
 import { mainScreen } from '../../css/busStyle';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
+import Picker from 'react-native-simple-modal-picker'
+import busStop from './busStop';
 
 export default class Bus extends Component {
     constructor(props) {
@@ -22,7 +23,9 @@ export default class Bus extends Component {
         this.state = {
             modalVisible: false
         };
+        
     }
+
     static navigationOptions = ({ navigation }) => {
         const { navigate} = navigation.state;
         return {
@@ -80,7 +83,6 @@ export default class Bus extends Component {
         // console.log('알고싶다', this.props.navigation)
     }
     render = () => {
-        
         return (
             <ScrollView contentContainerStyle={mainScreen.busView} >
             <SmartBlock name="스마트 출첵" />
@@ -94,15 +96,19 @@ export default class Bus extends Component {
     }
 }
 
+
 class Bustime extends Component {
     constructor(props) {
         super(props);
         this.state= {
+            //버스시간 알고리즘 리턴 값
             A: BusTime(BusTb.timeTable.A),
             B: BusTime(BusTb.timeTable.B),
-            modalVisible: false
-           
+            // bustop: BusTb.routeName.A
+            selectedIndex: 0
         };
+        //정거장 목록
+        this.data = BusRoute.routeName.A
     }
  
     componentDidMount = () => this.buscheck();
@@ -112,63 +118,23 @@ class Bustime extends Component {
             this.setState({
                 A: BusTime(BusTb.timeTable.A),
                 B: BusTime(BusTb.timeTable.B)})
-               
+            
         }, 25000)
     }
-
-    toggleModal(visible) {
-        this.setState({ modalVisible: visible });
-     }
     render() {
         return(
             <View style={mainScreen.blockView}>
-                <View style={{...mainScreen.blockViewTitle, backgroundColor: '#334955',}}>
-                    <Text style={mainScreen.blockViewTitleText}>{this.props.name}</Text>
-                    <TouchableOpacity  onPress={() => 
-                            this.toggleModal(true)
-                     }> 
-                    <Text style={mainScreen.blockViewHelpText}>정류장별 보기</Text>
-                </TouchableOpacity>
-                <View style = {styles.container}>
-              
-         </View>
-         <View style = {styles.container}>
-            <Modal animationType = {"slide"} transparent = {false}
-               visible = {this.state.modalVisible}
-               onRequestClose = {() => { console.log("Modal has been closed.") } }>
-                    <Picker
-      selectedValue={this.state.busStop}
-      style={{height:25, width: 150, color: 'white',  }}
-      // mode = "dialog"
-      onValueChange={(itemValue, itemIndex) =>
-          this.setState({busStop: itemValue})
-      }>  
-        <Picker.Item label = "정문" value = "0" />
-          <Picker.Item label = "제2도서관" value = "1" />
-          <Picker.Item label = "해양대 1호관" value = "2" />
-          <Picker.Item label = "본관" value = "3" />
-          <Picker.Item label = "학생회관" value = "4" />
-          <Picker.Item label = "인대 서쪽" value = "5" />
-          <Picker.Item label = "기숙사" value = "6" />
-          <Picker.Item label = "인대 동쪽" value = "7" />
-          <Picker.Item label = "중앙도서관" value = "8" />
-          <Picker.Item label = "의전원" value = "9" />
-          <Picker.Item label = "공대 4호관" value = "10" />
-          <Picker.Item label = "교양동" value = "11" />
-        </Picker>
-               
-               <View style = {styles.modal}>
-                  <Text style = {styles.text}>Modal is open!</Text>
-                  
-                  <TouchableHighlight onPress = {() => {
-                     this.toggleModal(!this.state.modalVisible)}}>
-                     
-                     <Text style = {styles.text}>Close Modal</Text>
-                  </TouchableHighlight>
-               </View>
-            </Modal>
-        
-         </View>
+               <View style={{...mainScreen.blockViewTitle, backgroundColor: '#334955',}}>
+                  <Text style={mainScreen.blockViewTitleText}>{this.props.name}</Text>
+                  <Picker 
+                    ref={instance => this.dropDownPicker = instance} 
+                    data={this.data} 
+                    label={'name'} 
+                    value={'value'}
+                    onValueChange={(value, selectedIndex) => this.setState({selectedIndex})} />
+                  <TouchableOpacity onPress={() => this.dropDownPicker.setModalVisible(true)}>
+                     <Text style={mainScreen.blockViewHelpText}>정류장별 보기</Text>
+                  </TouchableOpacity>
                 </View>
                 <View style={{...mainScreen.blockViewContainer, flexDirection: 'row',}}>
                 {/* A버스 시간 안내 */}
@@ -192,6 +158,7 @@ class Bustime extends Component {
         )
     }
 }
+
 
 class AdBlock extends Component {
     constructor(props) {
