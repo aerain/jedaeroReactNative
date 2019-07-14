@@ -102,8 +102,8 @@ class Bustime extends Component {
         super(props);
         this.state= {
             //버스시간 알고리즘 리턴 값
-            A: BusTime(BusTb.timeTable.A),
-            B: BusTime(BusTb.timeTable.B),
+            A: BusTime(BusTb.timeTable.A, 0),
+            B: BusTime(BusTb.timeTable.B, 0),
             // bustop: BusTb.routeName.A
             selectedIndex: 0
         };
@@ -121,17 +121,29 @@ class Bustime extends Component {
             
         }, 25000)
     }
+
+
     render() {
         return(
             <View style={mainScreen.blockView}>
                <View style={{...mainScreen.blockViewTitle, backgroundColor: '#334955',}}>
-                  <Text style={mainScreen.blockViewTitleText}>{this.props.name}</Text>
+                  <Text style={mainScreen.blockViewTitleText}>
+                        {this.data[this.state.selectedIndex].name} {this.props.name}
+                  </Text>
                   <Picker 
                     ref={instance => this.dropDownPicker = instance} 
                     data={this.data} 
                     label={'name'} 
                     value={'value'}
-                    onValueChange={(value, selectedIndex) => this.setState({selectedIndex})} />
+                    onValueChange={(value, selectedIndex) => {
+                           this.setState({
+                               selectedIndex,
+                               A: BusTime(BusTb.timeTable.A, value),
+                               B: BusTime(BusTb.timeTable.B, value)
+                            })
+                  
+                        }
+                    }/>
                   <TouchableOpacity onPress={() => this.dropDownPicker.setModalVisible(true)}>
                      <Text style={mainScreen.blockViewHelpText}>정류장별 보기</Text>
                   </TouchableOpacity>
