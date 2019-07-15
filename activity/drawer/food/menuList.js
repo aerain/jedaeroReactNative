@@ -34,7 +34,7 @@ let listText = (call) => [
     {
         key: 'chicken',
         name: '치킨',
-        subtitle: '"명품치킨 순살 맛있음 퍽!퍽!쌀"',
+        subtitle: '"BHC, BBQ, 굽네 등 등 "',
         _clickFood: () => {
             call.props.navigation.navigate("Chicken")
         },
