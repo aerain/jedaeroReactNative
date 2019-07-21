@@ -39,10 +39,8 @@
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* jedaeroReactNativeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* jedaeroReactNativeTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
-		3A1EB74AD22C4513AB710E9C /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE53AB49DD054982A038349A /* NotoSansCJKkr-Bold.otf */; };
 		4DD305FFB0B342FC9F9121CB /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C7A9A109B5549B68C215924 /* SimpleLineIcons.ttf */; };
 		5502981CE5BD4A7C9FC43A36 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4084995775504C12B1D3E8E7 /* Ionicons.ttf */; };
-		721CC2541CEC45C9AA9C3878 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1762BFFDFF548B2B2EA0EDD /* NotoSansCJKkr-Regular.otf */; };
 		78844D16B8534C19BE3C957F /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B90B32B98494989ADD749D1 /* libRNVectorIcons.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		A05C9EEF224A4DD800CE56BB /* libReactNativeWebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A05C9EEE224A4D3A00CE56BB /* libReactNativeWebp.a */; };
@@ -53,7 +51,6 @@
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		AEB768C26BF244A79F789B7B /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89110B71D83A44F0AB0AB841 /* EvilIcons.ttf */; };
 		B8849FF718594098AE0F26CA /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E2CBB2E74DB467ABB0CC482 /* Zocial.ttf */; };
-		C57729836F0B412DA9095336 /* NotoSansCJKkr-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = FA4DBAB67BCC4A49BDA15852 /* NotoSansCJKkr-Thin.otf */; };
 		D1793038230542D18203A3BC /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F649DDE656AF474BB952B409 /* Feather.ttf */; };
 		D42E25EB21E9480089D14267 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C66EF4421184D35B3F8374B /* MaterialCommunityIcons.ttf */; };
 		DFB1E497C4C04317A18AAD8C /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7FF0AD34288F492AB7F9E5D9 /* Entypo.ttf */; };
@@ -857,18 +854,21 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = H3DCZV74XM;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = D8KKKH9Y7Q;
+						DevelopmentTeam = H3DCZV74XM;
 						ProvisioningStyle = Automatic;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = H3DCZV74XM;
 						ProvisioningStyle = Automatic;
 					};
 					2D02E48F1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = H3DCZV74XM;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 2D02E47A1E0B4A5D006451C7;
 					};
@@ -879,6 +879,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -1272,9 +1273,6 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				3A1EB74AD22C4513AB710E9C /* NotoSansCJKkr-Bold.otf in Resources */,
-				721CC2541CEC45C9AA9C3878 /* NotoSansCJKkr-Regular.otf in Resources */,
-				C57729836F0B412DA9095336 /* NotoSansCJKkr-Thin.otf in Resources */,
 				DFB1E497C4C04317A18AAD8C /* Entypo.ttf in Resources */,
 				AEB768C26BF244A79F789B7B /* EvilIcons.ttf in Resources */,
 				D1793038230542D18203A3BC /* Feather.ttf in Resources */,
@@ -1404,6 +1402,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = H3DCZV74XM;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1438,6 +1437,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = H3DCZV74XM;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
@@ -1471,7 +1471,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = D8KKKH9Y7Q;
+				DEVELOPMENT_TEAM = H3DCZV74XM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1500,7 +1500,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.jedaeroReactNative3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jedaeroReactNative;
 				PRODUCT_NAME = jedaeroReactNative;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1515,7 +1515,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = D8KKKH9Y7Q;
+				DEVELOPMENT_TEAM = H3DCZV74XM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1541,7 +1541,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.jedaeroReactNative3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jedaeroReactNative;
 				PRODUCT_NAME = jedaeroReactNative;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1559,6 +1559,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = H3DCZV74XM;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				HEADER_SEARCH_PATHS = (
@@ -1598,6 +1599,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = H3DCZV74XM;
 				GCC_NO_COMMON_BLOCKS = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1634,6 +1636,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = H3DCZV74XM;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				HEADER_SEARCH_PATHS = (
@@ -1672,6 +1675,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = H3DCZV74XM;
 				GCC_NO_COMMON_BLOCKS = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
