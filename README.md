@@ -1,6 +1,7 @@
 # 제대로 가자 for React-Native
 
-Original: https://github.com/aerain/jedaero
+Original: https://github.com/aerain/jedaero <br>
+Play Store: https://play.google.com/store/apps/details?id=com.jedaeroreactnative
 
 ## 개발 목적
 - 기존에 웹 앱 서버의 상시 오픈의 문제점과, 프론트엔드 표현, 백엔드 알고리즘등의 문제를 제기

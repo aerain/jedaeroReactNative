@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, TouchableOpacity, StyleSheet, AsyncStorage,Dimensions, Image, Alert, Linking} from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Dimensions, Image, Alert, Linking,  Modal, TouchableHighlight} from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import { NavigationActions } from 'react-navigation'
 import { normalize } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
@@ -7,20 +8,22 @@ import HaksikAPI from '../../JedaeroAPI/HaksikAPI';
 import DormitoryAPI from '../../JedaeroAPI/DormitoryAPI';
 import getWeek from '../../../tool/getWeek';
 import BusTb from '../../../jsons/busschedule.json';
-import BusTime from '../../../tool/bustime';
-import Header from '../../../activity/drawer/bus/Header'
-import Swiper from 'react-native-swiper';
+import BusA from '../../../tool/busA';
+import BusB from '../../../tool/busB';
+import BusRoute from '../../../jsons/bus_stop.json';
 import { mainScreen } from '../../css/busStyle';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
-
+import Picker from 'react-native-simple-modal-picker'
 
 export default class Bus extends Component {
     constructor(props) {
         super(props);
-        this.state={
-            
+        this.state = {
+
         };
+        
     }
+
     static navigationOptions = ({ navigation }) => {
         const { navigate} = navigation.state;
         return {
@@ -78,47 +81,71 @@ export default class Bus extends Component {
         // console.log('알고싶다', this.props.navigation)
     }
     render = () => {
-        
         return (
             <ScrollView contentContainerStyle={mainScreen.busView} >
+            <SmartBlock name="스마트 출첵" />
             <Bustime name="버스 시간" />
                 {/* <Swiper style={mainScreen.swiperStyle} containerStyle={mainScreen.swiperContainerStyle} showsPagination={false}> */}
                     <FoodBlock name="오늘의 학식" navigation={this.props.navigation} food={this.state.haksik} onRefresh={() => this.getHaksik(true)}/>
                     <DormBlock name="오늘의 숙사밥" navigation={this.props.navigation} food={this.state.dormitory} onRefresh={() => this.getDormitory(true)}/>
                 {/* </Swiper> */}
-                    <SmartBlock name="스마트 출첵" />
             </ScrollView>
         )
     }
 }
 
-class Bustime extends Component {
 
+class Bustime extends Component {
     constructor(props) {
         super(props);
         this.state= {
-            A: BusTime(BusTb.timeTable.A),
-            B: BusTime(BusTb.timeTable.B),
+            selectedIndex: 0,
+            //버스시간 알고리즘 리턴 값
+            A: BusA(BusTb.timeTable.A, 0),
+            B: BusB(BusTb.timeTable.B, 0),
+            // bustop: BusTb.routeName.A
         };
+        //정거장 목록
+        this.data = BusRoute.routeName.A
+       
     }
-
-    componentDidMount = () => this.buscheck();
+ 
+    // componentDidMount = () => this.buscheck();
 
     buscheck = () => {
         setInterval( () => {
             this.setState({
-                A: BusTime(BusTb.timeTable.A),
-                B: BusTime(BusTb.timeTable.B)})
-               
+                A: BusA(BusTb.timeTable.A, this.state.value),
+                B: BusB(BusTb.timeTable.B, this.state.value)})
+            
         }, 25000)
     }
 
     render() {
         return(
             <View style={mainScreen.blockView}>
-                <View style={{...mainScreen.blockViewTitle, backgroundColor: '#334955',}}>
-                    <Text style={mainScreen.blockViewTitleText}>{this.props.name}</Text>
-                    <Text style={mainScreen.blockViewHelpText}>정문 기준</Text>
+               <View style={{...mainScreen.blockViewTitle, backgroundColor: '#334955',}}>
+                  <Text style={mainScreen.blockViewTitleText}>
+                        <Text style={{color: '#d6ecfa'}}>{this.data[this.state.selectedIndex].name}</Text> {this.props.name}
+                  </Text>
+                  <Picker 
+                    ref={instance => this.dropDownPicker = instance} 
+                    data={this.data} 
+                    label={'name'} 
+                    value={'value'}
+                    onValueChange={(value, selectedIndex) => {
+                          this.setState({
+                            selectedIndex,
+                            value,
+                            A: BusA(BusTb.timeTable.A, value),
+                            B: BusB(BusTb.timeTable.B, value)
+                         })
+                            this.buscheck()
+                        }
+                    }/>
+                  <TouchableOpacity onPress={() => this.dropDownPicker.setModalVisible(true)}>
+                     <Text style={styles.busStopViewer}>정류장별 보기</Text>
+                  </TouchableOpacity>
                 </View>
                 <View style={{...mainScreen.blockViewContainer, flexDirection: 'row',}}>
                 {/* A버스 시간 안내 */}
@@ -143,6 +170,7 @@ class Bustime extends Component {
     }
 }
 
+
 class AdBlock extends Component {
     constructor(props) {
         super(props);
@@ -166,14 +194,13 @@ class AdBlock extends Component {
             </View>
             )
         }
-    
 }
 class SmartBlock extends Component {
     constructor(props) {
         super(props);
         this.state={};
     }
-
+    
 render() {
     return (
         <TouchableOpacity style={mainScreen.blockView} onPress = {() => Linking.openURL("https://elearning.jejunu.ac.kr/")}>
@@ -186,13 +213,11 @@ render() {
                  <Text style={{textAlign:"center", height:70}}>출첵하러 가기!</Text>
             </View>
         </View> */}
-         <Text style={{fontSize: normalize(16),
-        fontWeight: 'bold',
-        color:'#334955',}}>{this.props.name}</Text>
-        <View style={{borderColor:"#021E44",borderWidth:1.5, borderRadius:10}}>
+    
+        <View style={{borderColor:"#021E44",borderWidth:1.2, borderRadius:10}}>
         
-          <View style={{justifyContent:'center', alignItems:'center', paddingVertical: 20}}>
-            <Text style={{fontSize: normalize(16), color:"#021E44"}}>출첵하러 가기!</Text>
+          <View style={{justifyContent:'center', alignItems:'center', paddingVertical: 10}}>
+            <Text style={{ fontWeight: 'bold', fontSize: normalize(10), color:"#021E44"}}>스마트 출첵</Text>
           </View>
         </View>
         </TouchableOpacity>
@@ -429,6 +454,11 @@ const styles = StyleSheet.create({
         // marginHorizontal: 14,
         // marginVertical: 12,
 
+    },
+    busStopViewer: {
+        paddingHorizontal:6,
+        fontSize: normalize(11),
+        color: '#f4f7f7',
     },
     // foodBlockContainerRight: {
     //     lineHeight:normalize(12),

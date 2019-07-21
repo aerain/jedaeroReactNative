@@ -1,4 +1,4 @@
-let uri = 'http://elearning.jejunu.ac.kr';
+const uri = 'https://elearning.jejunu.ac.kr';
 
 export default function (identification, code) {
     fetch(`${uri}/MUser.do`, {

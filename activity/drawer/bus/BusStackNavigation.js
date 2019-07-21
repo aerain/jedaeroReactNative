@@ -7,6 +7,7 @@ import License from './License';
 import Haksik from '../food/menu/haksik';
 import Dormitory from '../food/menu/dormitory';
 
+
 export default createStackNavigator({
     Bus: {
         screen: Bus,
@@ -25,5 +26,5 @@ export default createStackNavigator({
     },
     Dormitory: {
         screen: Dormitory, 
-    }
+    },
 }, stackNavigationOptions );

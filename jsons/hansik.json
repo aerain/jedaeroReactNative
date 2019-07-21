@@ -12,7 +12,7 @@
   {
     "name":"맵수다",
     "images":"https://raw.githubusercontent.com/WonBeomChoi/jedaeroRN_img/master/krfood/mapsuda.png",
-    "tel":"01023103085"
+    "tel":"064-726-2356"
   },
   {
     "name":"밥먹젠",
@@ -63,11 +63,6 @@
     "name":"통큰2층",
     "images":"https://raw.githubusercontent.com/WonBeomChoi/jedaeroRN_img/master/krfood/tongkeun2floor.png",
     "tel":"064-725-6665"
-  },
-  {
-    "name":"통큰아이",
-    "images":"https://raw.githubusercontent.com/WonBeomChoi/jedaeroRN_img/master/krfood/tongkeuneye.png",
-    "tel":""
   },
   {
     "name":"학교종이 땡땡땡",
